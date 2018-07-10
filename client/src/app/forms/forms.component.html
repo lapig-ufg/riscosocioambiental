@@ -1,0 +1,37 @@
+<div class=" px-3 py-3 pt-md-5 pb-md-4 mx-auto my-auto text-center m-auto">
+	<img class="mb-4" src="assets/logo_rsa.png" alt="" width="370" height="auto">
+	<h1 class="h1rsa">Download Propriedades Sicar</h1>
+	<div style = "display: inline-block">
+		<h2 class="instructions padding-bottomtext">Instruções</h2>
+
+		<p class="instructions max-width padding-bottomtext">Este ambiente foi desenvolvido para possibilitar os usuários de realizar o download dos limites e outros dados de propriedades dos imóveis cadastrados no CAR (Cadastro Ambiental Rural), por meio de um acesso interno aos dados públicos do portal do SICAR (Sistema Nacional de Cadastro Ambiental Rural).</p>
+		<ul class="instructions max-width padding-bottomtext">
+			<li>* Preencha todos os campos corretamente.</li>
+			<li>* A tabela inserida deverá estar no formato <b>csv</b>.</li>
+			<li>* Para realizar o download é necessário inserir uma tabela em formato csv, com pelo menos uma coluna que contenha os códigos de propriedades (<b>COD_IMOVEL</b>) desejados. </li>
+			<li>* Ao final do processo um link de download será enviado para o e-mail informado.</li>
+		</ul>
+		<p class="instructions max-width padding-bottomtext"><b>Importante:</b> O sistema irá considerar que a primeira coluna tenha o código da propriedade. Ou seja, em sua tabela configure a coluna que contém o código do imóvel na primeira coluna(A) da tabela.</p> <!-- outra opção é baixar a nossa planilha modelo e usá-la como exemplo.</p>
+		<div class="padding-bottombtn instructions">
+			<button class=" btn btn-secondary" (click)="downloadTable();">Download de modelo de planilha</button>
+		</div> -->
+	</div>
+	<form class="form-signin" #userForm="ngForm">
+
+		<h2 class="h2rsa">Insira os dados</h2>
+		<label for="name" class="sr-only">Nome</label>
+		<input type="text" class="form-control" placeholder="Nome" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel" autofocus>
+		<div [hidden]="name.valid || name.pristine" class="alert alert-danger"> Nome inválido</div>
+
+		<label for="email" class="sr-only">Email</label>
+		<input type="email" id="email" class="form-control" placeholder="Email" required email [(ngModel)]="model.email" name="email" #email="ngModel" autofocus>
+		<div [hidden]="email.valid || email.pristine || email.untouched" class="alert alert-danger"> E-mail inválido!</div>
+
+		<input type="file" id="file" required (change)="fileChange($event)" name="file" accept=".csv" class="custom-file">
+
+		<button class="btn btn-lg btn-primary btn-block btncolor" (click)="enviarDados(); userForm.reset();" value='Upload!' type="submit">Download</button>
+
+	</form>
+	<p class="max-width"></p>
+	<p class="mt-5 mb-3 text-muted">&copy; Lapig-2018</p>
+</div>

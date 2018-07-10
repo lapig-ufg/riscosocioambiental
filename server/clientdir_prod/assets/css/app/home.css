@@ -1,0 +1,152 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#home_container{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#map{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	background: #ccc;
+}
+
+#curtain{
+	position: fixed;
+	pointer-events: all;
+	width: 100%;
+	height: 100%;
+	background: #f7fafa;
+	z-index: 3;
+	opacity: .85;
+}
+
+#logo_rsa_home{
+	width: 500px;
+	height: 150px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	bottom: 50%;
+	z-index: 4;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+._pt #logo_rsa_home {background-image: url('../../layout/logo_rsa_pt.png');}
+._en #logo_rsa_home {background-image: url('../../layout/logo_rsa_en.png');}
+
+#logos_home{
+	width: 250px;
+	height: 100px;
+	position: absolute;
+	top:30px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 4;
+}
+
+.logo_home{
+	width: 85px;
+	height: 100px;
+	position: absolute;
+	top: 0;
+	cursor: pointer;
+}
+
+#logos_home #logo_wwf{
+	left: 0;
+	background-image: url('../../layout/logo_wwf.png');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#logos_home #logo_lapig{
+	right: 0;
+	width: 140px;
+	background-image: url('../../layout/logo_lapig.png');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#intro{
+	width: 500px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top: 55%;
+	z-index: 4;
+	text-align: center;
+	color: #33cccc;
+	font-size: 18px;
+	line-height: 22px;
+}
+
+#explore_map{
+	width: 250px;
+	height: 50px;
+	background: #33cccc;
+	color: #fff;
+	cursor: pointer;
+	text-align: center;
+	line-height: 50px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top: 75%;
+	z-index: 4;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+#explore_map:hover{
+	background: #cbde8d;
+}
+
+#read_more{
+	width: 250px;
+	height: 60px;
+	border-radius: 5px;
+	color: #33cccc;
+	cursor: pointer;
+	text-align: center;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	bottom: 0;
+	z-index: 4;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+#read_more .icon25{
+	fill: #33cccc;
+}
+
+#read_more:hover{
+	color: #cbde8d;
+}
+
+#read_more:hover .icon25{
+	fill: #cbde8d;
+}
+
+
+
+/* end */
