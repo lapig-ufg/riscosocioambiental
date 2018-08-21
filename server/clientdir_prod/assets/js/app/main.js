@@ -297,7 +297,7 @@ var map_type = 0
 var map_types = []
 var map_layers = [] // recebe os objetos aplicados ao mapa, para eviar erro circular structure
 
-
+set ('search_car')
 set('zoom_in')
 set('zoom_out')
 set('map_type')
@@ -321,20 +321,92 @@ function initMap(load_grid){
 		 doubleClickZoom:false
 	 })
 
- 	// zoom
-  $(zoom_in).click(function(){
-		var c = map.getCenter()
-    map.setZoom(map.getZoom() + 1)
-		map.setView(c)
-		console.log('zoom: ' + map.getZoom());
-  })
+	var controlFeatureCollection;
 
-  $(zoom_out).click(function(){
+	var camadaImoveis = new L.layerGroup();
+
+		
+	var searchButton = new L.Control.Search({
+		position:'topright',
+		initial: false,
+		marker: false,
+		textPlaceholder: 'Informe o numero do CAR',
+		filterData: function(text, records){
+
+			return records;
+		},
+		moveToLocation: function(latlng, nome){
+
+			map.closePopup();
+
+			var geoJson = L.geoJSON(controlFeatureCollection);
+
+			map.addLayer(camadaImoveis);
+
+			geoJson.eachLayer(function(l){
+
+				if(l.feature.properties.codigo === nome){
+
+					function Imovel(imovel, layer, map){
+
+						map.fitBounds(imovel.getBounds());
+
+						layer.clearLayers();
+
+						layer.addLayer(imovel);
+
+						return imovel;
+
+					}
+					
+					new Imovel(l, camadaImoveis, map);
+				}
+
+			});
+		},
+
+		sourceData: function(text, callResponse) {
+
+			return $.ajax({
+				url: '/service/car?',
+				type: 'GET',
+				data: {cod: text},
+				dataType: 'json',
+
+				success: function(featureCollection) {
+
+					controlFeatureCollection = featureCollection;
+
+					var loc = [];
+					var feature = featureCollection.features[0]
+					var title = {
+						title : feature.properties.nome || feature.properties.codigo
+					};
+
+					loc.push(title);
+
+					callResponse(loc);
+				}
+			});
+		}
+	});
+
+	searchButton.addTo(map);
+
+		// zoom
+	$(zoom_in).click(function(){
 		var c = map.getCenter()
-    map.setZoom(map.getZoom() - 1)
+		map.setZoom(map.getZoom() + 1)
 		map.setView(c)
 		console.log('zoom: ' + map.getZoom());
-  })
+	})
+
+	$(zoom_out).click(function(){
+		var c = map.getCenter()
+		map.setZoom(map.getZoom() - 1)
+		map.setView(c)
+		console.log('zoom: ' + map.getZoom());
+	})
 
 	// map.panTo(new L.LatLng(40.737, -73.923));
 	// map tiles

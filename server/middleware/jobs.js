@@ -14,66 +14,52 @@ module.exports = function(app) {
 		return dateFormat(new Date(), "dd/mm/yyyy HH:MM:ss ");
 	}
 
-	Jobs.verificaDB = function(moment) {
+	Jobs.verificaDB = function(moment, dbWWF) {
 
-		var MongoClient = mongodb.MongoClient;
-		var dbUrl = 'mongodb://localhost:27017/wwf-sicar';
-
-		MongoClient.connect(dbUrl, function(err, db) {
+		dbWWF.collection('uploads').find({'processed': false}).toArray(function(err, result) {
 			if (err) throw err;
 
-  			var dbWWF = db.db('wwf-sicar');
+			if(result.length > 0){
+				result.forEach( function(obj){
 
-			dbWWF.collection('uploads').find({'processed': false}).toArray(function(err, result) {
-				if (err) throw err;
+					var nameFile = obj['nameFile'];
+					var pathFile = './uploads/'+nameFile;
+					var nomeUser = obj['nome']
+					var email = obj['email']
+					var nameFile = obj['nameFile']
 
-				if(result.length > 0){
-					result.forEach( function(obj){
+					//cria a pasta
+					fs.mkdir('./downloads/'+nameFile, function(e, err){
+						if (err) throw err;
+					});
 
-						var nameFile = obj['nameFile'];
-						var pathFile = './uploads/'+nameFile;
-						var nomeUser = obj['nome']
-						var email = obj['email']
-						var nameFile = obj['nameFile']
 
-						//cria a pasta
-						fs.mkdir('./downloads/'+nameFile, function(e, err){
-							if (err) throw err;
+					Jobs['readTable'](pathFile, function(arrayPropriedades, err){
+						
+						dbWWF.collection('uploads').updateOne({_id: obj['_id']},{ $set:{'processed': 'incomplet'}}, function(err, res) {
+							console.log('In Processed')
 						});
 
+						var forEach = function(codProp, next) {
+							app.controllers.sicar.download(codProp, nameFile, nomeUser, email, next);
+							console.log('Jobs download', codProp)
+						}
 
-						Jobs['readTable'](pathFile, function(arrayPropriedades, err){
-							
-							dbWWF.collection('uploads').updateOne({_id: obj['_id']},{ $set:{'processed': 'incomplet'}}, function(err, res) {
-								console.log('In Processed')
+						var done = function() {
+
+						    app.controllers.email.sendEmail(nomeUser, email, nameFile);
+
+						    dbWWF.collection('uploads').updateOne({_id: obj['_id']},{ $set:{'processed': true}}, function(err, res) {
+								console.log('Processed atualizado para true')
 							});
 
-							var forEach = function(codProp, next) {
-								app.controllers.sicar.download(codProp, nameFile, nomeUser, email, next);
-								console.log('Jobs download', codProp)
-							}
+						    console.log('email')
+						}
 
-							var done = function() {
-
-							    app.controllers.email.sendEmail(nomeUser, email, nameFile);
-
-							    dbWWF.collection('uploads').updateOne({_id: obj['_id']},{ $set:{'processed': true}}, function(err, res) {
-									console.log('Processed atualizado para true')
-								});
-
-							    db.close();
-
-							    console.log('email')
-							}
-
-							async.forEachSeries(arrayPropriedades, forEach, done);
-						});
+						async.forEachSeries(arrayPropriedades, forEach, done);
 					});
-				}else{
-					db.close();
-				}
-
-			});
+				});
+			}
 		});
 	}
 
@@ -96,18 +82,30 @@ module.exports = function(app) {
 	}
 
 	Jobs.start = function() {
-		config.jobs.toRun.forEach(function(job) {
-			var logFile = config.logDir + "/" + job.name + ".log";
+		if(process.env.PRIMARY_WORKER) {
+			var MongoClient = mongodb.MongoClient;
+			var dbUrl = 'mongodb://localhost:27017/wwf-sicar';
 
-			new CronJob(job.cron, function() {
-				var startLogMsg = "Job " + job.name + " start.";
+			MongoClient.connect(dbUrl, function(err, db) {
+				if (err) throw err;
 
-				Jobs['verificaDB'](strDate(), function() {
-					console.log('Fernanda', strDate() + " " + startLogMsg);
+	  			var dbWWF = db.db('wwf-sicar');
+
+				config.jobs.toRun.forEach(function(job) {
+					var logFile = config.logDir + "/" + job.name + ".log";
+
+					new CronJob(job.cron, function() {
+						var startLogMsg = "Job " + job.name + " start.";
+
+						Jobs['verificaDB'](strDate(), dbWWF, function() {
+							console.log('Fernanda', strDate() + " " + startLogMsg);
+						});
+
+					}, null, true, config.jobs.timezone, null, job.runOnAppStart);
+
 				});
-
-			}, null, true, config.jobs.timezone, null, job.runOnAppStart);
-		});
+			});
+		}
 	}
 
 	return Jobs;

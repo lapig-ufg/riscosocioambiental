@@ -25,6 +25,7 @@ requirejs.config({
       'leaflet'               :{ deps:['jquery']},
       'leaflet.googlemutant'  :{ deps:['jquery','leaflet']},
       'L.UTFGridWMS'          :{ deps:['jquery','leaflet']},
+      'leaflet-search'        :{ deps:['jquery','leaflet']},
       'corslite'              :{ deps:['jquery','leaflet']},
       //app
       'app/icons'             :{ deps:['jquery','leaflet','defiant']},
@@ -47,6 +48,7 @@ require([
   'leaflet',
   'leaflet.googlemutant',
   'L.UTFGridWMS',
+  'leaflet-search',
   'corslite',
   //app
   'app/icons',
