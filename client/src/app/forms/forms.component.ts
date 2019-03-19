@@ -41,7 +41,7 @@ export class FormsComponent implements OnInit {
     this.files = event.target.files;
   }
 
-  enviarDados(event){
+  enviarDados(){
 
     if(this.model.name != null && this.model.email != null && this.files !=undefined){
       let file: File = this.files[0]

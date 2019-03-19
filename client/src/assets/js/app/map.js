@@ -323,7 +323,7 @@ function create_layer( d ){
 		value: 100,
 		slide: function( event, ui ) {
 			$(op_handle).text( ui.value + '%' )
-			ui.handle.wms_layer.setOpacity(ui.value/100)
+			ui.handle.tms_layer.setOpacity(ui.value/100)
 		}
 	})
 
@@ -339,7 +339,7 @@ function create_layer( d ){
 	// map
 	var ms_filter = '"[ANO]"="' + d.ano + '"'
 
-	var wms_layer = L.tileLayer.wms("http://maps.lapig.iesa.ufg.br/ows?", {
+	/*var wms_layer = L.tileLayer.wms("http://maps.lapig.iesa.ufg.br/ows?", {
 		layers: d.id,
 		format: 'image/png',
 		transparent: true,
@@ -348,20 +348,22 @@ function create_layer( d ){
 		srs:'EPSG:900913',
 		MSFILTER:ms_filter,
 		updateWhenIdle:true
-	});
+	});*/
 
-	map.addLayer(wms_layer)
+	var tms_layer = L.tileLayer('http://maps.lapig.iesa.ufg.br/ows?layers='+d.id+'&mode=tile&tile={x}+{y}+{z}&tilemode=gmap&map.imagetype=png&MSFILTER='+ms_filter)
 
-	wms_layer.obj = d
-	wms_layer.layer = layer
-	map_itens.push(wms_layer)
-	wms_layer.setZIndex( map_itens.length )
+	map.addLayer(tms_layer)
+
+	tms_layer.obj = d
+	tms_layer.layer = layer
+	map_itens.push(tms_layer)
+	tms_layer.setZIndex( map_itens.length )
 
 	// refresh é FUNDAMENTAL sempre que incluir novos elementos
 	$(layers_list).sortable('refresh')
 
 	//slider > op_handle
-	op_handle.wms_layer = wms_layer
+	op_handle.tms_layer = tms_layer
 
 }
 
@@ -1462,7 +1464,7 @@ function call_area_list(list){
 }
 
 // etapa 4
-var wms_limits
+var tms_limits
 
 function set_area_filter(itm){
 
@@ -1489,9 +1491,9 @@ function set_area_filter(itm){
 	ajax( url, DATA, 'update_indicators_data', [itm.regionType, itm.region] )
 
 	// 2 carrega mascara no mapa
-	if(wms_limits) map.removeLayer(wms_limits)
+	if(tms_limits) map.removeLayer(tms_limits)
 
-	wms_limits = L.tileLayer.wms("http://maps.lapig.iesa.ufg.br/ows?", {
+	/*wms_limits = L.tileLayer.wms("http://maps.lapig.iesa.ufg.br/ows?", {
 		layers: 'limits',
 		format: 'image/png',
 		transparent: true,
@@ -1500,10 +1502,12 @@ function set_area_filter(itm){
 		srs:'EPSG:900913',
 		MSFILTER:'"[name]"="' + itm.region + '"',
 		updateWhenIdle:true
-	});
+	});*/
 
-	map.addLayer(wms_limits)
-	wms_limits.setZIndex(1000)
+	tms_limits = L.tileLayer('http://maps.lapig.iesa.ufg.br/ows?layers=limits&mode=tile&tile={x}+{y}+{z}&tilemode=gmap&map.imagetype=png&MSFILTER="[name]"="' + itm.region + '"')
+
+	map.addLayer(tms_limits)
+	tms_limits.setZIndex(1000)
 
 	// 3 guarda dados da seleçaão para report.csv e rankings
 	report.regionType = itm.regionType
