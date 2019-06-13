@@ -264,7 +264,7 @@ function create_layer( d ){
 	$(label2)
 	.addClass('lb2')
 	.addClass('animate1')
-	.html( d.nome )
+	.html( language[d.id][lang] )
 	layer.label2 = label2
 
 	var eye = elem('div', { trg:layer_top })
@@ -615,7 +615,7 @@ function create_indicator(d){
 	hit.indicator = indicator
 
 	var title = elem('label', {trg:indicator, cls:'animate1 title'})
-	var title_name = elem('span', {trg:title, html:d.nome})
+	var title_name = elem('span', {trg:title, html:language[d.id][lang]})
 
 	var year = elem( 'span', { trg:title })
 	indicator.year = year
@@ -630,7 +630,7 @@ function create_indicator(d){
 	indicator.data_box = data_box
 
 	var data_description = elem('div', {trg:data_box, cls:'data_description'})
-	$(data_description).html(d.descricao)
+	$(data_description).html(language[d.id+'_description'][lang])
 
 	var data_box_bts = elem('div', {trg:data_box, cls:'data_box_bts'})
 	var data_select = elem('select', {trg:data_box_bts, cls:'data_select animate2'})
@@ -787,8 +787,8 @@ function create_report(d){
 
 	console.log(d);
 
-	var csv_title = {	titulo: d.nome + ' (' + d.unidade + ')'	}
-	var csv_description = {	descricao: d.descricao	}
+	var csv_title = {	titulo: language[d.id][lang] + ' (' + d.unidade + ')'	}
+	var csv_description = {	descricao: language[d.id+'_description'][lang]	}
 
 	report.csv.push(csv_title)
 	report.csv.push(csv_description)
@@ -855,8 +855,8 @@ function create_report(d){
 	var header = elem('div', {trg:indicator, cls:'header'})
 
 	var title = elem('div', {trg:header, cls:'title'})
-	if(d.ano[d.val_id]) $(title).html(d.nome + ' | ' + d.ano[d.val_id])
-	else  $(title).html(d.nome)
+	if(d.ano[d.val_id]) $(title).html(language[d.id][lang] + ' | ' + d.ano[d.val_id])
+	else  $(title).html(language[d.id][lang])
 
 	var data = elem('div', {trg:header, cls:'data'})
 	indicator_val = format_number(d.valor[d.val_id]) + ' ' + d.unidade
@@ -865,7 +865,7 @@ function create_report(d){
 	else $(data).addClass('no_data').html( language['no_data'][lang] )
 
 
-	var text = elem('div', {trg:indicator, cls:'text', html:d.descricao})
+	var text = elem('div', {trg:indicator, cls:'text', html:language[d.id+'_description'][lang]})
 
 	// evolução
 
