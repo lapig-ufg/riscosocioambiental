@@ -8,6 +8,7 @@ module.exports = function(app) {
 	var Upload = {};
 	var Internal = {};
 	var app = express();
+	var config = app.config;
 
 	Upload.file = function(req, res) {
 
@@ -18,7 +19,7 @@ module.exports = function(app) {
 			dadosUser['processed'] = false
 	
 		var MongoClient = mongodb.MongoClient;
-		var dbUrl = 'mongodb://localhost:27017/wwf-sicar';
+		var dbUrl = 'mongodb://'+config.host+':'+config.host+'/'+config.dbname;
 
 		MongoClient.connect(dbUrl, function(err, db) {
 			if(err) throw err;

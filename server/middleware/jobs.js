@@ -84,7 +84,7 @@ module.exports = function(app) {
 	Jobs.start = function() {
 		if(process.env.PRIMARY_WORKER) {
 			var MongoClient = mongodb.MongoClient;
-			var dbUrl = 'mongodb://localhost:27017/wwf-sicar';
+			var dbUrl = 'mongodb://'+config.host+':'+config.host+'/'+config.dbname;
 
 			MongoClient.connect(dbUrl, function(err, db) {
 				if (err) throw err;
