@@ -39,7 +39,8 @@ module.exports = function(app) {
 			"host": "172.18.0.6",
 			"port": "27017",
 			"dbname": "wwf-sicar"
-		}
+		},
+		config["hostUrl"] = 'http://socioambiental.lapig.iesa.ufg.br'
 
 	}
 

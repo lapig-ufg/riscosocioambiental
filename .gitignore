@@ -1,3 +1,6 @@
 node_modules
 server/passwords.json
 client/package-lock.json
+server/uploads
+server/downloads
+server/app.out
