@@ -35,13 +35,11 @@ module.exports = function(app) {
 	};
 
 	if(process.env.NODE_ENV == 'prod') {
-		config["port"] = 3000;
 		config["mongo"] = {
 			"host": "172.18.0.6",
 			"port": "27017",
 			"dbname": "wwf-sicar"
-		},
-		config["hostUrl"] = 'http://riscosocioambiental.org';
+		}
 
 	}
 

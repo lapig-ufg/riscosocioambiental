@@ -7,7 +7,6 @@ module.exports = function(app) {
 
 	var Upload = {};
 	var Internal = {};
-	var app = express();
 	var config = app.config;
 
 	Upload.file = function(req, res) {
