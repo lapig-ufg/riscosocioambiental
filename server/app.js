@@ -49,7 +49,7 @@ app.use('/about', static);
 app.use('/sicar', static);
 
 http.listen(app.config.port, function() {
-	console.log('LAPIG-MAPS Server @ [port %s] [pid %s]', app.config.port, process.pid.toString());
+	console.log('Risco Socioambiental Server @ [port %s] [pid %s]', app.config.port, process.pid.toString());
 	app.middleware.jobs.start();
 });
 

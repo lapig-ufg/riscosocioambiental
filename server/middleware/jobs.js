@@ -84,7 +84,7 @@ module.exports = function(app) {
 	Jobs.start = function() {
 		if(process.env.PRIMARY_WORKER) {
 			var MongoClient = mongodb.MongoClient;
-			var dbUrl = 'mongodb://'+config.host+':'+config.host+'/'+config.dbname;
+			var dbUrl = 'mongodb://'+config.host+':'+config.port+'/'+config.dbname;
 
 			MongoClient.connect(dbUrl, function(err, db) {
 				if (err) throw err;

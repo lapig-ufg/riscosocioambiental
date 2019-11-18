@@ -1,5 +1,7 @@
-LAPIG-MAPS Server @ [port 3000] [pid 14373]
-LAPIG-MAPS Server @ [port 3000] [pid 14382]
+LAPIG-MAPS Server @ [port 3000] [pid 15719]
+LAPIG-MAPS Server @ [port 3000] [pid 15713]
+LAPIG-MAPS Server @ [port 3000] [pid 15720]
+LAPIG-MAPS Server @ [port 3000] [pid 15712]
 Error: Slash in host identifier
     at parseConnectionString (/home/fmalaquias/Documentos/Projeto/riscosocioambiental/server/node_modules/mongodb/lib/url_parser.js:219:15)
     at parseHandler (/home/fmalaquias/Documentos/Projeto/riscosocioambiental/server/node_modules/mongodb/lib/url_parser.js:129:14)
@@ -11,5 +13,3 @@ Error: Slash in host identifier
     at Function.MongoClient.connect (/home/fmalaquias/Documentos/Projeto/riscosocioambiental/server/node_modules/mongodb/lib/mongo_client.js:480:22)
     at Object.Jobs.start (/home/fmalaquias/Documentos/Projeto/riscosocioambiental/server/middleware/jobs.js:89:16)
     at Server.<anonymous> (/home/fmalaquias/Documentos/Projeto/riscosocioambiental/server/app.js:53:22)
-LAPIG-MAPS Server @ [port 3000] [pid 14379]
-LAPIG-MAPS Server @ [port 3000] [pid 14378]

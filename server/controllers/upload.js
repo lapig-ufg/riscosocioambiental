@@ -19,7 +19,7 @@ module.exports = function(app) {
 			dadosUser['processed'] = false
 	
 		var MongoClient = mongodb.MongoClient;
-		var dbUrl = 'mongodb://'+config.host+':'+config.host+'/'+config.dbname;
+		var dbUrl = 'mongodb://'+config.host+':'+config.port+'/'+config.dbname;
 
 		MongoClient.connect(dbUrl, function(err, db) {
 			if(err) throw err;
