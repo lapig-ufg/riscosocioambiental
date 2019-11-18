@@ -1,21 +1,15 @@
-LAPIG-MAPS Server @ [port 3000] [pid 16358]
-LAPIG-MAPS Server @ [port 3000] [pid 16363]
-LAPIG-MAPS Server @ [port 3000] [pid 16364]
-LAPIG-MAPS Server @ [port 3000] [pid 16370]
-6 Jul 09:25:43 - Timeout: Socket timeout due to inactivity
-6 Jul 09:25:43 - Timeout: Socket timeout due to inactivity
-6 Jul 09:25:43 - Timeout: Socket timeout due to inactivity
-6 Jul 09:25:43 - Timeout: Socket timeout due to inactivity
-6 Jul 09:25:43 - Timeout: Socket timeout due to inactivity
-6 Jul 09:25:46 - Timeout: Socket timeout due to inactivity
-6 Jul 09:31:45 - Timeout: Socket timeout due to inactivity
-6 Jul 09:31:45 - Timeout: Socket timeout due to inactivity
-6 Jul 09:31:45 - Timeout: Socket timeout due to inactivity
-6 Jul 09:31:45 - Timeout: Socket timeout due to inactivity
-6 Jul 09:31:45 - Timeout: Socket timeout due to inactivity
-6 Jul 09:31:45 - Timeout: Socket timeout due to inactivity
-9 Jul 08:16:35 - Timeout: Socket timeout due to inactivity
-9 Jul 08:17:01 - Timeout: Socket timeout due to inactivity
-9 Jul 08:17:23 - Timeout: Socket timeout due to inactivity
-9 Jul 08:17:28 - Timeout: Socket timeout due to inactivity
-9 Jul 08:17:32 - Timeout: Socket timeout due to inactivity
+LAPIG-MAPS Server @ [port 3000] [pid 14373]
+LAPIG-MAPS Server @ [port 3000] [pid 14382]
+Error: Slash in host identifier
+    at parseConnectionString (/home/fmalaquias/Documentos/Projeto/riscosocioambiental/server/node_modules/mongodb/lib/url_parser.js:219:15)
+    at parseHandler (/home/fmalaquias/Documentos/Projeto/riscosocioambiental/server/node_modules/mongodb/lib/url_parser.js:129:14)
+    at module.exports (/home/fmalaquias/Documentos/Projeto/riscosocioambiental/server/node_modules/mongodb/lib/url_parser.js:25:12)
+    at connect (/home/fmalaquias/Documentos/Projeto/riscosocioambiental/server/node_modules/mongodb/lib/mongo_client.js:878:3)
+    at connectOp (/home/fmalaquias/Documentos/Projeto/riscosocioambiental/server/node_modules/mongodb/lib/mongo_client.js:268:3)
+    at executeOperation (/home/fmalaquias/Documentos/Projeto/riscosocioambiental/server/node_modules/mongodb/lib/utils.js:420:24)
+    at MongoClient.connect (/home/fmalaquias/Documentos/Projeto/riscosocioambiental/server/node_modules/mongodb/lib/mongo_client.js:259:10)
+    at Function.MongoClient.connect (/home/fmalaquias/Documentos/Projeto/riscosocioambiental/server/node_modules/mongodb/lib/mongo_client.js:480:22)
+    at Object.Jobs.start (/home/fmalaquias/Documentos/Projeto/riscosocioambiental/server/middleware/jobs.js:89:16)
+    at Server.<anonymous> (/home/fmalaquias/Documentos/Projeto/riscosocioambiental/server/app.js:53:22)
+LAPIG-MAPS Server @ [port 3000] [pid 14379]
+LAPIG-MAPS Server @ [port 3000] [pid 14378]

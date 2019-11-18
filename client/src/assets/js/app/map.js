@@ -312,7 +312,7 @@ function create_layer( d ){
 	var fill = elem('div', {trg:content, cls:'fill'})
 
 	var legend = elem('img', {trg:content})
-	$(legend).attr('src','http://m2.lapig.iesa.ufg.br/ows?EXCEPTIONS=application%2Fvnd.ogc.se_xml&TRANSPARENT=TRUE&VERSION=1.1.1&SERVICE=WMS&REQUEST=GetLegendGraphic&LAYER=' + d.id + '&format=image%2Fpng')
+	$(legend).attr('src','https://maps.lapig.iesa.ufg.br/ows?EXCEPTIONS=application%2Fvnd.ogc.se_xml&TRANSPARENT=TRUE&VERSION=1.1.1&SERVICE=WMS&REQUEST=GetLegendGraphic&LAYER=' + d.id + '&format=image%2Fpng')
 
 	var op_slider = elem('div', { cls:'op_slider', trg:content })
 	var op_track = elem('div', { cls:'op_track', trg:op_slider })
@@ -339,7 +339,7 @@ function create_layer( d ){
 	// map
 	var ms_filter = '"[ANO]"="' + d.ano + '"'
 
-	/*var wms_layer = L.tileLayer.wms("http://maps.lapig.iesa.ufg.br/ows?", {
+	/*var wms_layer = L.tileLayer.wms("https://maps.lapig.iesa.ufg.br/ows?", {
 		layers: d.id,
 		format: 'image/png',
 		transparent: true,
@@ -350,7 +350,7 @@ function create_layer( d ){
 		updateWhenIdle:true
 	});*/
 
-	var tms_layer = L.tileLayer('http://maps.lapig.iesa.ufg.br/ows?layers='+d.id+'&mode=tile&tile={x}+{y}+{z}&tilemode=gmap&map.imagetype=png&MSFILTER='+ms_filter)
+	var tms_layer = L.tileLayer('https://maps.lapig.iesa.ufg.br/ows?layers='+d.id+'&mode=tile&tile={x}+{y}+{z}&tilemode=gmap&map.imagetype=png&MSFILTER='+ms_filter)
 
 	map.addLayer(tms_layer)
 
@@ -665,7 +665,7 @@ function create_indicator(d){
 
 	var data_csv = elem('div', {trg:data_box_bts, id:'data_csv', cls:'data_download animate2',html:'.CSV'})
 	$(data_csv).on('click', function(){
-		window.open( 'http://maps.lapig.iesa.ufg.br/indicadores/csv?id=' + this.indicator.id )
+		window.open( 'https://maps.lapig.iesa.ufg.br/indicadores/csv?id=' + this.indicator.id )
 		// console.log('csv_link: ', this.indicator.id, this.indicator.ano[this.indicator.val_id]);
 	})
 	data_csv.indicator = indicator
@@ -674,13 +674,13 @@ function create_indicator(d){
 
 	var data_shp = elem('div', {trg:data_box_bts, id:'data_shp', cls:'data_download animate2',html:'.SHP'})
 	$(data_shp).on('click', function(){
-		window.open('http://maps.lapig.iesa.ufg.br/ows?REQUEST=GetFeature&SERVICE=wfs&VERSION=1.0.0&TYPENAME=' + this.indicator.id + "_" + this.indicator.ano[this.indicator.val_id] + '&OUTPUTFORMAT=shape-zip')
+		window.open('https://maps.lapig.iesa.ufg.br/ows?REQUEST=GetFeature&SERVICE=wfs&VERSION=1.0.0&TYPENAME=' + this.indicator.id + "_" + this.indicator.ano[this.indicator.val_id] + '&OUTPUTFORMAT=shape-zip')
 	})
 	data_shp.indicator = indicator
 	var data_shp_icon = elem('div', {trg:data_shp, cls:'icon icon25'})
 	$(data_shp_icon).append(icons.download)
 
-	// 	window.open('http://maps.lapig.iesa.ufg.br/ows?REQUEST=GetFeature&SERVICE=wfs&VERSION=1.0.0&TYPENAME=' + this.ID + "_" + this.ano + '&OUTPUTFORMAT=shape-zip')
+	// 	window.open('https://maps.lapig.iesa.ufg.br/ows?REQUEST=GetFeature&SERVICE=wfs&VERSION=1.0.0&TYPENAME=' + this.ID + "_" + this.ano + '&OUTPUTFORMAT=shape-zip')
 	// })
 	// download.ID = d.id
 	// download.ano = d.ano
@@ -1044,7 +1044,7 @@ function generate_report(){
 		$(DATA.list).each(function(i,d){
 			if(d.selected && !d.no_data){
 
-				var rank_url = "http://maps.lapig.iesa.ufg.br/indicadores/ranking?id="+d.id+"&ano="+d.ano[d.val_id]
+				var rank_url = "https://maps.lapig.iesa.ufg.br/indicadores/ranking?id="+d.id+"&ano="+d.ano[d.val_id]
 				if( report.region != 'Brasil' ) rank_url += "&region=" + report.region
 				if( report.regionType != 'brasil' ) rank_url += "&regionType=" + report.regionType
 				console.log(rank_url);
@@ -1226,7 +1226,7 @@ AREA.load_floating_lists = function(){
 	}
 
 	// indicators list
-	var url = 'http://maps.lapig.iesa.ufg.br/indicadores/lista'
+	var url = 'https://maps.lapig.iesa.ufg.br/indicadores/lista'
 	// var url = 'data/lista.json'
 	ajax( url, DATA, 'create_indicators_list', [] )
 
@@ -1484,7 +1484,7 @@ function set_area_filter(itm){
 	check_filters()
 
 	// 1 carrega dados novos nos indicadores (list + report)
-	var url = 'http://maps.lapig.iesa.ufg.br/indicadores/lista'
+	var url = 'https://maps.lapig.iesa.ufg.br/indicadores/lista'
 	if(itm.regionType != 'brasil' ) url += '?regionType=' + itm.regionType
 	if(itm.region != 'brasil' ) url += '&region=' + itm.region
 
@@ -1493,7 +1493,7 @@ function set_area_filter(itm){
 	// 2 carrega mascara no mapa
 	if(tms_limits) map.removeLayer(tms_limits)
 
-	/*wms_limits = L.tileLayer.wms("http://maps.lapig.iesa.ufg.br/ows?", {
+	/*wms_limits = L.tileLayer.wms("https://maps.lapig.iesa.ufg.br/ows?", {
 		layers: 'limits',
 		format: 'image/png',
 		transparent: true,
@@ -1504,7 +1504,7 @@ function set_area_filter(itm){
 		updateWhenIdle:true
 	});*/
 
-	tms_limits = L.tileLayer('http://maps.lapig.iesa.ufg.br/ows?layers=limits&mode=tile&tile={x}+{y}+{z}&tilemode=gmap&map.imagetype=png&MSFILTER="[name]"="' + itm.region + '"')
+	tms_limits = L.tileLayer('https://maps.lapig.iesa.ufg.br/ows?layers=limits&mode=tile&tile={x}+{y}+{z}&tilemode=gmap&map.imagetype=png&MSFILTER="[name]"="' + itm.region + '"')
 
 	map.addLayer(tms_limits)
 	tms_limits.setZIndex(1000)
@@ -1537,7 +1537,7 @@ function convert_lang(lb){
 //start
 
 // etapa 0
-var regions_url = 'http://maps.lapig.iesa.ufg.br/indicadores/regions'
+var regions_url = 'https://maps.lapig.iesa.ufg.br/indicadores/regions'
 ajax( regions_url, AREA, 'load_floating_lists', [] )
 initMap(true)
 
