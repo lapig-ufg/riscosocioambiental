@@ -19,7 +19,7 @@ module.exports = function(app) {
 		dbWWF.collection('uploads').find({'processed': false}).toArray(function(err, result) {
 			if (err) throw err;
 
-			if(result.length > 0){
+			if(result.length > 1){
 				result.forEach( function(obj){
 
 					var nameFile = obj['nameFile'];
@@ -84,7 +84,7 @@ module.exports = function(app) {
 	Jobs.start = function() {
 		if(process.env.PRIMARY_WORKER) {
 			var MongoClient = mongodb.MongoClient;
-			var dbUrl = 'mongodb://'+config.host+':'+config.port+'/'+config.dbname;
+			var dbUrl = 'mongodb://'+config.mongo.host+':'+config.mongo.port+'/'+config.mongo.dbname;
 
 			MongoClient.connect(dbUrl, function(err, db) {
 				if (err) throw err;
