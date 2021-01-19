@@ -1,0 +1,21 @@
+site_name: Documentação - Risco Socioambiental
+site_author: Luiz Pascoal e Fernanda Stefani
+
+theme: 'readthedocs'
+
+nav:
+  - 'HOME': 'index.md'
+  - 'Guia do usuário':
+    - 'Dados Geográficos': '01-guia_dados_geograficos.md'
+    - 'Funcionalidades': '01-guia_funcionalidades.md'
+    - 'Indicadores': '01-guia_indicadores.md'
+
+  - 'Dados':
+    - 'Vetoriais': '03-dad_vetoriais.md'
+    - 'Rasters': '03-dad_rasters.md'
+
+  - 'Arquitetura de Software':
+    - 'Visão geral': '02-arq_geral.md'
+    - 'Servidor de mapas': '02-arq_servidor_de_mapas.md'
+    - 'Servidor de aplicação': '02-arq_servidor_de_aplicacao.md'
+    - 'Deployment da arquitetura do Riscosocioambiental': '02-arq_execucao_risco.md'
