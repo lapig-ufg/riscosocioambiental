@@ -19,7 +19,7 @@ Essencialmente, pode-se dividir o Risco Socioambiental em três partes:
     - *OWS Server*: Disponibiliza o acesso ao [MapServer](https://mapserver.org/), responsável pelo processamento dos dados geográficos, apresentação visual dos mesmos e gerenciamento de cache das imagens geradas.
 + *Data Source*: Responsável por armazenar os dados vetoriais e matriciais.
 
-Resumidamente, todos os dados usados pelo Risco Socioambiental estão organizados em um banco de dados PostgreSQL e em sistemas de arquivos *(Data Repository)*. O PostgreSQL utiliza a extensão PostGIS que permite processar consultas espaciais via *Structured Query Language* (SQL). Já os dados que não necessitam de cruzamentos espaciais são armazenados em arquivos nos formatos Shapefile e/ou GeoTIFF.
+Resumidamente, todos os dados usados pelo Risco Socioambiental estão organizados em um banco de dados SQLite e em sistemas de arquivos *(Data Repository)*. O SQLite é armazenado também em arquivo e permite processar consultas espaciais via *Structured Query Language* (SQL). Já os dados que não necessitam de cruzamentos espaciais são armazenados em arquivos nos formatos Shapefile e/ou GeoTIFF.
 
 Estes dados são acessados pelo *Application Server* e pelo *OWS Server* (ambos construídos em NodeJS) e são disponibilizados através de URLs com requisições por meio do protocolo [HTTP](https://pt.wikipedia.org/wiki/Hypertext_Transfer_Protocol). Todas as requisições Web realizadas aos Servers são interceptadas pelo Apache Server e devidamente redirecionadas. Desta forma, o *Client* realiza todas as requisições necessárias para construir a visualização dos elementos da página, tais como: mapa interativo, gráficos, campo de busca e etc.
 
