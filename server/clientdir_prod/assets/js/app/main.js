@@ -432,32 +432,34 @@ function initMap(load_grid){
 	resize_map(200)
 	set_tile(0)
 
-	if(load_grid){
+	// if(load_grid){
 
-		// utf grid
-		utfgrid = new L.utfGridWMS("https://maps.lapig.iesa.ufg.br/ows?", {
-			layers: 'utfgrid_default'
-		});
+	// 	// utf grid
+	// 	utfgrid = new L.utfGridWMS("https://ows.lapig.iesa.ufg.br/ows?", {
+	// 		layers: 'utfgrid_default'
+	// 	});
 
-		utfgrid.on("mouseover", function(e){
-			$(tooltip).show()
-			$(tooltip_city).html( e.data.MUNICIPIO + " - " + e.data.UF)
-			// $(tooltip_val).html( format_number(e.data.VALOR))
-		}).on("mouseout", function(e){
-			$(tooltip).hide()
-		})
+	// 	console.log('opa: ',utfgrid)
 
-		utfgrid.on("click", function(e){
-			if(e.data){
-				if(report_container.open)	close_report()
-				$(AREA.municipios.list).each(function(i,d){
-					if(d.cod_mu == e.data.COD_MUNICI) set_area_filter(d.li)
-				})
-			}
-		});
+	// 	utfgrid.on("mouseover", function(e){
+	// 		$(tooltip).show()
+	// 		$(tooltip_city).html( e.data.MUNICIPIO + " - " + e.data.UF)
+	// 		// $(tooltip_val).html( format_number(e.data.VALOR))
+	// 	}).on("mouseout", function(e){
+	// 		$(tooltip).hide()
+	// 	})
 
-		utfgrid.addTo(map);
-	}
+	// 	utfgrid.on("click", function(e){
+	// 		if(e.data){
+	// 			if(report_container.open)	close_report()
+	// 			$(AREA.municipios.list).each(function(i,d){
+	// 				if(d.cod_mu == e.data.COD_MUNICI) set_area_filter(d.li)
+	// 			})
+	// 		}
+	// 	});
+
+	// 	utfgrid.addTo(map);
+	// }
 
 }
 
@@ -485,10 +487,10 @@ var Googleterrain = L.gridLayer.googleMutant({
 var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 							'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 							'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-		mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+		mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
 
-var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
-		streets  = L.tileLayer(mbUrl, {id: 'mapbox.streets',   attribution: mbAttr});
+var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox/light-v10', attribution: mbAttr}),
+		streets  = L.tileLayer(mbUrl, {id: 'mapbox/streets-v11',   attribution: mbAttr});
 
 
 var map_tiles = [
@@ -543,7 +545,7 @@ function teste_gmaps(){
 bk leaflet tiles
 
 
-	// var imageUrl = 'https://maps.lapig.iesa.ufg.br/ows?LAYERS=area_soja&FORMAT=image%2Fpng&TRANSPARENT=TRUE&VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&STYLES=&SRS=EPSG%3A900913&BBOX=-8200300,-3996220,-3190922.915,1013157.085&WIDTH=512&HEIGHT=512&MSFILTER="[ANO]"="2005"',
+	// var imageUrl = 'https://ows.lapig.iesa.ufg.br/ows?LAYERS=area_soja&FORMAT=image%2Fpng&TRANSPARENT=TRUE&VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&STYLES=&SRS=EPSG%3A900913&BBOX=-8200300,-3996220,-3190922.915,1013157.085&WIDTH=512&HEIGHT=512&MSFILTER="[ANO]"="2005"',
 	//     imageBounds = [[6,-76], [-35,-30]];
 	//
 	// L.imageOverlay(imageUrl, imageBounds).addTo(map);
@@ -556,7 +558,7 @@ var nexrad = L.tileLayer.wms("http://mesonet.agron.iastate.edu/cgi-bin/wms/nexra
     attribution: "Weather data © 2012 IEM Nexrad"
 }).addTo(map)
 
-var wmsLayer = L.tileLayer.wms('https://maps.lapig.iesa.ufg.br/ows?LAYERS=desmatamento&FORMAT=image%2Fpng&TRANSPARENT=TRUE&VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&STYLES=&SRS=EPSG%3A900913&BBOX=-8200300,-3996220,-3190922.915,1013157.085&WIDTH=512&HEIGHT=512&MSFILTER="[ANO]"="2014"AND"[BIOMA]"="CERRADO"',	{
+var wmsLayer = L.tileLayer.wms('https://ows.lapig.iesa.ufg.br/ows?LAYERS=desmatamento&FORMAT=image%2Fpng&TRANSPARENT=TRUE&VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&STYLES=&SRS=EPSG%3A900913&BBOX=-8200300,-3996220,-3190922.915,1013157.085&WIDTH=512&HEIGHT=512&MSFILTER="[ANO]"="2014"AND"[BIOMA]"="CERRADO"',	{
 			layers: 'desmatamento',
 			styles: '',
 			format:'image/png',

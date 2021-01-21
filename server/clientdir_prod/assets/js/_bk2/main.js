@@ -142,7 +142,7 @@ function ajax( url, OBJ, cback, args ){
 				// console.log(OBJ.json); // FUNCIONOU!!!
 
 				OBJ.json = response
-				OBJ[cback].apply(null, args)  // NÃO FUNCIONA VIA http://maps.lapig.iesa
+				OBJ[cback].apply(null, args)  // NÃO FUNCIONA VIA http://ows.lapig.iesa
 				// colcoar JSON.parse!
 				// remove_preloader()
 		 },
@@ -153,7 +153,7 @@ function ajax( url, OBJ, cback, args ){
 }
 //
 // $.ajax({
-//     	url: "http://maps.lapig.iesa.ufg.br/indicadores/lista",
+//     	url: "http://ows.lapig.iesa.ufg.br/indicadores/lista",
 //     	type: "GET",
 //  			crossDomain: true,
 //     	dataType: 'json',
@@ -403,7 +403,7 @@ function teste_gmaps(){
 bk leaflet tiles
 
 
-	// var imageUrl = 'http://maps.lapig.iesa.ufg.br/ows?LAYERS=area_soja&FORMAT=image%2Fpng&TRANSPARENT=TRUE&VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&STYLES=&SRS=EPSG%3A900913&BBOX=-8200300,-3996220,-3190922.915,1013157.085&WIDTH=512&HEIGHT=512&MSFILTER="[ANO]"="2005"',
+	// var imageUrl = 'http://ows.lapig.iesa.ufg.br/ows?LAYERS=area_soja&FORMAT=image%2Fpng&TRANSPARENT=TRUE&VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&STYLES=&SRS=EPSG%3A900913&BBOX=-8200300,-3996220,-3190922.915,1013157.085&WIDTH=512&HEIGHT=512&MSFILTER="[ANO]"="2005"',
 	//     imageBounds = [[6,-76], [-35,-30]];
 	//
 	// L.imageOverlay(imageUrl, imageBounds).addTo(map);
@@ -416,7 +416,7 @@ var nexrad = L.tileLayer.wms("http://mesonet.agron.iastate.edu/cgi-bin/wms/nexra
     attribution: "Weather data © 2012 IEM Nexrad"
 }).addTo(map)
 
-var wmsLayer = L.tileLayer.wms('http://maps.lapig.iesa.ufg.br/ows?LAYERS=desmatamento&FORMAT=image%2Fpng&TRANSPARENT=TRUE&VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&STYLES=&SRS=EPSG%3A900913&BBOX=-8200300,-3996220,-3190922.915,1013157.085&WIDTH=512&HEIGHT=512&MSFILTER="[ANO]"="2014"AND"[BIOMA]"="CERRADO"',	{
+var wmsLayer = L.tileLayer.wms('http://ows.lapig.iesa.ufg.br/ows?LAYERS=desmatamento&FORMAT=image%2Fpng&TRANSPARENT=TRUE&VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&STYLES=&SRS=EPSG%3A900913&BBOX=-8200300,-3996220,-3190922.915,1013157.085&WIDTH=512&HEIGHT=512&MSFILTER="[ANO]"="2014"AND"[BIOMA]"="CERRADO"',	{
 			layers: 'desmatamento',
 			styles: '',
 			format:'image/png',

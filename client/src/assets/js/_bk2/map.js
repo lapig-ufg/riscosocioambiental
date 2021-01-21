@@ -313,7 +313,7 @@ function create_layer( d ){
 	console.log('ms_filter');
 	console.log(ms_filter);
 
-	var wms_layer = L.tileLayer.wms("http://maps.lapig.iesa.ufg.br/ows?", {
+	var wms_layer = L.tileLayer.wms("http://ows.lapig.iesa.ufg.br/ows?", {
 		layers: d.id,
 		format: 'image/png',
 		transparent: true,
@@ -941,7 +941,7 @@ function set_area_filter(itm){
 	check_filters()
 
 	// etapa 5: call indicators list
-	// var url = 'http://maps.lapig.iesa.ufg.br/indicadores/lista'
+	// var url = 'http://ows.lapig.iesa.ufg.br/indicadores/lista'
 	// if(itm.regionType != 'brasil' && itm.region != 'brasil') url += '?regionType=' + itm.regionType + '&region=' + itm.region
 	// + &lang=convert_lang(lang)
 
