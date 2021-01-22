@@ -665,7 +665,7 @@ function create_indicator(d){
 
 	var data_csv = elem('div', {trg:data_box_bts, id:'data_csv', cls:'data_download animate2',html:'.CSV'})
 	$(data_csv).on('click', function(){
-		window.open( 'https://maps.lapig.iesa.ufg.br/indicadores/csv?id=' + this.indicator.id )
+		window.open('/service/indicadores/csv?id=' + this.indicator.id)
 		// console.log('csv_link: ', this.indicator.id, this.indicator.ano[this.indicator.val_id]);
 	})
 	data_csv.indicator = indicator
@@ -1044,7 +1044,7 @@ function generate_report(){
 		$(DATA.list).each(function(i,d){
 			if(d.selected && !d.no_data){
 
-				var rank_url = "https://maps.lapig.iesa.ufg.br/indicadores/ranking?id="+d.id+"&ano="+d.ano[d.val_id]
+				var rank_url = "/service/indicadores/ranking?id=" + d.id + "&ano=" + d.ano[d.val_id]
 				if( report.region != 'Brasil' ) rank_url += "&region=" + report.region
 				if( report.regionType != 'brasil' ) rank_url += "&regionType=" + report.regionType
 				console.log(rank_url);
@@ -1226,7 +1226,7 @@ AREA.load_floating_lists = function(){
 	}
 
 	// indicators list
-	var url = 'https://maps.lapig.iesa.ufg.br/indicadores/lista'
+	var url = '/service/indicadores/lista'
 	// var url = 'data/lista.json'
 	ajax( url, DATA, 'create_indicators_list', [] )
 
@@ -1484,7 +1484,7 @@ function set_area_filter(itm){
 	check_filters()
 
 	// 1 carrega dados novos nos indicadores (list + report)
-	var url = 'https://maps.lapig.iesa.ufg.br/indicadores/lista'
+	var url = '/service/indicadores/lista'
 	if(itm.regionType != 'brasil' ) url += '?regionType=' + itm.regionType
 	if(itm.region != 'brasil' ) url += '&region=' + itm.region
 
@@ -1537,7 +1537,7 @@ function convert_lang(lb){
 //start
 
 // etapa 0
-var regions_url = 'https://maps.lapig.iesa.ufg.br/indicadores/regions'
+var regions_url = '/service/indicadores/regions'
 ajax( regions_url, AREA, 'load_floating_lists', [] )
 initMap(true)
 

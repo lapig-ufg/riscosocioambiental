@@ -8,8 +8,10 @@ module.exports = function(app) {
 		"clientDir": appRoot + "/clientdir_prod/",
 		"downloadDir": appRoot + "/downloads/",
 		"hostUrl": 'http://localhost:3000',
+		"indicadoresDb": "/home/fmalaquias/Documentos/Projeto/Dados_local/Ocultos/indicadores.sqlite",
 		"logDir": appRoot + "/log/",
 		"tableExample": appRoot + "/tabela de exemplo.csv",
+		"langDir": appRoot + "/lang",
 		"mongo": {
 			"host": "localhost",
 			"port": "27017",
@@ -40,6 +42,7 @@ module.exports = function(app) {
 			"port": "27017",
 			"dbname": "wwf-sicar"
 		},
+		config["indicadoresDb"] = "/STORAGE/catalog/Ocultos/indicadores.sqlite",
 		config["hostUrl"] = 'http://socioambiental.lapig.iesa.ufg.br'
 
 	}
