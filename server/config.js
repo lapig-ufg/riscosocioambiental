@@ -1,21 +1,30 @@
 var appRoot = require('app-root-path');
-var passwords = require(appRoot + '/passwords.json')
+var passwords = require(appRoot + '/passwords.json');
+const dotenv = require('dotenv');
+
+const result = dotenv.config();
+if (result.error) {
+	throw result.error;
+}
+const { parsed: env } = result;
 
 module.exports = function(app) {
+
+	var appProducao = env.APP_PRODUCAO;
 	
 	var config = {
 		"appRoot": appRoot, 
-		"clientDir": appRoot + "/clientdir_prod/",
-		"downloadDir": appRoot + "/downloads/",
-		"hostUrl": 'http://localhost:3000',
-		"indicadoresDb": "/home/fmalaquias/Documentos/Projeto/Dados_local/Ocultos/indicadores.sqlite",
-		"logDir": appRoot + "/log/",
-		"tableExample": appRoot + "/tabela de exemplo.csv",
-		"langDir": appRoot + "/lang",
+		"clientDir": appRoot + env.CLIENT_DIR,
+		"downloadDir": appRoot + env.DOWNLOAD_DIR,
+		"hostUrl": env.HOST_URL,
+		"indicadoresDb": env.INDICADORES_DB,
+		"logDir": appRoot + env.LOG_DIR,
+		"tableExample": appRoot + env.TABLE_EXAMPLE,
+		"langDir": appRoot + env.LANG_DIR,
 		"mongo": {
-			"host": "localhost",
-			"port": "27017",
-			"dbname": "wwf-sicar"
+			"host": env.MONGO_HOST,
+			"port": env.MONGO_PORT,
+			"dbname": env.MONGO_DBNAME
 		},
 		"jobs": {
 			"timezone": 'America/Sao_Paulo',
@@ -28,7 +37,7 @@ module.exports = function(app) {
 				}
 			]
 		},
-		"port": 3000,
+		"port": env.SERVER_PORT,
 		"email": {
 			'gmailUser': passwords.gmailUser,
 			'gmailPassword': passwords.gmailPassword,
@@ -38,12 +47,12 @@ module.exports = function(app) {
 
 	if(process.env.NODE_ENV == 'prod') {
 		config["mongo"] = {
-			"host": "172.18.0.6",
-			"port": "27017",
-			"dbname": "wwf-sicar"
+			"host": env.MONGO_HOST_PROD,
+			"port": env.MONGO_PORT_PROD,
+			"dbname": env.MONGO_DBNAME_PROD
 		},
-		config["indicadoresDb"] = "/STORAGE/catalog/Ocultos/indicadores.sqlite",
-		config["hostUrl"] = 'http://socioambiental.lapig.iesa.ufg.br'
+		config["indicadoresDb"] = env.INDICADORES_DB_PROD,
+		config["hostUrl"] = env.HOST_URL_PROD
 
 	}
 
