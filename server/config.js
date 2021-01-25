@@ -45,6 +45,8 @@ module.exports = function(app) {
 		}
 	};
 
+	
+
 	if(process.env.NODE_ENV == 'prod') {
 		config["mongo"] = {
 			"host": env.MONGO_HOST_PROD,
@@ -55,6 +57,9 @@ module.exports = function(app) {
 		config["hostUrl"] = env.HOST_URL_PROD
 
 	}
+
+	console.log(env.INDICADORES_DB_PROD)
+	
 
 	return config;
 
