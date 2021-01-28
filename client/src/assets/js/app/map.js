@@ -30,6 +30,11 @@ var report = {}
 report.locked = true // destrava ao final de update_indicators_data
 var utfgrid
 var bounds // recebe as coordenadas do area_filter atual
+var ows_host = ''
+
+ows_host = $.get('/service/ows_host', function (url) {
+	ows_host = url
+})
 
 $(dbody).addClass('data_mode preloader_mode')
 
@@ -312,7 +317,7 @@ function create_layer( d ){
 	var fill = elem('div', {trg:content, cls:'fill'})
 
 	var legend = elem('img', {trg:content})
-	$(legend).attr('src','https://ows.lapig.iesa.ufg.br/ows?EXCEPTIONS=application%2Fvnd.ogc.se_xml&TRANSPARENT=TRUE&VERSION=1.1.1&SERVICE=WMS&REQUEST=GetLegendGraphic&LAYER=' + d.id + '&format=image%2Fpng')
+	$(legend).attr('src', ows_host + '/ows?EXCEPTIONS=application%2Fvnd.ogc.se_xml&TRANSPARENT=TRUE&VERSION=1.1.1&SERVICE=WMS&REQUEST=GetLegendGraphic&LAYER=' + d.id + '&format=image%2Fpng')
 
 	var op_slider = elem('div', { cls:'op_slider', trg:content })
 	var op_track = elem('div', { cls:'op_track', trg:op_slider })
@@ -339,7 +344,7 @@ function create_layer( d ){
 	// map
 	var ms_filter = '"[ANO]"="' + d.ano + '"'
 
-	/*var wms_layer = L.tileLayer.wms("https://ows.lapig.iesa.ufg.br/ows?", {
+	/*var wms_layer = L.tileLayer.wms(ows_host + "/ows?", {
 		layers: d.id,
 		format: 'image/png',
 		transparent: true,
@@ -350,7 +355,9 @@ function create_layer( d ){
 		updateWhenIdle:true
 	});*/
 
-	var tms_layer = L.tileLayer('https://ows.lapig.iesa.ufg.br/ows?layers='+d.id+'&mode=tile&tile={x}+{y}+{z}&tilemode=gmap&map.imagetype=png&MSFILTER='+ms_filter)
+	console.log('ufaaa', ows_host)
+
+	var tms_layer = L.tileLayer(ows_host +'/ows?layers=' + d.id + '&mode=tile&tile={x}+{y}+{z}&tilemode=gmap&map.imagetype=png&MSFILTER=' + ms_filter)
 
 	map.addLayer(tms_layer)
 
@@ -674,13 +681,13 @@ function create_indicator(d){
 
 	var data_shp = elem('div', {trg:data_box_bts, id:'data_shp', cls:'data_download animate2',html:'.SHP'})
 	$(data_shp).on('click', function(){
-		window.open('https://ows.lapig.iesa.ufg.br/ows?REQUEST=GetFeature&SERVICE=wfs&VERSION=1.0.0&TYPENAME=' + this.indicator.id + "_" + this.indicator.ano[this.indicator.val_id] + '&OUTPUTFORMAT=shape-zip')
+		window.open(ows_host + '/ows?REQUEST=GetFeature&SERVICE=wfs&VERSION=1.0.0&TYPENAME=' + this.indicator.id + "_" + this.indicator.ano[this.indicator.val_id] + '&OUTPUTFORMAT=shape-zip')
 	})
 	data_shp.indicator = indicator
 	var data_shp_icon = elem('div', {trg:data_shp, cls:'icon icon25'})
 	$(data_shp_icon).append(icons.download)
 
-	// 	window.open('https://ows.lapig.iesa.ufg.br/ows?REQUEST=GetFeature&SERVICE=wfs&VERSION=1.0.0&TYPENAME=' + this.ID + "_" + this.ano + '&OUTPUTFORMAT=shape-zip')
+	// 	window.open(ows_host + '/ows?REQUEST=GetFeature&SERVICE=wfs&VERSION=1.0.0&TYPENAME=' + this.ID + "_" + this.ano + '&OUTPUTFORMAT=shape-zip')
 	// })
 	// download.ID = d.id
 	// download.ano = d.ano
@@ -1493,7 +1500,7 @@ function set_area_filter(itm){
 	// 2 carrega mascara no mapa
 	if(tms_limits) map.removeLayer(tms_limits)
 
-	/*wms_limits = L.tileLayer.wms("https://ows.lapig.iesa.ufg.br/ows?", {
+	/*wms_limits = L.tileLayer.wms(ows_host + "/ows?", {
 		layers: 'limits',
 		format: 'image/png',
 		transparent: true,
@@ -1504,7 +1511,7 @@ function set_area_filter(itm){
 		updateWhenIdle:true
 	});*/
 
-	tms_limits = L.tileLayer('https://ows.lapig.iesa.ufg.br/ows?layers=limits&mode=tile&tile={x}+{y}+{z}&tilemode=gmap&map.imagetype=png&MSFILTER="[name]"="' + itm.region + '"')
+	tms_limits = L.tileLayer(ows_host + '/ows?layers=limits&mode=tile&tile={x}+{y}+{z}&tilemode=gmap&map.imagetype=png&MSFILTER="[name]"="' + itm.region + '"')
 
 	map.addLayer(tms_limits)
 	tms_limits.setZIndex(1000)

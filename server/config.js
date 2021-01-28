@@ -21,6 +21,7 @@ module.exports = function(app) {
 		"logDir": appRoot + env.LOG_DIR,
 		"tableExample": appRoot + env.TABLE_EXAMPLE,
 		"langDir": appRoot + env.LANG_DIR,
+		"ows_host": env.OWS_HOST,
 		"mongo": {
 			"host": env.MONGO_HOST,
 			"port": env.MONGO_PORT,
@@ -54,12 +55,10 @@ module.exports = function(app) {
 			"dbname": env.MONGO_DBNAME_PROD
 		},
 		config["indicadoresDb"] = env.INDICADORES_DB_PROD,
-		config["hostUrl"] = env.HOST_URL_PROD
+		config["hostUrl"] = env.HOST_URL_PROD,
+		config["ows_host"] = env.OWS_HOST
 
 	}
-
-	console.log(env.INDICADORES_DB_PROD)
-	
 
 	return config;
 

@@ -33,6 +33,13 @@ module.exports = function(app) {
 
 	};
 
+	Url.ows_host = function(req, res) {
+		var config = app.config;
+
+		res.send(config.ows_host);
+		res.end();
+	}
+
 	return Url;
 
 }
