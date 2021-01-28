@@ -1,88 +1,81 @@
 # Dados Geográficos
 
-Com o objetivo de contextualizar os desmatamentos detectados pelos sistemas PRODES-Cerrado e DETER-Cerrado, um conjunto de dados disponibilizados por diferentes instituições foi incorporado ao Cerrado DPAT. Alguns destes dados passaram por um processo de revisão ou edição. Essas interferências foram necessárias para que dados não georreferenciados por meio de coordenadas (ex: lista com endereços de armazens e frigoríficos) pudessem ser incorporados ao banco de dados. 
+A plataforma de Risco Socioambiental visa facilitar o cruzamento de informações que permitam identificar potenciais impactos ambientais e sociais ligados à produção agrícola no Brasil, permitindo às instituições financeiras, empresas, governos e outras partes interessadas entender melhor e mitigar os riscos associados à produção agropecuária. A sua abordagem baseia-se em apresentar um conjunto de indicadores em um mapa interativo de fácil navegação, e relatórios que trazem séries históricas destes dados. Na plataforma, os usuários podem realizar buscas, visualizar os dados de seu interesse, recuperar os mesmos e gerar relatórios. A unidade de referência são os municípios, mas também é possível fazer análises por estados, biomas e regiões específicas.
 
-## Desmatamento 
+## Agricultura 
+
+| Dado | Descrição | Data | Escala | Fonte | Baixar dado |
+| :-------: | :-------: | :-------: | :-------: |  :-------: |  :-------: |
+| Área Plantada de Algodão | Áreas de plantação de algodão em caroço por municípios do Brasil, por hectares, no período de 2000 a 2015, conforme dados censitários do IBGE. | 2000-2015 | 1:250.000 | [IBGE](https://www.ibge.gov.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Área plantada de cana-de-açúcar | Áreas de plantação de cana-de-açúcar por municípios do Brasil, por hectares, no período de 2000 a 2015, conforme dados censitários do IBGE. | 2000-2015 | 1:250.000 | [IBGE](https://www.ibge.gov.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Área Plantada de Milho | Áreas de plantação de Milho em grão por municípios do Brasil, por hectares, no período de 2000 a 2015, conforme dados censitários do IBGE. | 2000-2015 | 1:250.000 | [IBGE](https://www.ibge.gov.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Área Plantada de Soja | Áreas de plantação de Soja em grão, por hectares, no período de 2000 a 2015, conforme dados censitários do IBGE. | 2000-2015 | 1:250.000 | [IBGE](https://www.ibge.gov.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Áreas de queimadas | Dados de queimadas ocorridos no Brasil, para o período de 2002 à 2015, produzidos a partir de imagens MODIS (MCD45A1). | 2002-2015 | 1:250.000 | [LAPIG](https://www.lapig.iesa.ufg.br/lapig/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Armazéns | Número de armazéns destinados a armazenamento e controle de produção no Brasil. Gerado a partir da compilação de dados da Agrosatélite e da CONAB – Companhia Nacional de Abastecimento, espacializados pelo LAPIG – Laboratório de Processamento de Imagens e Geoporcessamento. | 2017 | 1:250.000 | [LAPIG](https://www.lapig.iesa.ufg.br/lapig/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Assentamentos Rurais | Localização dos assentamentos rurais, produzido pelo Instituto Nacional de Colonização e Reforma Agrária (INCRA). | 2015 | 1:250.000 | [INCRA](https://www.gov.br/incra/pt-br) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Desmatamento | Dados de desmatamentos ocorridos, produzidos a partir de compilação de dados do PRODES(Bioma Amazônia: 2005 - 2016), SIAD(Bioma Cerrado: 2003 - 2016) e SOS Mata Atlântica(Bioma Mata Atlântica: 2011 - 2016). | 2003-2016 | 1:250.000 | [PRODES](http://terrabrasilis.dpi.inpe.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Desmatamento Acumulado | Desmatamento acumulado nos últimos 5 anos (2012 a 2016), nos Biomas Amazônia, Cerrado e Mata atlântica. Utilizando dados do PRODES/INPE para a Amazônia, SIAD/LAPIG para o Cerrado, SOS Mata Atlântica para a Mata Atlântica. | 2016 | 1:250.000 | [LAPIG](https://www.lapig.iesa.ufg.br/lapig/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Floresta plantada | Dados produzido pela ONG Transparent World com o apoio do WRI, com abrangência territorial para todo o Brasil. | 2014 | 1:250.000 | [WRI](https://wribrasil.org.br/pt) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Pivôs centrais | Mapeamento realizado pela Embrapa da área irrigada e do número de equipamentos de irrigação por pivô central no Brasil em 2013. | 2013 | 1:250.000 | [EMBRAPA](https://www.embrapa.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Produção de Algodão - ton | Quantidade de algodão em caroço produzido por municípios do brasil, em Toneladas, no período de 2000 a 2015, conforme dados censitários do IBGE. | 2000-2015 | 1:250.000 | [IBGE](https://www.ibge.gov.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Produção de cana-de-açúcar - ton | Quantidade de cana-de-açúcar produzida por municípios do brasil, em Toneladas, no período de 2000 a 2015, conforme dados censitários do IBGE. | 2000-2015 | 1:250.000 | [IBGE](https://www.ibge.gov.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Produção de Lenha - m³ | Quantidade de Lenha produzida por municípios do brasil, em Metros Cúbicos, no período de 2000 a 2015, conforme dados censitários do IBGE. | 2000-2015 | 1:250.000 | [IBGE](https://www.ibge.gov.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Produção de Milho - ton | Quantidade de milho em grão produzido por municípios do brasil, em Toneladas, no período de 2000 a 2015, conforme dados censitários do IBGE. | 2000-2015 | 1:250.000 | [IBGE](https://www.ibge.gov.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Produção de Soja - ton | Quantidade de soja em grão produzida por municípios do brasil, em Toneladas, no período de 2000 a 2015, conforme dados censitários do IBGE. | 2000-2015 | 1:250.000 | [IBGE](https://www.ibge.gov.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+
+<br>
+
+## Pecuária
+
+| Dado | Descrição | Data | Escala | Fonte | Baixar dado |
+| :-------: | :-------: | :-------: | :-------: |  :-------: |   :-------: |  
+| Áreas de pastagens | Mapeamento de áreas de pastagem, a partir de compilação de dados TerraClass Amazon; Funcate;  PROBIO; Canasat e TNC. A área de pastagem mapeada é de 175.396.874 ha, os mapeamentos que compõem são: Bioma Pantanal - Mapeamento da Bacia do Alto Paraguai para 2014; Bioma Caatinga ( Mapeamento Lapig - Versão 2 2014-2016) - Esse mapeamento classificou as áreas de pasto limpo, pasto sujo e área degradada (solo exposto); Bioma Mata Atlântica (Mapeamento Lapig 2014-2016) - Esse mapeamento classificou as áreas de pasto limpo, pasto sujo e área degradada (solo exposto); Bioma Pampa - Mapeamento realizado pelo IBGE para o  estado do Rio Grande do Sul (2012); Bioma Amazônia - Mapeamento TerraClass Amazônia 2014; Bioma Cerrado - Mapeamento TerraClass Cerrado 2013. | 2016 | 1:250.000 | [LAPIG](https://www.lapig.iesa.ufg.br/lapig/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Áreas de queimadas | Dados de queimadas ocorridos no Brasil, para o período de 2002 à 2016, produzidos a partir de imagens MODIS (MCD45A1). | 2002-2016 | 1:250.000 | [LAPIG](https://www.lapig.iesa.ufg.br/lapig/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Desmatamento | Dados de desmatamentos ocorridos, produzidos a partir de compilação de dados do PRODES(Bioma Amazônia: 2005 - 2016), SIAD(Bioma Cerrado: 2003 - 2016) e SOS Mata Atlântica(Bioma Mata Atlântica: 2011 - 2016). | 2003-2016 | 1:250.000 | [PRODES](http://terrabrasilis.dpi.inpe.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Desmatamento Acumulado | Desmatamento acumulado nos últimos 5 anos (2012 a 2016), nos Biomas Amazônia, Cerrado e Mata atlântica. Utilizando dados do PRODES/INPE para a Amazônia, SIAD/LAPIG para o Cerrado, SOS Mata Atlântica para a Mata Atlântica. | 2016 | 1:250.000 | [LAPIG](https://www.lapig.iesa.ufg.br/lapig/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Frigoríficos e matadouros | Dado produzido a partir de informações de Matadouros e/ou Frigoríficos Bovinos do Brasil aptos a exportação, inspecionados visualmente pelo LAPIG. | 2017 | 1:250.000 | [LAPIG](https://www.lapig.iesa.ufg.br/lapig/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Produção de leite - lt | Quantidade de leite em litros produzido por municípios do brasil, no período de 2000 a 2015, conforme dados censitários do IBGE. | 2000-2015 | 1:250.000 | [IBGE](https://www.ibge.gov.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Rebanho bovino | Quantidade de bovinos nos municípios brasileiros. Informação produzida pelo Instituto Brasileiro de Geografia e Estatística (IBGE) e espacializada pelo LAPIG. | 2000-2015 | 1:250.000 | [IBGE](https://www.ibge.gov.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+
+
+<br>
+
+## Social
+
+| Dado | Descrição | Data | Escala | Fonte | Baixar dado |
+| :-------: | :-------: | :-------: | :-------: |  :-------: |   :-------: |  
+| Áreas de terras indígenas | Áreas de terras indígenas brasileiras incluindo situação (regularizada, delimitada, etc), produzidos pela Fundação Nacional do Índio (FUNAI). | 2012 | 1:250.000 | [FUNAI](https://www.gov.br/funai/pt-br) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Áreas Embargadas | Áreas que sofrerão sanções administrativas e/ou medidas cautelar, tendo por objetivo propiciar a regeneração do meio ambiente e dar viabilidade à recuperação da área degradada, fonte IBAMA. | 2017 | 1:250.000 | [LAPIG](https://www.lapig.iesa.ufg.br/lapig/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Conflitos por água (n° ocorrências) | Número de ocorrências de ações de resistência por município, em geral coletivas, que visam garantir o uso e a preservação das águas, no período de 2006 á 2015, produzidos pela CPT - Comissão Pastoral da Terra -  espacializados pelo Lapig. | 2006-2015 | 1:250.000 | [CPT](https://www.cptnacional.org.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Conflitos por terra (n° ocorrências) | Número de conflitos por município em ações de resistência e enfrentamento pela posse, uso e propriedade da terra e pelo acesso aos recursos naturais, no período de 2010 á 2015, produzidos pela CPT - Comissão Pastoral da Terra -  espacializados pelo Lapig. | 2010-2015 | 1:250.000 | [CPT](https://www.cptnacional.org.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Conflitos por terra (n° pessoas) | Número de pessoas envolvidas em conflitos ocorridos  por município, em ações de resistência e enfrentamento pela posse, uso e propriedade da terra e pelo acesso aos recursos naturais,  no período de 2010 á 2015, produzidos pela CPT - Comissão Pastoral da Terra -  espacializados pelo Lapig. | 2010-2015 | 1:250.000 | [CPT](https://www.cptnacional.org.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Índice de Desenvolvimento Humano | Índice de Desenvolvimento Humano Municipal, calculado pela média geométrica dos índices das dimensões de Renda, Educação e Longevidade. Esse cálculo foi realizado a partir das informações dos 3 últimos Censos Demográficos do IBGE – 1991, 2000 e 2010 e espacializado pelo LAPIG. | 1991/ 2000/ 2010 | 1:250.000 | [IBGE](https://www.ibge.gov.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Quilombos | Áreas de Quilombos que possuem titulação de territórios quilombolas, produzido pelo Instituto Nacional de Colonização e Reforma Agrária (INCRA). | 2015 | 1:250.000 | [INCRA](https://www.gov.br/incra/pt-br) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Terras indígenas | Quantidade de terras indígenas por município do Brasil até o ano de 2015, segundo dados produzidos pela Fundação Nacional do Índio(FUNAI) e espacializados pelo LAPIG. | 2015 | 1:250.000 | [FUNAI](https://www.gov.br/funai/pt-br) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Trabalho Escravo | Número de pessoas envolvidas por município, em ações de trabalhos forçados, jornada exaustiva ou por sujeitá-lo á condições degradantes de trabalho, no período de 2000/2002 e de 2008 a 2016, produzidos pela Comissão Pastoral da Terra (CPT) e espacializados pelo LAPIG. | 2000-2016 | 1:250.000 | [CPT](https://www.cptnacional.org.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+
+<br>
+
+## Ambiental
+
+| Dado | Descrição | Data | Escala | Fonte | Baixar dado |
+| :-------: | :-------: | :-------: | :-------: |  :-------: |   :-------: |  
+| Áreas prioritárias para conservação da biodiversidade | Revisão de áreas prioritárias para a conservação da biodiversidade, classificadas quanto a importância biológica. Produzido pelo Minitério do Meio Ambiente (MMA) | 2007 | 1:250.000 | [MMA](https://www.lapig.iesa.ufg.br/lapig/) | [Download](https://www.gov.br/mma/pt-br) |
+| Cobertura vegetal remanescente | Compilação de mapeamentos de vegetação nativa organizado pelo LAPIG/UFG.Para o bioma Amazônia considerou-se os dados do TerraClass Amazônia, com referência em 2012. Para o bioma Cerrado utilizou-se os dados TerraClass Cerrado, com referência em 2012. Os dados produzidos pela SOS Mata Atlântica, com referência em 2014, foram utilizados no bioma Mata Atlântica. O Mapeamento da cobertura vegetal da Bacia do Alto Paraguai, com referência em 2014, foi utilizado para o bioma Pantanal. Nos biomas Caatinga e Pampa considerou-se os dados produzidos no âmbito do PMDBBS, com referência em 2008 | 2014 | 1:250.000 | [LAPIG](https://antigo.mma.gov.br/projeto-de-monitoramento-do-desmatamento-nos-biomas-brasileiros-por-sat%C3%A9lite-pmdbbs) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Corpos d'água | Mapeamento dos corpos de água dos biomas: Caatinga (2008/2009), Mata Atlântica (2008/2009), Cerrado (2008/2009/2010), Pampa (2008/2009) e Pantanal (2008/2009) com base no Projeto de Monitoramento do Desmatamento dos Biomas Brasileiros por Satélite (PMDBBS). | 2009 | 1:250.000 | [PMDBBS](https://www.lapig.iesa.ufg.br/lapig/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Déficit de APP | Dado produzido pelo CSR/UFMG e LAGESA/UFMG com o apoio da Climate and Land Use Alliance, com abrangência territorial para todo Brasil. | 2014 | 1:250.000 | [CSR/UFMG](https://maps.csr.ufmg.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Déficit de Reserva Legal | Dado produzido pelo CSR/UFMG e LAGESA/UFMG com o apoio da Climate and Land Use Alliance, com abrangência territorial para todo Brasil. | 2014 | 1:250.000 | [CSR/UFMG](https://maps.csr.ufmg.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Déficit hídrico | Dados acumulados do ano de 2012 do máximo de água doce disponível para infiltração e escoamento (Blue Water) para as ottobacias de nível 6 localizadas no Brasil, produzidos a partir de imagens do produto MOD16A2 e satélite TRMM. | 2012 | 1:250.000 | [LAPIG](https://www.lapig.iesa.ufg.br/lapig/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+| Unidades de Conservação de Proteção Integral | Localização das unidades de conservação de proteção integral brasileiras, incluindo a Base ao Milionésimo do IBGE de 2014. | 2014 | 1:250.000 | [IBGE](https://www.ibge.gov.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
+
+
+<br>
+
+## Econômico
 
 | Dado | Descrição | Data | Escala | Fonte | Baixar dado |
 | :-------: | :-------: | :-------: | :-------: |  :-------: |  :-------: |  
-| PRODES-Cerrado | Incrementos anuais de desmatamento por corte raso registrados pelo sistema PRODES-Cerrado. | 2002-2019 | 1:250.000 | [Inpe](http://terrabrasilis.dpi.inpe.br/) | [Download](http://terrabrasilis.dpi.inpe.br/download/dataset/cerrado-prodes/vector/yearly_deforestation_2002_2019_cerrado_biome.zip) |
-| DETER-Cerrado | Avisos de evidências de alteração da vegetação nativa registrados pelo sistema DETER-Cerrado. | 2018-2020 | 1:500.000 | [Inpe](http://terrabrasilis.dpi.inpe.br/) | [Download](http://terrabrasilis.dpi.inpe.br/downloads/) |
-| Área antrópica | Máscara de área acumulada de supressão da vegetação nativa até 2000. | 2000 | 1:250.000 | [Inpe](http://terrabrasilis.dpi.inpe.br/) |  [Download](http://terrabrasilis.dpi.inpe.br/download/dataset/cerrado-prodes/vector/accumulated_deforestation_up_to_2000_cerrado_biome.zip) |
-| Susceptibilidade ao desmatamento | Áreas com alto potencial de serem desmatadas. | 2016 | 1:250.000 | [Lapig/UFG](http://cerradodpat.org/) | [Download](https://cerradodpat.org/#/plataforma) |
-
-<br>
-
-## Áreas especiais
-
-| Dado | Descrição | Data | Escala | Fonte | Detalhes | Baixar dado |
-| :-------: | :-------: | :-------: | :-------: |  :-------: |  :-------: |   :-------: |  
-| Terras indigenas | Limite das terras indígenas brasileiras. | 2017 | ND | [Funai](https://www.gov.br/funai/pt-br) | [Lei nº 6.001, de 19 de dezembro de 1973](http://www.planalto.gov.br/ccivil_03/LEIS/L6001.htm) | [Download](http://www.funai.gov.br/index.php/shape) |
-| Comunidades quilombolas | Limite dos territórios quilombolas no Cerrado. | 2020 | ND | [Incra](https://www.incra.gov.br/pt/) | | [Download](http://acervofundiario.incra.gov.br/acervo/acv.php) 
-| Unidades de conservação | Limites das unidades de conservação de proteção integral e uso sustentável (federais e estaduais). | 2017 | ND | [MMA](https://www.mma.gov.br/) | [Lei nº 9.985, de 18 de julho de 2000](http://www.planalto.gov.br/ccivil_03/leis/L9985.htm) | [Download](http://mapas.mma.gov.br/i3geo/datadownload.htm) |
+| Centrais hidrelétricas | Localização de pequenas centrais hidrelétricas, dado produzido pela Agência Nacional de Energia Elétrica (ANEEL). | 2017 | 1:250.000 | [ANEEL](https://www.aneel.gov.br/) | [Download](http://socioambiental.lapig.iesa.ufg.br/) |
 
 
 <br>
-
-## Áreas declaradas
-
-| Dado | Descrição | Data | Escala | Fonte | Detalhes | Baixar dado |
-| :-------: | :-------: | :-------: | :-------: |  :-------: |  :-------: |   :-------: |  
-| Propriedades rurais | Propriedades rurais inscritas no Cadastro Ambiental Rural (CAR) | 2020 | ND | [SICAR](https://www.car.gov.br/) | [Lei nº 12.651, de 25 de maio de 2012](http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12651.htm) | [Download](https://www.car.gov.br/publico/municipios/downloads) |
-| Reserva Legal | Área da propriedade com a função de assegurar o uso econômico de modo sustentável dos recursos naturais do imóvel rural, auxiliar a conservação e a reabilitação dos processos ecológicos e promover a conservação da biodiversidade. | 2020 | ND | [SICAR](https://www.car.gov.br/) | [Lei nº 12.651, de 25 de maio de 2012](http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12651.htm) | [Download](https://www.car.gov.br/publico/municipios/downloads) |
-| Área de Preservação Permanente (APP) | Área protegida, coberta ou não por vegetação nativa, com a função ambiental de preservar os recursos hídricos, a paisagem, a estabilidade geológica e a biodiversidade, facilitar o fluxo gênico de fauna e flora, proteger o solo e assegurar o bem-estar das populações humana. | 2020 | ND | [SICAR](https://www.car.gov.br/) | [Lei nº 12.651, de 25 de maio de 2012](http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12651.htm) | [Download](https://www.car.gov.br/publico/municipios/downloads) |
-| Nascentes de rios | Ponto correspondente ao afloramento natural do lençol freático que apresenta perenidade e dá início a um curso d’água. | 2020 | ND | [SICAR](https://www.car.gov.br/) | [Lei nº 12.651, de 25 de maio de 2012](http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12651.htm) | [Download](https://www.car.gov.br/publico/municipios/downloads) |
-
-<br>
-
-## Uso da terra
-
-| Dado | Descrição | Data | Escala | Fonte | Detalhes | Baixar dado |
-| :-------: | :-------: | :-------: | :-------: |  :-------: |  :-------: |   :-------: |  
-| PROBIO Cerrado | Mapa de uso e cobertura da Terra. | 2002 | 1:250.000 | [Ministério do Meio Ambiente (MMA)](https://www.mma.gov.br/) | [Mapeamento semidetalhado do uso da terra do bioma Cerrado](http://dx.doi.org/10.1590/S0100-204X2008000100020) | [Download](http://mapas.mma.gov.br/i3geo/datadownload.htm) |
-| TerraClass Cerrado | Mapa de uso e cobertura da Terra. | 2013 | 1:250.000 | [Ministério do Meio Ambiente (MMA)](https://www.mma.gov.br/) | [Projeto Terraclass Cerrado](https://www.mma.gov.br/publicacoes/biomas/category/62-cerrado?download=1139:mapeamento-do-uso-e-cobertura-da-terra-do-cerrado) | [Download](http://www.dpi.inpe.br/tccerrado/dados/2013/) | 
-| Vegetação pretérita | Mapa com as fisionomias existentes antes da conversão em área antríópica. | 2019 | 1:250.000 | [IBGE](https://www.ibge.gov.br/) | [Manual Técnico da Vegetação Brasileira](https://biblioteca.ibge.gov.br/index.php/biblioteca-catalogo?view=detalhes&id=263011) | [Download](https://geoftp.ibge.gov.br/informacoes_ambientais/vegetacao/vetores/escala_250_mil/versao_2019/)
-| Agricultura | Áreas cultivadas por soja, milho e algodão durante a safra 2013/14. | Safra 2013/14 | 1:250.000 | [Agrosatélite](https://agrosatelite.com.br/) | [Análise geoespacial da dinâmica das culturas anuais no bioma Cerrado](https://agrosatelite.com.br/wp-content/uploads/2019/03/Analise_geoespacial_da_dinamica_das_culturas_anuais_no_bioma_Cerrado_2000a2014.pdf) | - |
-| Floresta Plantada | Recorte do mapeamento global de silvicultura para o bioma Cerrado disponibilizado pelo portal Global Forest Watch. | 2013-2014 | 1:250.000 | [Transparent World/Global Forest Watch (GFW)](http://terrabrasilis.dpi.inpe.br/) | [Mapping Tree Plantations with Multispectral Imagery: Preliminary Results for Seven Tropical Countries](https://www.wri.org/publication/mapping-tree-plantations?utm_campaign=plantations&utm_source=blog&utm_medium=learnmore&utm_term=technicalnote_plantations&utm_content=hyperlink) | [Download](https://data.globalforestwatch.org/datasets/baae47df61ed4a73a6f54f00cb4207e0_5) |
-
-
-<br>
-
-## Infraestrutura
-
-| Dado | Descrição | Data | Escala | Fonte | Baixar dado |
-| :-------: | :-------: | :-------: | :-------: |  :-------: |  :-------: |  
-| Malha viária | Malha viária (rodovias federais e estaduais) revisada a partir dos dados disponibilizados pela plataforma do OpenStreetMap. | 2020 | ND | [Open Street Maps](https://www.openstreetmap.org/about) | [Download](http://download.geofabrik.de/south-america.html) |
-| Armazéns | Localização dos armazéns destinados a armazenamento e controle de produção no Brasil. | 2017 | ND |  [Companhia Nacional de Abastecimento (CONAB) ](https://portaldeinformacoes.conab.gov.br/armazem) | [Download](https://maps.lapig.iesa.ufg.br/lapig.html) |
-| Frigoríficos | Dado produzido a partir de informações de Matadouros e/ou Frigoríficos Bovinos do Brasil aptos a exportação (SIF-MAPA), com localização revisada pelo LAPIG-UFG. | 2017 | ND | [Ministério da Agricultura, Pecuária e Abastecimento (MAPA)](http://www.agricultura.gov.br/assuntos/inspecao/produtos-animal/sif) | [Download](https://maps.lapig.iesa.ufg.br/lapig.html)
-
-
-<br>
-
-## Geofísico
-
-| Dado | Descrição | Data | Escala | Fonte | Detalhes | Baixar dado |
-| :-------: | :-------: | :-------: | :-------: |  :-------: |  :-------: |   :-------: | 
-| Altitude | Altitude em relação ao nivel do mar expressa em um modelo digital de terreno (MDE-SRTM). | 2000 | 1:150.000 (resolução espacial de 30m) | [NASA/USGS](https://www2.jpl.nasa.gov/srtm/) | [The Shuttle Radar Topography Mission](https://www2.jpl.nasa.gov/srtm/SRTM_paper.pdf) | [Download](https://earthexplorer.usgs.gov/) |
-| Declividade | Métrica, expressa em porcentagem, adotada para representar a diferença de altura entre dois pontos e a distância horizontal entre estes dois pontos. Revela o quão ingreme é o relevo. Obtida a partir dos dados altimétricos do SRTM. | 2000 | 1:150.000 (resolução espacial de 30m) | [NASA/USGS](https://www2.jpl.nasa.gov/srtm/) | [The Shuttle Radar Topography Mission](https://www2.jpl.nasa.gov/srtm/SRTM_paper.pdf) | [Download](https://earthexplorer.usgs.gov/) | 
-
-
-<br>
-
-## Edafoclimáticos
-
-| Dado | Descrição | Data | Escala | Fonte | Detalhes | Baixar dado |
-| :-------: | :-------: | :-------: | :-------: |  :-------: |  :-------: |   :-------: |  
-| Solos | Revisão e conversão para o meio digital dos levantamentos de solos produzidos pelo Projeto RADAMBRASIL. | 2019 | 1:250.000 | [IBGE](http://ibge.gov.br/)  | [Manual de Pedologia](ftp://geoftp.ibge.gov.br/informacoes_ambientais/pedologia/vetores/escala_250_mil/versao_2019/) | [Download](ftp://geoftp.ibge.gov.br/informacoes_ambientais/pedologia/vetores/escala_250_mil/versao_2019/) |
-| Precipitação acumulada anual média | Média de precipitação acumulada anual, entre os anos de 2000 e 2014, obtida por meio da interpolação entre dados TRMM e estações meteorológicas do INMET. | 2000-2013 | 1:150.000 (resolução espacial de 30m) | TRMM/INMET | - | [Download](https://cerradodpat.org/#/plataforma) |
-
-<br>
-
-## Acervo de imagens
-
-| Dado | Descrição | Data | Escala | Fonte | Detalhes | Baixar dado |
-| :-------: | :-------: | :-------: | :-------: |  :-------: |  :-------: |   :-------: |  
-| Mosaico Landsat | Imagens de satélite inspecionadas pelo INPE para a construção do PRODES-Cerrado. | 2000-2019 | 1:150.000 (resolução espacial de 30m) | NASA/USGS/INPE | [Landsat Missions](https://www.usgs.gov/core-science-systems/nli/landsat) | [Download](/03-dad_rasters/#processo-de-atualizacao)|
-| Mosaico Sentinel | Imagens de satélite com resulução espacial de 10 metros, com data diferente das imagens utilizadas para a produção do PRODES-Cerrado. | 2018-2019 | 1:50.000 (resolução espacial de 10m) | [ESA](https://www.esa.int/) | [Sentinel Missions](https://sentinel.esa.int/web/sentinel/home) | [Download](/03-dad_rasters/#processo-de-atualizacao) |
-
-
