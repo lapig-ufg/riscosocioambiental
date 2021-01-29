@@ -62,7 +62,13 @@ Após a importação correta do contâiner, o RISCOSOCIOAMBIENTAL deverá estar 
 
 ![Requisicao ao OWS](imgs/02/ows-standalone/exec-ows-9.png)
 
-Após a execução do OWS Server e RISCOSOCIOAMBIENTAL, também é necessário mover o `indicadores.sqlite` presentes no [link](https://drive.google.com/file/d/1Qww9WQ7G1YHZ1ndLEYzrTrcjAklTRP1v/view?usp=sharing) para dentro da pasta `/storage/catalog/Ocultos` criada no caminho informado pelo usuário no início do script.
+Após a importação correta do contâiner, o MONGODB-SERVER deverá estar executando e aguardando requisições em **localhost** ou **127.0.0.1** na **porta 3000 para o acesso WEB de gerencia** e **27017 de acesso ao Banco de Dados**  . A imagem abaixo apresenta um exemplo de requsição feita através do *NAVEGADOR* no endereço `http://127.0.0.1:3000`, que recebe a página do adminMongo.
+
+![Requisicao ao OWS](imgs/02/mongodb/mongo01.png)
+
+![Requisicao ao OWS](imgs/02/mongodb/mongo03.png)
+
+Após a execução do OWS Server, RISCOSOCIOAMBIENTAL e MONGODB-SERVER também é necessário mover o `indicadores.sqlite` presentes no [link](https://drive.google.com/file/d/1Qww9WQ7G1YHZ1ndLEYzrTrcjAklTRP1v/view?usp=sharing) para dentro da pasta `/storage/catalog/Ocultos` criada no caminho informado pelo usuário no início do script.
 
 Por fim, vale ressaltar que uma vez que o contâiner do OWS Server, RISCOSOCIOAMBIENTAL e MONGODB-SERVER esteja configurado e funcionando não é mais necessário executar o script `start-socio+ows.sh`. Já existe um script na raiz do contâiner que é responsável por executar o OWS Server imediatamente após o contâiner ser inicializado.
 
