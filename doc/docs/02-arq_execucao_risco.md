@@ -34,7 +34,7 @@ Conforme mencionado anteriormente, a estrutura do OWS Server, RISCOSOCIOAMBIENTA
 
 
 
-Após instalação do Docker e das dependências mínimas para o script, deve-se executar o script [`start-socio+ows.sh`](https://drive.google.com/file/d/1OsaO9zfyJyoBsmq9IukXWl1baYJcDW3A/view?usp=sharing) através do comando:
+Após instalação do Docker e das dependências mínimas para o script, deve-se executar o script [`start-socio+ows.sh`](https://drive.google.com/file/d/1NhfkQqGS6HhhpN6LZ8xaRD18xgLFoQ6j/view?usp=sharing) através do comando:
 
 ``` sh
 $ ./start-socio+ows.sh
