@@ -5,16 +5,14 @@ O Risco Socioambiental foi desenvolvido de acordo com os padrões de interoperab
 ## Componentes de software
 
 A arquitetura de software desenvolvida para o Risco Socioambiental pode ser observada na Figura abaixo.
-
-**Fernanda, tem que fazer uma figura parecida com esta porém atualizando o Openlayers para Leaflet e PostgreSQL para SQLite**
-
-![Arquitetura Risco Socioambiental.](imgs/02/softArch.png)
+**Figura da arquitetura Openlayers para Leaflet e PostgreSQL para SQLite**
+<!-- ![Arquitetura Risco Socioambiental.](imgs/02/softArch.png) -->
 
 Essencialmente, pode-se dividir o Risco Socioambiental em três partes:
 
 + *Client:* responsável por apresentar toda a interface, construído em Angular 5 com apoio dos frameworks:
   - WebMap: Mapa interativo construído com o [Leaflet](https://leafletjs.com/)
-  - Componentes *front-end*: **Fernanda olhe aqui os componentes utilizados (Bootstrap..? ) ou foi tudo apenas com CSS puro?**
+  - Componentes *front-end*: CSS
 + *Server:* Disponibiliza os serviços que compõem a aplicação:
   - *Application Server:* Disponibiliza o acesso aos dados do Data Source, análises e configurações.
   - *OWS Server*: Disponibiliza o acesso ao [MapServer](https://mapserver.org/), responsável pelo processamento dos dados geográficos, apresentação visual dos mesmos e gerenciamento de cache das imagens geradas.

@@ -75,15 +75,11 @@ As duas figuras abaixo apresentam exemplos do Mapfile da camada de Área Plantad
 
 4. Define uma classificação para os dados a fim de customizar a coloração de acordo com um critério. A classificação estabelecida também irá compor a legenda. No exemplo, é aplicada as cores cinza (preenchimento) e azul (bordas).
 
-Um segundo tipo de camada de dados possível de ser incorporada ao Risco Socioambiental é oriunda de dados matriciais, ou seja, imagens TIF. Para este tipo de dados, basta informar a localização do arquivo TIF e o critério para classificação se dá de acordo com o valor do pixel em um ponto. Portanto, um exemplo para criação de um Mapfile para arquivos matriciais se dá conforme imagem abaixo.
-
-![Exemplo de Mapfile para dados Matriciais.](imgs/02/mapfile2.png)
-
 Por fim, o Mapfile utilizado para disponibilizar todas as camadas presentes no Risco Socioambiental está na pasta compartilhada do projeto no [link](https://drive.google.com/file/d/1TRhTEYBi7zw6iSmEi6tWkL9tb4ABJQEr/view?usp=sharing).
 
 ## Disponibilização da camada no Application Server
 
-**Fernanda, citar aqui o passo a passo necessário para disponibilizar uma camada no Front-end da aplicação.**
+**Passo a passo necessário para disponibilizar uma camada no Front-end da aplicação.**
 
 <!-- Após a criação da camada no OWS Server, para que esta camada seja apresentada na interface Web do Cerrado DPAT é necessária a sua inserção no *Application Server*. A fim de facilitar a disponibilização de diversas camadas, foi criada uma estrutura nomeada de `descriptor` que descreve as principais configurações de uma camada a ser apresentada no Cerrado DPAT, tais como: filtros de dados, tipos diferentes de camadas e outros. A estrutura completa do **descriptor** encontra-se no repositório do projeto no Github, especificamente no arquivo [map.js](https://github.com/lapig-ufg/d-pat/blob/master/src/server/controllers/map.js).
 

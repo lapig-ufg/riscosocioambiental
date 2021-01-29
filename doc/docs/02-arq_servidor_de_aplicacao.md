@@ -1,9 +1,9 @@
 # Servidor de Aplicação
 
-Basicamente o Cerrado DPAT é dividido em duas partes: o *WebMap Client* e o *Application Server*, conforme descrito anteriormente. O código-fonte para estas duas partes está hospedado no [respositório Github](https://github.com/lapig-ufg/d-pat) do projeto.
+Basicamente a plataforma de Risco Socioambiental é dividida em duas partes: o *WebMap Client* e o *Application Server*, conforme descrito anteriormente. O código-fonte para estas duas partes está hospedado no [respositório Github](https://github.com/lapig-ufg/riscosocioambiental) do projeto.
 
 
-Dentro do repositório do projeto, o código-fonte do *Application Server* está em [src/server](https://github.com/lapig-ufg/d-pat/tree/master/src/server). Por ser construído em NodeJS, ao clonar o projeto o usuário deverá navegar até a pasta server e instalar as dependências gerenciadas pelo [Node Package Manager (NPM)](https://www.npmjs.com/) através do comando:
+Dentro do repositório do projeto, o código-fonte do *Application Server* está em [src/server](https://github.com/lapig-ufg/riscosocioambiental/tree/master/server). Por ser construído em NodeJS, ao clonar o projeto o usuário deverá navegar até a pasta server e instalar as dependências gerenciadas pelo [Node Package Manager (NPM)](https://www.npmjs.com/) através do comando:
 
 ```
 npm install
@@ -15,7 +15,8 @@ Em seguida, deve-se copiar o arquivo .env.exemple renomeando-o para .env:
 cp .env.exemple .env
 ```
 
-Em seguida, deve-se alterar o arquivo .env com as devidas configurações e parâmetros referentes ao banco de dados, pastas para armazenamento dos arquivos de Upload e Download e endereço de hospedagem do OWS Server. Um exemplo de arquivo .env pode ser observado na [seção](/02-arq_execucao_dpat/#execucao-da-aplicacao-cerrado-dpat)
+Em seguida, deve-se alterar o arquivo .env com as devidas configurações e parâmetros referentes ao banco de dados, pastas para armazenamento dos arquivos de Upload e Download e endereço de hospedagem do OWS Server. 
+<!-- Um exemplo de arquivo .env pode ser observado na [seção](/02-arq_execucao_dpat/#execucao-da-aplicacao-cerrado-dpat) -->
 
 Por fim, a fim de facilitar a execução do *Application Server* foi desenvolvido um script nomeado `start.sh` localizado na raiz da pasta **src/server**. Portanto, basta realizar a execução deste arquivo para inicializar o *Application Server*. A fim de identificar modificações em tempo real, o *Application Server* faz uso da biblioteca [`always`](https://www.npmjs.com/package/always), portanto talvez seja necessário a instalação da mesma através do comando.
 
@@ -33,7 +34,7 @@ $ ./src/server/start.sh
 
 ## Manipulação do banco de dados
 
-**Fernanda, vamos adicionar uam breve explicação de como configurar o banco de dados, caminho para o arquivo SQLITE e local no config.js que deve-se configurar**
+**Adicionar uma breve explicação de como configurar o banco de dados, caminho para o arquivo SQLITE e local no config.js que deve-se configurar**
 
 <!-- Para facilitar a criação de serviços que fazem uso de consultas ao banco de dados foi criado um *middleware* nomeado [`dataInjector.js`](https://github.com/lapig-ufg/d-pat/blob/master/src/server/middleware/data-injector.js) que cria um *pool* de conexões para execução de diversas *queries* simultâneas. 
 
@@ -47,7 +48,7 @@ Portanto, todas as URLs deverão ser criadas no seguinte padrão:
 
 ## Como criar um novo serviço
 
-**Fernanda, vamos descrever como criar um service que acessa ao SQLite, praticamente uam descrição com exemplo do Controller e no Routes do que vamos trazer do LapigMaps para o server do Risco**
+**Descrever como criar um service que acessa ao SQLite, praticamente uam descrição com exemplo do Controller e no Routes do que vamos trazer do LapigMaps para o server do Risco**
 
  <!---
  O *Application Server* possui três pastas que armazenam os principais arquivos que permitem a disponibilização de um novo serviço ao Cerrado DPAT: 
