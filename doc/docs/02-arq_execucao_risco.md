@@ -32,7 +32,8 @@ Conforme mencionado anteriormente, a estrutura do OWS Server, RISCOSOCIOAMBIENTA
 | curl | [https://www.cyberciti.biz/faq/how-to-install-curl-command-on-a-ubuntu-linux/](https://www.cyberciti.biz/faq/how-to-install-curl-command-on-a-ubuntu-linux/) |
 | Git | [https://gist.github.com/derhuerst/1b15ff4652a867391f03](https://gist.github.com/derhuerst/1b15ff4652a867391f03) |
 
-Após instalação do Docker e das dependências mínimas para o script, deve-se executar o script [`start-socio+ows.sh`](https://drive.google.com/file/d/1YnTOs3A0ZA-DvtO2hqSHACSRuJGv99Op/view?usp=sharing) através do comando:
+Após instalação do Docker e das dependências mínimas para o script, deve-se executar o script [`start-socio+ows.sh`]
+(https://drive.google.com/file/d/1YnTOs3A0ZA-DvtO2hqSHACSRuJGv99Op/view?usp=sharing) através do comando:
 
 ``` sh
 $ ./start-socio+ows.sh
@@ -58,7 +59,13 @@ Após a importação correta do contâiner, a plataforma RISCOSOCIOAMBIENTAL dev
 
 ![Requisicao ao OWS](imgs/02/ows-standalone/exec-ows-9.png)
 
-Após a execução do OWS Server e RISCOSOCIOAMBIENTAL, também é necessário mover o `indicadores.sqlite` presentes no [link](https://drive.google.com/file/d/1Qww9WQ7G1YHZ1ndLEYzrTrcjAklTRP1v/view?usp=sharing) para dentro da pasta `/storage/catalog/Ocultos` criada no caminho informado pelo usuário no início do script.
+Após a importação correta do contâiner, o MONGODB-SERVER deverá estar executando e aguardando requisições em **localhost** ou **127.0.0.1** na **porta 3000 para o acesso WEB de gerencia** e **27017 de acesso ao Banco de Dados**  . A imagem abaixo apresenta um exemplo de requsição feita através do *NAVEGADOR* no endereço `http://127.0.0.1:3000`, que recebe a página do adminMongo.
+
+![Requisicao ao OWS](imgs/02/mongodb/mongo01.png)
+
+![Requisicao ao OWS](imgs/02/mongodb/mongo03.png)
+
+Após a execução do OWS Server, RISCOSOCIOAMBIENTAL e MONGODB-SERVER também é necessário mover o `indicadores.sqlite` presentes no [link](https://drive.google.com/file/d/1Qww9WQ7G1YHZ1ndLEYzrTrcjAklTRP1v/view?usp=sharing) para dentro da pasta `/storage/catalog/Ocultos` criada no caminho informado pelo usuário no início do script.
 
 Por fim, vale ressaltar que uma vez que o contâiner do OWS Server, RISCOSOCIOAMBIENTAL e MONGODB-SERVER esteja configurado e funcionando não é mais necessário executar o script `start-socio+ows.sh`. Já existe um script na raiz do contâiner, nomeado `start.sh`, que é responsável por executar o OWS Server imediatamente após o contâiner ser inicializado.
 
