@@ -63,12 +63,14 @@ Após a importação correta do contâiner, o RISCOSOCIOAMBIENTAL deverá estar 
 
 Após a execução do OWS Server e RISCOSOCIOAMBIENTAL, também é necessário mover o `indicadores.sqlite` presentes no [link](https://drive.google.com/file/d/1Qww9WQ7G1YHZ1ndLEYzrTrcjAklTRP1v/view?usp=sharing) para dentro da pasta `/storage/catalog/Ocultos` criada no caminho informado pelo usuário no início do script.
 
-Por fim, vale ressaltar que uma vez que o contâiner do OWS Server esteja configurado e funcionando não é mais necessário executar o script `start-ows.sh`. Já existe um script na raiz do contâiner que é responsável por executar o OWS Server imediatamente após o contâiner ser inicializado. Portanto, basta executar:
+Por fim, vale ressaltar que uma vez que o contâiner do OWS Server esteja configurado e funcionando não é mais necessário executar o script `start-socio+ows.sh`. Já existe um script na raiz do contâiner que é responsável por executar o OWS Server imediatamente após o contâiner ser inicializado. Portanto, basta executar:
 
 OBS: Dentro da pasta /catalog/Ocultos/ deve existir os dois arquivos `indicadores.sqlite` e `indicadores.map`, caso nao exista os dois nao irá funcionar a aplicação.
 
+`OBS: Após o script finalizar por completo e todos os containers forem criados, deve-se copiar o arquivo indicadores.sqlite para dentro do diretório escolhido pelo usuário durante a execução do script, o arquivo deve ficar em /$DIRETORIO_ESCOLHIDO_PELO_USUARIO/storage/catalog/Ocultos, logo após copiar o mesmo deve ser reiniciado a aplicação para ela poder encontrar este arquivo essencial para seu funcionamento.`
+
 ``` sh
-$ docker restart OWS bash
+$ docker restart APP_SOCIOAMBIENTAL bash
 ```
 
 E caso deseja entrar no contâiner do OWS-SERVER e verificar os arquivos internos, tais como **logs** de requisições, basta executar:
