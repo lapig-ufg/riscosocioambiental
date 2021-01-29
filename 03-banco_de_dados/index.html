@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Luiz Pascoal, Fernanda Stefani e Renato Gomes">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Banco de Dados - Documentação - Risco Socioambiental</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Banco de Dados";
+    var mkdocs_page_input_path = "03-banco_de_dados.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Documentação - Risco Socioambiental</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">HOME</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Guia do usuário</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../01-guia_dados_geograficos/">Dados Geográficos</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../01-guia_funcionalidades/">Funcionalidades</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Dados</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Banco de Dados</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#banco-de-dados">Banco de dados</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#gerenciador-do-banco-de-dados">Gerenciador do banco de dados</a></li>
+        
+            <li><a class="toctree-l4" href="#processo-de-atualizacao">Processo de atualização</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Arquitetura de Software</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../02-arq_geral/">Visão geral</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../02-arq_servidor_de_mapas/">Servidor de mapas</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../02-arq_servidor_de_aplicacao/">Servidor de aplicação</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../02-arq_execucao_risco/">Deployment da arquitetura do Riscosocioambiental</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Documentação - Risco Socioambiental</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Dados &raquo;</li>
+        
+      
+    
+    <li>Banco de Dados</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="banco-de-dados">Banco de dados</h1>
+<p>Na plataforma de Risco Socioambiental o banco de dados utilizado foi o SQLite que usa a biblioteca SpatiaLite para fornecer um SGBD (Sistema gerenciador de banco de dados) espacial completo e poderoso. O último backup deste banco pode ser encontrado no <a href="https://drive.google.com/file/d/1Qww9WQ7G1YHZ1ndLEYzrTrcjAklTRP1v/view?usp=sharing">link</a> no arquivo <code>indicadores.sqlite</code>. </p>
+<h2 id="gerenciador-do-banco-de-dados">Gerenciador do banco de dados</h2>
+<p>O <a href="https://www.gaia-gis.it/fossil/spatialite_gui/index">spatialite_gui</a> é uma ferramenta de interface gráfica de usuário (GUI) de código aberto que oferece suporte SpatiaLite, simples de utilizar, caso tenha dúvidas acesse a <a href="http://www.gaia-gis.it/gaia-sins/spatialite-gui-docs/">documentação e tutoriais</a>. </p>
+<p>Basicamente para gerenciar o banco de dados você precisará instalar o <a href="https://www.gaia-gis.it/fossil/spatialite_gui/index">spatialite_gui</a> em seu computador, após isso abra a ferramenta e clique no ícone para conectar a um banco de dados, conforme na imagem a seguir:
+<img alt="conectando a um banco de dados." src="/imgs/03/spatialite_1.png" title="conectando a um banco de dados." /></p>
+<p>Escolha o arquivo <code>indicadores.sqlite</code> que baixou agora a pouco por meio do <a href="https://drive.google.com/file/d/1Qww9WQ7G1YHZ1ndLEYzrTrcjAklTRP1v/view?usp=sharing">link</a>, assim o banco será carregado na ferramenta veja:
+<img alt="Banco de dados carregado." src="/imgs/03/spatialite_2.png" title="Banco de dados carregado." /></p>
+<p>Agora você já pode começar as atualizações!</p>
+<h2 id="processo-de-atualizacao">Processo de atualização</h2>
+<p>Diversos dados presentes na plataforma de Risco Socioambiental são periodicamente atualizados pelas instituições competentes. Desta forma, a medida que os mesmos são atualizados e disponibilizados pelas instituições também é necessário realizar a atualização no banco de dados de indicadores da plataforma. Para facilitar a inserção/atualizações de dados nós criamos alguns scripts que serão apresentados ao longo desde documento.</p>
+<h3 id="tabela-base">Tabela base</h3>
+<p>A tabela regions é a base para todas as outras tabelas que são inseridas na plataforma, ela é responsável por armazenar todas as possíveis regiões de filtragem (biomas, estados, municípios, Matopiba e Arco do Desmatamento) de acordo com o interesse do usuário, assim quando executamos o script de inserção de algum dado, ele usará a tabela regions para contruir toda a estrutura e acrescentar apenas o determinado indicador.</p>
+<h3 id="script-de-importacao">Script de importação</h3>
+<p>Este script realiza a inserção de um dado do tipo ShapeFile no banco de dados, lá ele será apresentado como tabela e conterá suas geometrias. Você poderá baixar o script por meio do <a href="https://drive.google.com/file/d/1g-ifse7WkYiGaQ7V2ulcbOHnMDggmQmt/view?usp=sharing">link</a>, em todo caso este é o conteúdo:</p>
+<pre><code class="sh">SHP_PATH=$(echo &quot;$1&quot; | cut -d. -f1)
+SHP_PROJ=4674
+SHP_ENCODING='ISO-8859-1'
+DB_PATH=&quot;/home/fernanda/Documentos/Projeto/Dados_local/Ocultos/indicadores.sqlite&quot;
+LAYERNAME=$(basename &quot;$SHP_PATH&quot; .shp)
+TABLE_NAME=$LAYERNAME
+GEOMETRY_TYPE=$(ogrinfo -ro -so $SHP_PATH $LAYERNAME | grep 'Geometry' | cut -d':' -f2)
+
+spatialite_tool -i -shp $SHP_PATH -2 -k -d $DB_PATH -t $TABLE_NAME -g Geometry -s $SHP_PROJ -c $SHP_ENCODING --type $GEOMETRY_TYPE
+</code></pre>
+
+<p>O script acima lê o caminho da pasta do shapefile (<code>SHP_PATH</code>), a projeção (<code>SHP_PROJ</code>), o encoding (<code>SHP_ENCODING</code>), o banco de dados .sqlite (<code>DB_PATH</code>), nome da tabela que será criada no banco de dados (<code>TABLE_NAME</code>) e geometria (<code>GEOMETRY_TYPE</code>)  tudo isso é feito dentro do script e pode ser alterado conforme necessidade.
+Ao executar o script <code>import_indicadores.sh</code> você deverá apenas informar o caminho da pasta do shapefile (<code>SHP_PATH</code>) veja um exemplo de execução:</p>
+<pre><code class="sh">./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2000.shp
+./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2002.shp
+./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2008.shp
+./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2009.shp
+./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2010.shp
+./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2011.shp
+./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2012.shp
+./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2013.shp
+./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2014.shp
+./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2015.shp
+</code></pre>
+
+<p>Pronto! Os dados de Trabalho Escravo para os anos de 2000 á 2015 foram inserido com sucesso no banco de dados. </p>
+<h3 id="script-de-atualizacao-dentro-do-banco-de-dados">Script de atualização dentro do banco de dados</h3>
+<p>O Próximo passo é cruzar este dado com a tabela base <code>regions</code>, para que este dado possa ser filtrado na plataforma por regiões de interesse e também unificar todos os os anos em apenas uma tabela. Este processo também é simples e temos vários scripts prontos em <code>sql</code>, para baixar acesse o <a href="https://drive.google.com/file/d/10A5MKBrPCmOqun7Dcy7F6acyuhI9K9uT/view?usp=sharing">link</a>. Veja um exemplo de script para atualizar a tabela geral (<code>trabalho_escravo</code>) de todos os anos de Trabalho Escravo:</p>
+<pre><code class="sql">PRAGMA journal_mode = off;
+PRAGMA cache_size = -1024000;
+
+SELECT DisableSpatialIndex('trabalho_escravo', 'Geometry');
+SELECT DiscardGeometryColumn('trabalho_escravo', 'Geometry');
+DROP TABLE &quot;trabalho_escravo&quot;;
+
+CREATE TABLE &quot;trabalho_escravo&quot; (
+    &quot;PK_UID&quot; INTEGER PRIMARY KEY AUTOINCREMENT,
+    &quot;COD_UF&quot; INTEGER,
+    &quot;COD_MUNICI&quot; TEXT,
+    &quot;REGIAO&quot; TEXT,
+    &quot;ESTADO&quot; TEXT,
+    &quot;UF&quot; TEXT,
+    &quot;MUNICIPIO&quot; TEXT,
+    &quot;BIOMA&quot; TEXT,
+    &quot;ARCODESMAT&quot; INTEGER,
+    &quot;MATOPIBA&quot; INTEGER,
+    &quot;QTD_PESSOAS&quot; REAL,
+    &quot;REGION_FK&quot; INTEGER,
+    &quot;ANO&quot; INTEGER
+);
+
+SELECT AddGeometryColumn('trabalho_escravo', 'Geometry', 4674, 'MULTIPOLYGON', 2);
+
+INSERT INTO &quot;trabalho_escravo&quot;(COD_UF, COD_MUNICI, REGIAO, ESTADO, UF, MUNICIPIO, BIOMA, ARCODESMAT, MATOPIBA, QTD_PESSOAS, REGION_FK, ANO, Geometry)
+SELECT  r.COD_UF, r.COD_MUNICI, r.REGIAO, r.ESTADO, r.UF, r.MUNICIPIO, r.BIOMA, r.ARCODESMAT, r.MATOPIBA,
+        s.TRAB_PROPO, r.PK_UID, '2000', s.Geometry
+FROM &quot;trabalho_escravo_cpt_2000&quot; s, regions r
+WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
+
+INSERT INTO &quot;trabalho_escravo&quot;(COD_UF, COD_MUNICI, REGIAO, ESTADO, UF, MUNICIPIO, BIOMA, ARCODESMAT, MATOPIBA, QTD_PESSOAS, REGION_FK, ANO, Geometry)
+SELECT  r.COD_UF, r.COD_MUNICI, r.REGIAO, r.ESTADO, r.UF, r.MUNICIPIO, r.BIOMA, r.ARCODESMAT, r.MATOPIBA,
+        s.TRAB_PROPO, r.PK_UID, '2002', s.Geometry
+FROM &quot;trabalho_escravo_cpt_2002&quot; s, regions r
+WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
+
+INSERT INTO &quot;trabalho_escravo&quot;(COD_UF, COD_MUNICI, REGIAO, ESTADO, UF, MUNICIPIO, BIOMA, ARCODESMAT, MATOPIBA, QTD_PESSOAS, REGION_FK, ANO, Geometry)
+SELECT  r.COD_UF, r.COD_MUNICI, r.REGIAO, r.ESTADO, r.UF, r.MUNICIPIO, r.BIOMA, r.ARCODESMAT, r.MATOPIBA,
+        s.TRAB_PROPO, r.PK_UID, '2008', s.Geometry
+FROM &quot;trabalho_escravo_cpt_2008&quot; s, regions r
+WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
+
+INSERT INTO &quot;trabalho_escravo&quot;(COD_UF, COD_MUNICI, REGIAO, ESTADO, UF, MUNICIPIO, BIOMA, ARCODESMAT, MATOPIBA, QTD_PESSOAS, REGION_FK, ANO, Geometry)
+SELECT  r.COD_UF, r.COD_MUNICI, r.REGIAO, r.ESTADO, r.UF, r.MUNICIPIO, r.BIOMA, r.ARCODESMAT, r.MATOPIBA,
+        s.TRAB_PROPO, r.PK_UID, '2009', s.Geometry
+FROM &quot;trabalho_escravo_cpt_2009&quot; s, regions r
+WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
+
+INSERT INTO &quot;trabalho_escravo&quot;(COD_UF, COD_MUNICI, REGIAO, ESTADO, UF, MUNICIPIO, BIOMA, ARCODESMAT, MATOPIBA, QTD_PESSOAS, REGION_FK, ANO, Geometry)
+SELECT  r.COD_UF, r.COD_MUNICI, r.REGIAO, r.ESTADO, r.UF, r.MUNICIPIO, r.BIOMA, r.ARCODESMAT, r.MATOPIBA,
+        s.TRAB_PROPO, r.PK_UID, '2010', s.Geometry
+FROM &quot;trabalho_escravo_cpt_2010&quot; s, regions r
+WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
+
+INSERT INTO &quot;trabalho_escravo&quot;(COD_UF, COD_MUNICI, REGIAO, ESTADO, UF, MUNICIPIO, BIOMA, ARCODESMAT, MATOPIBA, QTD_PESSOAS, REGION_FK, ANO, Geometry)
+SELECT  r.COD_UF, r.COD_MUNICI, r.REGIAO, r.ESTADO, r.UF, r.MUNICIPIO, r.BIOMA, r.ARCODESMAT, r.MATOPIBA,
+        s.TRAB_PROPO, r.PK_UID, '2011', s.Geometry
+FROM &quot;trabalho_escravo_cpt_2011&quot; s, regions r
+WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
+
+INSERT INTO &quot;trabalho_escravo&quot;(COD_UF, COD_MUNICI, REGIAO, ESTADO, UF, MUNICIPIO, BIOMA, ARCODESMAT, MATOPIBA, QTD_PESSOAS, REGION_FK, ANO, Geometry)
+SELECT  r.COD_UF, r.COD_MUNICI, r.REGIAO, r.ESTADO, r.UF, r.MUNICIPIO, r.BIOMA, r.ARCODESMAT, r.MATOPIBA,
+        s.TRAB_PROPO, r.PK_UID, '2012', s.Geometry
+FROM &quot;trabalho_escravo_cpt_2012&quot; s, regions r
+WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
+
+INSERT INTO &quot;trabalho_escravo&quot;(COD_UF, COD_MUNICI, REGIAO, ESTADO, UF, MUNICIPIO, BIOMA, ARCODESMAT, MATOPIBA, QTD_PESSOAS, REGION_FK, ANO, Geometry)
+SELECT  r.COD_UF, r.COD_MUNICI, r.REGIAO, r.ESTADO, r.UF, r.MUNICIPIO, r.BIOMA, r.ARCODESMAT, r.MATOPIBA,
+        s.TRAB_PROPO, r.PK_UID, '2013', s.Geometry
+FROM &quot;trabalho_escravo_cpt_2013&quot; s, regions r
+WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
+
+INSERT INTO &quot;trabalho_escravo&quot;(COD_UF, COD_MUNICI, REGIAO, ESTADO, UF, MUNICIPIO, BIOMA, ARCODESMAT, MATOPIBA, QTD_PESSOAS, REGION_FK, ANO, Geometry)
+SELECT  r.COD_UF, r.COD_MUNICI, r.REGIAO, r.ESTADO, r.UF, r.MUNICIPIO, r.BIOMA, r.ARCODESMAT, r.MATOPIBA,
+        s.TRAB_PROPO, r.PK_UID, '2014', s.Geometry
+FROM &quot;trabalho_escravo_cpt_2014&quot; s, regions r
+WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
+
+INSERT INTO &quot;trabalho_escravo&quot;(COD_UF, COD_MUNICI, REGIAO, ESTADO, UF, MUNICIPIO, BIOMA, ARCODESMAT, MATOPIBA, QTD_PESSOAS, REGION_FK, ANO, Geometry)
+SELECT  r.COD_UF, r.COD_MUNICI, r.REGIAO, r.ESTADO, r.UF, r.MUNICIPIO, r.BIOMA, r.ARCODESMAT, r.MATOPIBA,
+        s.TRAB_PROPO, r.PK_UID, '2015', s.Geometry
+FROM &quot;trabalho_escravo_cpt_2015&quot; s, regions r
+WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
+
+INSERT INTO &quot;trabalho_escravo&quot;(COD_UF, COD_MUNICI, REGIAO, ESTADO, UF, MUNICIPIO, BIOMA, ARCODESMAT, MATOPIBA, QTD_PESSOAS, REGION_FK, ANO, Geometry)
+SELECT  r.COD_UF, r.COD_MUNICI, r.REGIAO, r.ESTADO, r.UF, r.MUNICIPIO, r.BIOMA, r.ARCODESMAT, r.MATOPIBA,
+        s.TRAB_PROPO, r.PK_UID, '2016', s.Geometry
+FROM &quot;trabalho_escravo_cpt_2016&quot; s, regions r
+WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
+</code></pre>
+
+<p>Este é um exemplo de dado temporal, vamos conferir um dado diferente!</p>
+<h3 id="exemplo-de-insercao-de-dado-nao-temporal">Exemplo de inserção de dado não temporal</h3>
+<p>Execute o script de importação de dados:</p>
+<pre><code class="sh">./import_spatial_inteligence.sh Dados/SPATIAL/unidades_conservacao_integral/unidades_conservacao_integral_todos.shp
+</code></pre>
+
+<p>Agora dentro do banco de dados, o Próximo passo é cruzar este dado com a tabela base <code>regions</code>, para que este dado possa ser filtrado na plataforma por regiões de interesse:</p>
+<pre><code class="sql">PRAGMA journal_mode = off;
+PRAGMA cache_size = -1024000;
+
+SELECT DisableSpatialIndex('unidades_conservacao_integral', 'Geometry');
+SELECT DiscardGeometryColumn('unidades_conservacao_integral', 'Geometry');
+DROP TABLE &quot;unidades_conservacao_integral&quot;;
+
+CREATE TABLE &quot;unidades_conservacao_integral&quot; (
+    &quot;PK_UID&quot; INTEGER PRIMARY KEY AUTOINCREMENT,
+    &quot;COD_UF&quot; INTEGER,
+    &quot;COD_MUNICI&quot; TEXT,
+    &quot;REGIAO&quot; TEXT,
+    &quot;ESTADO&quot; TEXT,
+    &quot;UF&quot; TEXT,
+    &quot;MUNICIPIO&quot; TEXT,
+    &quot;BIOMA&quot; TEXT,
+    &quot;ARCODESMAT&quot; INTEGER,
+    &quot;MATOPIBA&quot; INTEGER,
+    &quot;AREA_HA&quot; REAL,
+    &quot;REGION_FK&quot; INTEGER,
+    &quot;ANO&quot; INTEGER
+);
+
+SELECT AddGeometryColumn('unidades_conservacao_integral', 'Geometry', 4674, 'MULTIPOLYGON', 2);
+
+INSERT INTO &quot;unidades_conservacao_integral&quot;(COD_UF, COD_MUNICI, REGIAO, ESTADO, UF, MUNICIPIO, BIOMA, ARCODESMAT, MATOPIBA, AREA_HA, REGION_FK, ANO, Geometry)
+SELECT  r.COD_UF, r.COD_MUNICI, r.REGIAO, r.ESTADO, r.UF, r.MUNICIPIO, r.BIOMA, r.ARCODESMAT, r.MATOPIBA,
+        s.AREA_HA, r.PK_UID, '2014', s.Geometry
+FROM &quot;unidades_conservacao_integral_todos&quot; s, regions r
+WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
+</code></pre>
+
+<p>Pronto, agora você já sabe como atualizar os dados do banco de dados de indicadores da plataforma de Risco Socioambiental.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../02-arq_geral/" class="btn btn-neutral float-right" title="Visão geral">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../01-guia_funcionalidades/" class="btn btn-neutral" title="Funcionalidades"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../01-guia_funcionalidades/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../02-arq_geral/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

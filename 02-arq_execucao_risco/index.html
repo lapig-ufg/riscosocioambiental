@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="author" content="Luiz Pascoal e Fernanda Stefani">
+  <meta name="author" content="Luiz Pascoal, Fernanda Stefani e Renato Gomes">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Deployment da arquitetura do Riscosocioambiental - Documentação - Risco Socioambiental</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
@@ -74,7 +74,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../03-dad_vetoriais/">Vetoriais</a>
+    <a class="" href="../03-banco_de_dados/">Banco de Dados</a>
                 </li>
     </ul>
 	    </li>
@@ -153,7 +153,7 @@
             <div class="section">
               
                 <h1 id="introducao">Introdução</h1>
-<p>Conforme detalhado na seção <a href="/02-arq_geral">Arquitetura de Software</a>, para execução do RISCOSOCIOAMBIENTAL são necessárias 4 estruturas criadas e funcionais na máquina do usuário:</p>
+<p>Conforme detalhado na seção <a href="/02-arq_geral">Arquitetura de Software</a>, para execução da plataforma Risco Socioambiental ão necessárias 4 estruturas criadas e funcionais na máquina do usuário:</p>
 <ol>
 <li>
 <p>O Banco de Dados <code>wwf-sicar</code> restaurado no serviço do MONGODB.</p>
@@ -165,11 +165,11 @@
 <p>O <em>Application Server</em> e client (Front-end) da aplicação compilados e executando.</p>
 </li>
 <li>
-<p>O Banco de Dados <code>indicadores.sqlite</code> na pasta /storage/catalog/Ocultos, criada pelo script.</p>
+<p>O Banco de Dados <code>indicadores.sqlite</code> na pasta /storage/catalog/Ocultos, criada pelo <a href="https://drive.google.com/file/d/1YnTOs3A0ZA-DvtO2hqSHACSRuJGv99Op/view?usp=sharing">script de inicialização</a>.</p>
 </li>
 </ol>
 <h2 id="deployment-da-aplicacao-riscosocioambiental-e-ows-server">Deployment da aplicação RISCOSOCIOAMBIENTAL e OWS Server</h2>
-<p>A fim facilitar/automatizar todo o processo de execução do Riscosocioambiental e OWS Server foi criado um script que executa todos os passos necessários. Este script deverá executar as seguintes tarefas:</p>
+<p>A fim facilitar/automatizar todo o processo de execução do Risco Socioambiental e do OWS Server foi criado um <a href="https://drive.google.com/file/d/1YnTOs3A0ZA-DvtO2hqSHACSRuJGv99Op/view?usp=sharing">script</a> que executa todos os passos necessários. Este script deverá executar as seguintes tarefas:</p>
 <ul>
 <li>Download do contâiner do <code>CONTAINER_OWS.tar.gz</code> </li>
 <li>Download do contâiner do <code>CONTAINER_SOCIOAMBIENTAL.tar.gz</code></li>
@@ -213,44 +213,44 @@
 
 <p>Inicialmente o script irá pedir ao usuário que informe o local onde o OWS Server e RISCOSOCIOAMBIENTAL deverá criar a estrutura de pastas necessárias para funcionamento. Na imagem abaixo, o usuário terá informado o caminho <code>/data/containers</code>. É importante ressaltar que este deverá ser um caminho válido na máquina do usuário.</p>
 <p><img alt="Estrutura de pastas" src="../imgs/02/ows-standalone/exec-ows-1.png" /></p>
-<p>Em seguida, deve-se informar o diretório onde o cache deverá ser armazenado. Na imagem abaixo, o usuário terá informado novamente o caminho <code>/storage</code>. porém, como o OWS Server está armazenado em um contâiner Docker, o script irá mapear automaticamente este caminho para <code>/STORAGE</code> dentro da estrutura do Docker.</p>
+<p>Em seguida, deve-se informar o diretório onde o cache gerado pelo <em>OWS Server</em> deverá ser armazenado. Na imagem abaixo, o usuário terá informado novamente o caminho <code>/storage</code>. porém, como o OWS Server está armazenado em um contâiner Docker, o script irá mapear automaticamente este caminho para <code>/STORAGE</code> dentro da estrutura do Docker.</p>
 <p><img alt="Estrutura de pastas" src="../imgs/02/ows-standalone/exec-ows-2.png" /></p>
-<p>Após a inicialização do das variáveis necessárias o script irá realizar automaticamente o download do contâiner do OWS Server, RISCOSOCIOAMBIENTAL,MONGODB-SERVER e importá-los corretamente no Docker instalado na máquina do usuário.</p>
+<p>Após a inicialização das variáveis necessárias, o script irá realizar automaticamente o download do contâiner do OWS Server, RISCOSOCIOAMBIENTAL,MONGODB-SERVER e importá-los corretamente no Docker instalado na máquina do usuário.</p>
 <p><img alt="Download OWS" src="../imgs/02/ows-standalone/exec-ows-7.png" /></p>
 <p>Após a importação correta do contâiner, o OWS Server deverá estar executando e aguardando requisições em <strong>localhost</strong> ou <strong>127.0.0.1</strong> na <strong>porta 5000</strong>. A imagem abaixo apresenta um exemplo de requsição feita através do <em>curl</em> no endereço <code>http://127.0.0.1:5000/ows</code>, que recebe uma pequena página HTML criada pelo MapServer.</p>
 <p><img alt="Requisicao ao OWS" src="../imgs/02/ows-standalone/exec-ows-8.png" /></p>
-<p>Após a importação correta do contâiner, o RISCOSOCIOAMBIENTAL deverá estar executando e aguardando requisições em <strong>localhost</strong> ou <strong>127.0.0.1</strong> na <strong>porta 2000</strong>. A imagem abaixo apresenta um exemplo de requsição feita através do <em>NAVEGADOR</em> no endereço <code>http://127.0.0.1:2000</code>, que recebe a página do RISCOSOCIOAMBIENTAL.</p>
+<p>Após a importação correta do contâiner, a plataforma RISCOSOCIOAMBIENTAL deverá estar executando e aguardando requisições em <strong>localhost</strong> ou <strong>127.0.0.1</strong> na <strong>porta 2000</strong>. A imagem abaixo apresenta um exemplo de requsição feita através do <em>NAVEGADOR</em> no endereço <code>http://127.0.0.1:2000</code>, que recebe a página do RISCOSOCIOAMBIENTAL.</p>
 <p><img alt="Requisicao ao OWS" src="../imgs/02/ows-standalone/exec-ows-9.png" /></p>
 <p>Após a importação correta do contâiner, o MONGODB-SERVER deverá estar executando e aguardando requisições em <strong>localhost</strong> ou <strong>127.0.0.1</strong> na <strong>porta 3000 para o acesso WEB de gerencia</strong> e <strong>27017 de acesso ao Banco de Dados</strong>  . A imagem abaixo apresenta um exemplo de requsição feita através do <em>NAVEGADOR</em> no endereço <code>http://127.0.0.1:3000</code>, que recebe a página do adminMongo.</p>
 <p><img alt="Requisicao ao OWS" src="../imgs/02/mongodb/mongo01.png" /></p>
 <p><img alt="Requisicao ao OWS" src="../imgs/02/mongodb/mongo03.png" /></p>
 <p>Após a execução do OWS Server, RISCOSOCIOAMBIENTAL e MONGODB-SERVER também é necessário mover o <code>indicadores.sqlite</code> presentes no <a href="https://drive.google.com/file/d/1Qww9WQ7G1YHZ1ndLEYzrTrcjAklTRP1v/view?usp=sharing">link</a> para dentro da pasta <code>/storage/catalog/Ocultos</code> criada no caminho informado pelo usuário no início do script.</p>
-<p>Por fim, vale ressaltar que uma vez que o contâiner do OWS Server, RISCOSOCIOAMBIENTAL e MONGODB-SERVER esteja configurado e funcionando não é mais necessário executar o script <code>start-socio+ows.sh</code>. Já existe um script na raiz do contâiner que é responsável por executar o OWS Server imediatamente após o contâiner ser inicializado.</p>
+<p>Por fim, vale ressaltar que uma vez que o contâiner do OWS Server, RISCOSOCIOAMBIENTAL e MONGODB-SERVER esteja configurado e funcionando não é mais necessário executar o script <code>start-socio+ows.sh</code>. Já existe um script na raiz do contâiner, nomeado <code>start.sh</code>, que é responsável por executar o OWS Server imediatamente após o contâiner ser inicializado.</p>
 <p>OBS: Dentro da pasta /catalog/Ocultos/ deve existir os dois arquivos <code>indicadores.sqlite</code> e <code>indicadores.map</code>, caso nao exista os dois nao irá funcionar a aplicação.</p>
-<p><code>OBS: Após o script finalizar por completo e todos os containers forem criados, deve-se copiar o arquivo indicadores.sqlite para dentro do diretório escolhido pelo usuário durante a execução do script, o arquivo deve ficar em /$DIRETORIO_ESCOLHIDO_PELO_USUARIO/storage/catalog/Ocultos, logo após copiar o mesmo deve ser reiniciado a aplicação para ela poder encontrar este arquivo essencial para seu funcionamento.</code></p>
+<p><code>ATENÇÃO: Após o script finalizar por completo e todos os containers forem criados, deve-se copiar o arquivo indicadores.sqlite para dentro do diretório escolhido pelo usuário durante a execução do script, o arquivo deve ficar em /$DIRETORIO_ESCOLHIDO_PELO_USUARIO/storage/catalog/Ocultos, logo após copiar o mesmo deve ser reiniciado a aplicação para ela poder encontrar este arquivo essencial para seu funcionamento.</code></p>
 <pre><code class="sh">$ docker restart APP_SOCIOAMBIENTAL 
 </code></pre>
 
-<p>E caso deseja entrar no contâiner do OWS-SERVER e verificar os arquivos internos, tais como <strong>logs</strong> de requisições, basta executar:</p>
+<p>Para verificar os <strong>logs</strong> gerados pelo OWS-SERVER deve-se entrar no contâiner do OWS-SERVER e verificar o arquivo <code>ows-mapserv.log</code>, tais ações podem ser alcançadas com a execução dos passos abaixo:</p>
 <pre><code class="sh">$ docker exec -it OWS bash
 $ cd /APP/lapig-maps/src/ows/log
 $ tail -f ows-mapserv.log
 </code></pre>
 
-<p>E caso deseja entrar no contâiner do OWS-SOCIOAMBIENTAL e verificar os arquivos internos, tais como <strong>logs</strong> de requisições, basta executar:</p>
+<p>Em seguida, para verficar os <strong>logs</strong> gerados pela aplicação Risco Socioambiental, é necessário entrar no contâiner APP_SOCIOAMBIENTAL e verificar o arquivo <code>app.out</code>. Para tal, basta executar:</p>
 <pre><code class="sh">$ docker exec -it APP_SOCIOAMBIENTAL bash
 $ cd /APP/riscosocioambiental/server
 $ tail -f app.out
 </code></pre>
 
-<p>E caso deseja entrar no contâiner do MONGODB-SERVER e verificar se o banco foi restaurado com sucesso, tais como <strong>logs</strong> de requisições, basta executar:</p>
+<p>Por fim, caso deseje verificar se o banco Mongo (MONGODB-SERVER) foi restaurado com sucesso, basta executar:</p>
 <pre><code class="sh">$ docker exec -it APP_SOCIOAMBIENTAL bash
 $ cd /APP/dump
 $ cat log-restore.out
 </code></pre>
 
 <h2 id="criacao-do-ambiente-de-desenvolvimento">Criação do Ambiente de Desenvolvimento</h2>
-<p>A seguir será abordado como executar a aplicação RISCOSOCIOAMBIENTAL em ambiente de Desenvolvimento. Para o ambiente de desenvolvimento será detalhado um passo a passo partindo do pressuposto que um programador irá dar manutenção ou continuidade no RISCOSOCIOAMBIENTAL. Já o ambiente de produção, será disponibilizado via script que executa todos os passos para disponibilizar o RISCOSOCIOAMBIENTAL em uma porta da máquina que está sendo executado. </p>
+<p>A seguir será abordado como executar a aplicação RISCOSOCIOAMBIENTAL em ambiente de Desenvolvimento. Para o ambiente de desenvolvimento será detalhado um passo a passo partindo do pressuposto que um programador irá dar manutenção ou continuidade no RISCOSOCIOAMBIENTAL. Já o ambiente de produção, será disponibilizado via script que executa todos os passos para disponibilizar o RISCOSOCIOAMBIENTAL em uma porta da máquina que está sendo executado.</p>
 <p>Assim como abordado na <a href="/02-arq_geral/#arquitetura-de-software">seção</a>, o RISCOSOCIOAMBIENTAL foi construído com NodeJS como <em>Application Server</em> e Angular como cliente (<em>WebMap Client</em>). Portanto, primeiramente é necessária a instalação destes componentes na máquina do desenvolvedor. Para tal, pode-se seguir o passo-a-passo elaborado neste <a href="https://www.tecmint.com/install-angular-cli-on-linux/">link</a></p>
 <p>Para execução do RISCOSOCIOAMBIENTAL em ambiente de desenvolvimento, primeiramente é necessário realizar um <a href="https://github.com/UNIVALI-LITE/Portugol-Studio/wiki/Fazendo-um-Fork-do-reposit%C3%B3rio"><code>fork</code></a> do projeto para a sua conta pessoal do Github e em seguida executar um <a href="https://docs.github.com/pt/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository"><code>git clone</code></a> do <a href="https://github.com/lapig-ufg/d-pat">repositório do projeto</a>.</p>
 <p>Para inicializar o servidor de aplicação (<em>Application Server</em>) deve-se executar o passo-a-passo descrito na <a href="/02-arq_servidor_de_aplicacao/#servidor-de-aplicacao">seção</a>. A execução da mesma irá inicializar o <em>Application Server</em> em localhost na porta 3000. Para verificar o seu funcionamento, pode-se realizar a requisição abaixo em um navegador qualquer, que deverá apresentar um resultado semelhante a <a href="https://cerradodpat.org/service/deforestation/largest?year=2019&amp;amount=15">este</a>.</p>

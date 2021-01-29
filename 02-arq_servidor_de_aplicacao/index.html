@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="author" content="Luiz Pascoal e Fernanda Stefani">
+  <meta name="author" content="Luiz Pascoal, Fernanda Stefani e Renato Gomes">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Servidor de aplicação - Documentação - Risco Socioambiental</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
@@ -74,7 +74,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../03-dad_vetoriais/">Vetoriais</a>
+    <a class="" href="../03-banco_de_dados/">Banco de Dados</a>
                 </li>
     </ul>
 	    </li>
@@ -151,8 +151,8 @@
             <div class="section">
               
                 <h1 id="servidor-de-aplicacao">Servidor de Aplicação</h1>
-<p>Basicamente o Cerrado DPAT é dividido em duas partes: o <em>WebMap Client</em> e o <em>Application Server</em>, conforme descrito anteriormente. O código-fonte para estas duas partes está hospedado no <a href="https://github.com/lapig-ufg/d-pat">respositório Github</a> do projeto.</p>
-<p>Dentro do repositório do projeto, o código-fonte do <em>Application Server</em> está em <a href="https://github.com/lapig-ufg/d-pat/tree/master/src/server">src/server</a>. Por ser construído em NodeJS, ao clonar o projeto o usuário deverá navegar até a pasta server e instalar as dependências gerenciadas pelo <a href="https://www.npmjs.com/">Node Package Manager (NPM)</a> através do comando:</p>
+<p>Basicamente a plataforma de Risco Socioambiental é dividida em duas partes: o <em>WebMap Client</em> e o <em>Application Server</em>, conforme descrito anteriormente. O código-fonte para estas duas partes está hospedado no <a href="https://github.com/lapig-ufg/riscosocioambiental">respositório Github</a> do projeto.</p>
+<p>Dentro do repositório do projeto, o código-fonte do <em>Application Server</em> está em <a href="https://github.com/lapig-ufg/riscosocioambiental/tree/master/server">src/server</a>. Por ser construído em NodeJS, ao clonar o projeto o usuário deverá navegar até a pasta server e instalar as dependências gerenciadas pelo <a href="https://www.npmjs.com/">Node Package Manager (NPM)</a> através do comando:</p>
 <pre><code>npm install
 </code></pre>
 
@@ -160,7 +160,8 @@
 <pre><code>cp .env.exemple .env
 </code></pre>
 
-<p>Em seguida, deve-se alterar o arquivo .env com as devidas configurações e parâmetros referentes ao banco de dados, pastas para armazenamento dos arquivos de Upload e Download e endereço de hospedagem do OWS Server. Um exemplo de arquivo .env pode ser observado na <a href="/02-arq_execucao_dpat/#execucao-da-aplicacao-cerrado-dpat">seção</a></p>
+<p>Em seguida, deve-se alterar o arquivo .env com as devidas configurações e parâmetros referentes ao banco de dados, pastas para armazenamento dos arquivos de Upload e Download e endereço de hospedagem do OWS Server. 
+<!-- Um exemplo de arquivo .env pode ser observado na <a href="/02-arq_execucao_dpat/#execucao-da-aplicacao-cerrado-dpat">seção</a> --></p>
 <p>Por fim, a fim de facilitar a execução do <em>Application Server</em> foi desenvolvido um script nomeado <code>start.sh</code> localizado na raiz da pasta <strong>src/server</strong>. Portanto, basta realizar a execução deste arquivo para inicializar o <em>Application Server</em>. A fim de identificar modificações em tempo real, o <em>Application Server</em> faz uso da biblioteca <a href="https://www.npmjs.com/package/always"><code>always</code></a>, portanto talvez seja necessário a instalação da mesma através do comando.</p>
 <pre><code class="sh">$ sudo npm install always -g
 </code></pre>
@@ -170,7 +171,7 @@
 </code></pre>
 
 <h2 id="manipulacao-do-banco-de-dados">Manipulação do banco de dados</h2>
-<p><strong>Fernanda, vamos adicionar uam breve explicação de como configurar o banco de dados, caminho para o arquivo SQLITE e local no config.js que deve-se configurar</strong></p>
+<p><strong>Adicionar uma breve explicação de como configurar o banco de dados, caminho para o arquivo SQLITE e local no config.js que deve-se configurar</strong></p>
 <!-- Para facilitar a criação de serviços que fazem uso de consultas ao banco de dados foi criado um *middleware* nomeado [`dataInjector.js`](https://github.com/lapig-ufg/d-pat/blob/master/src/server/middleware/data-injector.js) que cria um *pool* de conexões para execução de diversas *queries* simultâneas.
 
 O `dataInjector.js` analisa a URL da requisição HTTP de modo a associar a função que especifica a query (por meio da tupla {id, sql}) com o controlador que irá devolver a resposta da requisição.
@@ -183,7 +184,7 @@ Portanto, todas as URLs deverão ser criadas no seguinte padrão:
 
 ## Como criar um novo serviço
 
-**Fernanda, vamos descrever como criar um service que acessa ao SQLite, praticamente uam descrição com exemplo do Controller e no Routes do que vamos trazer do LapigMaps para o server do Risco**
+**Descrever como criar um service que acessa ao SQLite, praticamente uam descrição com exemplo do Controller e no Routes do que vamos trazer do LapigMaps para o server do Risco**
 
  &lt;!---
  O *Application Server* possui três pastas que armazenam os principais arquivos que permitem a disponibilização de um novo serviço ao Cerrado DPAT: 

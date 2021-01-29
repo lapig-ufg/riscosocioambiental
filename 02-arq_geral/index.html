@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="author" content="Luiz Pascoal e Fernanda Stefani">
+  <meta name="author" content="Luiz Pascoal, Fernanda Stefani e Renato Gomes">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Visão geral - Documentação - Risco Socioambiental</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
@@ -74,7 +74,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../03-dad_vetoriais/">Vetoriais</a>
+    <a class="" href="../03-banco_de_dados/">Banco de Dados</a>
                 </li>
     </ul>
 	    </li>
@@ -153,21 +153,17 @@
                 <h1 id="arquitetura-de-software">Arquitetura de software</h1>
 <p>O Risco Socioambiental foi desenvolvido de acordo com os padrões de interoperabilidade definidos pela <em>Open Geospatial Consortium</em> (<a href="https://www.ogc.org/">OGC</a>) e a arquitetura de <em>webservices</em> com o padrão <a href="https://pt.wikipedia.org/wiki/REST">REST</a>.</p>
 <h2 id="componentes-de-software">Componentes de software</h2>
-<p>A arquitetura de software desenvolvida para o Risco Socioambiental pode ser observada na Figura abaixo.</p>
-<p><strong>Fernanda, tem que fazer uma figura parecida com esta porém atualizando o Openlayers para Leaflet e PostgreSQL para SQLite</strong></p>
-<p><img alt="Arquitetura Risco Socioambiental." src="../imgs/02/softArch.png" /></p>
+<p>A arquitetura de software desenvolvida para o Risco Socioambiental pode ser observada na Figura abaixo.
+<strong>Figura da arquitetura Openlayers para Leaflet e PostgreSQL para SQLite</strong>
+<!-- <img alt="Arquitetura Risco Socioambiental." src="imgs/02/softArch.png" /> --></p>
 <p>Essencialmente, pode-se dividir o Risco Socioambiental em três partes:</p>
 <ul>
-<li><em>Client:</em> responsável por apresentar toda a interface, construído em Angular 5 com apoio dos frameworks:<ul>
+<li><em>Client:</em> responsável por apresentar toda a interface, construído em Angular 5 com apoio dos frameworks:</li>
 <li>WebMap: Mapa interativo construído com o <a href="https://leafletjs.com/">Leaflet</a></li>
-<li>Componentes <em>front-end</em>: <strong>Fernanda olhe aqui os componentes utilizados (Bootstrap..? ) ou foi tudo apenas com CSS puro?</strong></li>
-</ul>
-</li>
-<li><em>Server:</em> Disponibiliza os serviços que compõem a aplicação:<ul>
+<li>Componentes <em>front-end</em>: CSS</li>
+<li><em>Server:</em> Disponibiliza os serviços que compõem a aplicação:</li>
 <li><em>Application Server:</em> Disponibiliza o acesso aos dados do Data Source, análises e configurações.</li>
 <li><em>OWS Server</em>: Disponibiliza o acesso ao <a href="https://mapserver.org/">MapServer</a>, responsável pelo processamento dos dados geográficos, apresentação visual dos mesmos e gerenciamento de cache das imagens geradas.</li>
-</ul>
-</li>
 <li><em>Data Source</em>: Responsável por armazenar os dados vetoriais e matriciais.</li>
 </ul>
 <p>Resumidamente, todos os dados usados pelo Risco Socioambiental estão organizados em um banco de dados SQLite e em sistemas de arquivos <em>(Data Repository)</em>. O SQLite é armazenado também em arquivo e permite processar consultas espaciais via <em>Structured Query Language</em> (SQL). Já os dados que não necessitam de cruzamentos espaciais são armazenados em arquivos nos formatos Shapefile e/ou GeoTIFF.</p>
@@ -183,7 +179,7 @@
         <a href="../02-arq_servidor_de_mapas/" class="btn btn-neutral float-right" title="Servidor de mapas">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../03-dad_vetoriais/" class="btn btn-neutral" title="Vetoriais"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../03-banco_de_dados/" class="btn btn-neutral" title="Banco de Dados"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -209,7 +205,7 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../03-dad_vetoriais/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../03-banco_de_dados/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../02-arq_servidor_de_mapas/" style="color: #fcfcfc">Next &raquo;</a></span>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="author" content="Luiz Pascoal e Fernanda Stefani">
+  <meta name="author" content="Luiz Pascoal, Fernanda Stefani e Renato Gomes">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Servidor de mapas - Documentação - Risco Socioambiental</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
@@ -74,7 +74,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../03-dad_vetoriais/">Vetoriais</a>
+    <a class="" href="../03-banco_de_dados/">Banco de Dados</a>
                 </li>
     </ul>
 	    </li>
@@ -271,11 +271,9 @@ O OCG (Open Geospatial Consortium, Inc.) é uma organização que tem como objet
 <p>Define uma classificação para os dados a fim de customizar a coloração de acordo com um critério. A classificação estabelecida também irá compor a legenda. No exemplo, é aplicada as cores cinza (preenchimento) e azul (bordas).</p>
 </li>
 </ol>
-<p>Um segundo tipo de camada de dados possível de ser incorporada ao Risco Socioambiental é oriunda de dados matriciais, ou seja, imagens TIF. Para este tipo de dados, basta informar a localização do arquivo TIF e o critério para classificação se dá de acordo com o valor do pixel em um ponto. Portanto, um exemplo para criação de um Mapfile para arquivos matriciais se dá conforme imagem abaixo.</p>
-<p><img alt="Exemplo de Mapfile para dados Matriciais." src="../imgs/02/mapfile2.png" /></p>
 <p>Por fim, o Mapfile utilizado para disponibilizar todas as camadas presentes no Risco Socioambiental está na pasta compartilhada do projeto no <a href="https://drive.google.com/file/d/1TRhTEYBi7zw6iSmEi6tWkL9tb4ABJQEr/view?usp=sharing">link</a>.</p>
 <h2 id="disponibilizacao-da-camada-no-application-server">Disponibilização da camada no Application Server</h2>
-<p><strong>Fernanda, citar aqui o passo a passo necessário para disponibilizar uma camada no Front-end da aplicação.</strong></p>
+<p><strong>Passo a passo necessário para disponibilizar uma camada no Front-end da aplicação.</strong></p>
 <!-- Após a criação da camada no OWS Server, para que esta camada seja apresentada na interface Web do Cerrado DPAT é necessária a sua inserção no *Application Server*. A fim de facilitar a disponibilização de diversas camadas, foi criada uma estrutura nomeada de `descriptor` que descreve as principais configurações de uma camada a ser apresentada no Cerrado DPAT, tais como: filtros de dados, tipos diferentes de camadas e outros. A estrutura completa do **descriptor** encontra-se no repositório do projeto no Github, especificamente no arquivo [map.js](https://github.com/lapig-ufg/d-pat/blob/master/src/server/controllers/map.js).
 
 Segue abaixo as configurações das camadas apresentadas acima dentro da estrutura do descriptor. Primeiramente, iremos disponibilizar a camada `bi_ce_prodes_desmatamento_100_fip` que representa um dado vetorial no qual é possível aplicar diversos filtros. A variável `languageJson` representa o acesso ao arquivo .json responsável pela internacionalização da aplicação, ou seja, apresenta textos em diferentes idiomas de acordo com o valor recebido como parâmetro `language`.  
