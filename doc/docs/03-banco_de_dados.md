@@ -25,7 +25,7 @@ A tabela regions é a base para todas as outras tabelas que são inseridas na pl
 
 ### Script de importação
 
-Este script realiza a inserção de um dado do tipo ShapeFile no banco de dados, lá ele será apresentado como tabela e conterá suas geometrias. Você poderá baixar o script por meio do [link](), em todo caso este é o conteúdo:
+Este script realiza a inserção de um dado do tipo ShapeFile no banco de dados, lá ele será apresentado como tabela e conterá suas geometrias. Você poderá baixar o script por meio do [link](https://drive.google.com/file/d/1g-ifse7WkYiGaQ7V2ulcbOHnMDggmQmt/view?usp=sharing), em todo caso este é o conteúdo:
 
 ``` sh
 SHP_PATH=$(echo "$1" | cut -d. -f1)
