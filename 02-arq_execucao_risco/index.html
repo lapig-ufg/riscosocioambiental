@@ -206,7 +206,8 @@
 </tr>
 </tbody>
 </table>
-<p>Após instalação do Docker e das dependências mínimas para o script, deve-se executar o script <a href="https://drive.google.com/file/d/1NhfkQqGS6HhhpN6LZ8xaRD18xgLFoQ6j/view?usp=sharing"><code>start-socio+ows.sh</code></a> através do comando:</p>
+<p>Após instalação do Docker e das dependências mínimas para o script, deve-se executar o script [<code>start-socio+ows.sh</code>]
+(https://drive.google.com/file/d/1YnTOs3A0ZA-DvtO2hqSHACSRuJGv99Op/view?usp=sharing) através do comando:</p>
 <pre><code class="sh">$ ./start-socio+ows.sh
 </code></pre>
 
@@ -220,10 +221,14 @@
 <p><img alt="Requisicao ao OWS" src="../imgs/02/ows-standalone/exec-ows-8.png" /></p>
 <p>Após a importação correta do contâiner, o RISCOSOCIOAMBIENTAL deverá estar executando e aguardando requisições em <strong>localhost</strong> ou <strong>127.0.0.1</strong> na <strong>porta 2000</strong>. A imagem abaixo apresenta um exemplo de requsição feita através do <em>NAVEGADOR</em> no endereço <code>http://127.0.0.1:2000</code>, que recebe a página do RISCOSOCIOAMBIENTAL.</p>
 <p><img alt="Requisicao ao OWS" src="../imgs/02/ows-standalone/exec-ows-9.png" /></p>
-<p>Após a execução do OWS Server e RISCOSOCIOAMBIENTAL, também é necessário mover o <code>indicadores.sqlite</code> presentes no <a href="https://drive.google.com/file/d/1Qww9WQ7G1YHZ1ndLEYzrTrcjAklTRP1v/view?usp=sharing">link</a> para dentro da pasta <code>/storage/catalog/Ocultos</code> criada no caminho informado pelo usuário no início do script.</p>
-<p>Por fim, vale ressaltar que uma vez que o contâiner do OWS Server esteja configurado e funcionando não é mais necessário executar o script <code>start-ows.sh</code>. Já existe um script na raiz do contâiner que é responsável por executar o OWS Server imediatamente após o contâiner ser inicializado. Portanto, basta executar:</p>
+<p>Após a importação correta do contâiner, o MONGODB-SERVER deverá estar executando e aguardando requisições em <strong>localhost</strong> ou <strong>127.0.0.1</strong> na <strong>porta 3000 para o acesso WEB de gerencia</strong> e <strong>27017 de acesso ao Banco de Dados</strong>  . A imagem abaixo apresenta um exemplo de requsição feita através do <em>NAVEGADOR</em> no endereço <code>http://127.0.0.1:3000</code>, que recebe a página do adminMongo.</p>
+<p><img alt="Requisicao ao OWS" src="../imgs/02/mongodb/mongo01.png" /></p>
+<p><img alt="Requisicao ao OWS" src="../imgs/02/mongodb/mongo03.png" /></p>
+<p>Após a execução do OWS Server, RISCOSOCIOAMBIENTAL e MONGODB-SERVER também é necessário mover o <code>indicadores.sqlite</code> presentes no <a href="https://drive.google.com/file/d/1Qww9WQ7G1YHZ1ndLEYzrTrcjAklTRP1v/view?usp=sharing">link</a> para dentro da pasta <code>/storage/catalog/Ocultos</code> criada no caminho informado pelo usuário no início do script.</p>
+<p>Por fim, vale ressaltar que uma vez que o contâiner do OWS Server, RISCOSOCIOAMBIENTAL e MONGODB-SERVER esteja configurado e funcionando não é mais necessário executar o script <code>start-socio+ows.sh</code>. Já existe um script na raiz do contâiner que é responsável por executar o OWS Server imediatamente após o contâiner ser inicializado.</p>
 <p>OBS: Dentro da pasta /catalog/Ocultos/ deve existir os dois arquivos <code>indicadores.sqlite</code> e <code>indicadores.map</code>, caso nao exista os dois nao irá funcionar a aplicação.</p>
-<pre><code class="sh">$ docker restart OWS bash
+<p><code>OBS: Após o script finalizar por completo e todos os containers forem criados, deve-se copiar o arquivo indicadores.sqlite para dentro do diretório escolhido pelo usuário durante a execução do script, o arquivo deve ficar em /$DIRETORIO_ESCOLHIDO_PELO_USUARIO/storage/catalog/Ocultos, logo após copiar o mesmo deve ser reiniciado a aplicação para ela poder encontrar este arquivo essencial para seu funcionamento.</code></p>
+<pre><code class="sh">$ docker restart APP_SOCIOAMBIENTAL 
 </code></pre>
 
 <p>E caso deseja entrar no contâiner do OWS-SERVER e verificar os arquivos internos, tais como <strong>logs</strong> de requisições, basta executar:</p>
