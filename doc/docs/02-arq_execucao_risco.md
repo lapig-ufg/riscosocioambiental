@@ -70,7 +70,7 @@ OBS: Dentro da pasta /catalog/Ocultos/ deve existir os dois arquivos `indicadore
 `OBS: Após o script finalizar por completo e todos os containers forem criados, deve-se copiar o arquivo indicadores.sqlite para dentro do diretório escolhido pelo usuário durante a execução do script, o arquivo deve ficar em /$DIRETORIO_ESCOLHIDO_PELO_USUARIO/storage/catalog/Ocultos, logo após copiar o mesmo deve ser reiniciado a aplicação para ela poder encontrar este arquivo essencial para seu funcionamento.`
 
 ``` sh
-$ docker restart APP_SOCIOAMBIENTAL bash
+$ docker restart APP_SOCIOAMBIENTAL 
 ```
 
 E caso deseja entrar no contâiner do OWS-SERVER e verificar os arquivos internos, tais como **logs** de requisições, basta executar:
