@@ -72,9 +72,13 @@
         
             <li><a class="toctree-l4" href="#dashboard">Dashboard</a></li>
         
-            <li><a class="toctree-l4" href="#visualizacao-das-areas-desmatadas">Visualização das áreas desmatadas</a></li>
+            <li><a class="toctree-l4" href="#ferramenta-de-pesquisa-por-propriedade-do-car">Ferramenta de pesquisa por propriedade do CAR</a></li>
         
-            <li><a class="toctree-l4" href="#upload-de-dados-geograficos">Upload de dados geográficos</a></li>
+            <li><a class="toctree-l4" href="#ferramenta-de-gerar-relatorio">Ferramenta de Gerar Relatório</a></li>
+        
+            <li><a class="toctree-l4" href="#ferramenta-de-download-de-propriedades-sicar">Ferramenta de Download de propriedades Sicar</a></li>
+        
+            <li><a class="toctree-l4" href="#ferramenta-de-download">Ferramenta de Download</a></li>
         
         </ul>
     
@@ -163,29 +167,37 @@
             <div class="section">
               
                 <h1 id="funcionalidades">Funcionalidades</h1>
+<p>A abordagem da plataforma baseia-se em apresentar um vasto conjunto de dados secundários relevantes (fontes oficiais e dados de referência) em um mapa interativo de fácil navegação. Todos os indicadores são listados já com seus respectivos valores, logo na página inicial da plataforma, promovendo assim o acesso mais rápido a informação.</p>
 <h2 id="dashboard">Dashboard</h2>
-<p>O dashboard do Cerrado DPAT é formado por cinco elementos principais:</p>
-<p><img alt="Dashboard do Cerrado DPAT." src="../imgs/01/dashboard.jpg" title="Dashboard do Cerrado DPAT." /></p>
-<p><strong>1 - Controle de Visualização</strong></p>
-<p>Permite o controle do nível de zoom do mapa, além de ocultar e ativar a visualização da “Camada de Dados”. Também fornece ao usuário o acesso aos materiais explicativos da plataforma, tais como vídeos de eventos e tutoriais.</p>
-<p><strong>2 - Camada de Dados</strong></p>
-<p>Agrega todos os <a href="/01-guia_dados_geograficos/">dados</a> que podem ser exibidos no mapa, agrupados nas seguintes seções: Desmatamento; Áreas Especiais; Áreas Declaradas; Uso da Terra; Infraestrutura; Geofísico; Edafoclimáticos; Acervo de Imagens. Também permite ao usuário, com opções agrupadas em abas, o controle do mapa base (Mapbox, Google Maps e Bing), dos limites que são mostrados no mapa, e o upload de uma área de interesse que pode ser enviada nos formatos shapefile, geojson e kml.</p>
-<p><img alt="Camadas de dados que podem ser ativadas e visualizadas no mapa." src="../imgs/01/camadadedados.jpg" title="Camadas de dados que podem ser ativadas e visualizadas no mapa." /></p>
-<p><strong>3 - Mapa interativo</strong></p>
-<p>Área onde todas as camadas de dados são visualizadas.</p>
+<p>O dashboard da Plataforma Risco Socioambiental é formado por quatro elementos principais:</p>
+<p><img alt="Dashboard da plataforma Risco Socioambiental." src="../imgs/01/risco_mapa.png" title="Dashboard da plataforma Risco Socioambiental." /></p>
+<p><strong>1 - Indicadores</strong></p>
+<p>A unidade de referência são os municípios, mas também é possível fazer análises considerando todo o território nacional, estados, biomas e regiões específicas de interesse (como o Matopiba e Arco do Desmatamento). Os indicadores também podem ser agrupados por categorias (Agricultura, Ambiental Econômico, Natural, Pecuária e Social). Conforme os filtros de área são aplicados, os valores são atualizados para região selecionada. Também é possível visualizar o percentual do indicador sob a área total da região. Como é ilustrado na imagem logo abaixo, o Brasil possui 175.361.556 hectares de áreas de pastagens, o que equivale a 20,63% de toda área nacional.</p>
+<p><img alt="Camadas de dados que podem ser ativadas e visualizadas no mapa." src="../imgs/01/risco_indicadores.png" title="Camadas de dados que podem ser ativadas e visualizadas no mapa." /></p>
+<p><strong>2 - Mapa interativo</strong></p>
+<p>Área onde todos os indicadores contidos na plataforma podem ser visualizados no mapa, para análises e comparações com outros indicadores. Na imagem seguinte temos um exemplo de visualização de indicadores no mapa: indicadores de áreas de pastagens na cor amarela e frigoríficos na cor vermelha. 
+<img alt="Indicadores de áreas de pastagens na cor amarela e frigoríficos na cor vermelha." src="../imgs/01/risco_indicadores_mapa.png" title="Indicadores de áreas de pastagens na cor amarela e frigoríficos na cor vermelha." /></p>
+<p><strong>3 - Controle de Visualização</strong></p>
+<p>Permite o controle do nível de zoom do mapa, além de ocultar e ativar a visualização da lista de indicadores, controle das legendas dos dados ativos no mapa. O mapa base também pode ser alterado conforme a necessidade de análise do usuário. E por último o ícone de "lupa" ferramenta para pesquisa de propriedade por meio do código do Cadastro Ambiental Rural - CAR.</p>
+<p><img alt="Camadas de dados e controles de visualização." src="../imgs/01/risco_mapa.png" title="Camadas de dados e controles de visualização." /></p>
 <p><strong>4 - Legenda</strong></p>
-<p>Legenda correspondente às camadas de dados habilitadas para visualização.</p>
-<p><strong>5 - Estatísticas de Desmatamento sobre o PRODES-Cerrado</strong></p>
-<p>Expõe as estatísticas de desmatamento e uso do solo de acordo com a unidade de análise escolhida pelo usuário (Estado ou Município). Por padrão, exibe para todo o bioma Cerrado, o total anual da área desmatada no período 2000-2019. De acordo com o ano de interesse do usuário e, a partir do cruzamento com dados do Cadastro Ambiental Rural (CAR), também apresenta o total desmatado em Área de Preservação Permanente (APP) e em Reserva Legal (RL) nos dez municípios com a maior área desmatada dentro destas categorias.</p>
-<p><img alt="Estatísticas gerais para municípios, estados e todo o bioma Cerrado." src="../imgs/01/estatisticas_desmatamento.jpg" title="Estatísticas gerais para municípios, estados e todo o bioma Cerrado." /></p>
-<h2 id="visualizacao-das-areas-desmatadas">Visualização das áreas desmatadas</h2>
-<p>Essa seção tem por objetivo espacializar o total desmatado, detectado em cada ano, pelos sistemas PRODES-Cerrado e DETER-Cerrado. Estes dados podem ser ativados para dois níveis: município e polígono.</p>
-<p><img alt=" Visualização de dados em nível municipal." src="../imgs/01/camdados_desmatamento.png" /></p>
-<p>Destaca-se também a possibilidade de ativar os polígonos interseccionados com propriedades participantes do projeto FIP ABC, assim como todas as áreas desmatadas visitadas em campo, com os respectivos dados coletados em cada área. Uma outra forma de visualização do dado PRODES-Cerrado é por total acumulado anual. Ou seja, a área antrópica total do bioma Cerrado para cada ano.</p>
-<p>Para verificar a <a href="/01-guia_metricas_de_qualidade/#superficie-de-susceptibilidade-ao-desmatamento">suscetibilidade ao desmatamento</a> dos polígonos detectados a partir de 2016, foram criadas duas superfícies. Estas camadas, com resolução de 100m, foram concebidas a partir dos padrões observados nos desmatamentos pequenos (&lt; 0,5 km²) e grandes (&gt; 0,5 km²) ocorridos entre os anos de 2010 e 2015.</p>
-<h2 id="upload-de-dados-geograficos">Upload de dados geográficos</h2>
-<p>Considerando as necessidades específicas de cada usuário da ferramenta Cerrado DPAT, a aba “Upload” (localizada na “Camada de Dados”) permite a submissão de arquivos shapefile e geojson (compactados em .zip) ou .kml e .kmz (produzidos pelo Google Earth). Após a submissão do arquivo espacial, os limites da área de interesse já podem ser visualizados no mapa. Um token, numérico e em QR Code, também é criado para eventuais compartilhamentos.</p>
-<p><img alt=" Visualização de dados em nível municipal." src="../imgs/01/uploaddadosqrcode.jpg" /></p>
+<p>As legendas dos dados ativos no mapa contam com um controle de visualização, sobreposição de camadas e também opacidade o que contribui para uma melhor análise do usuário. </p>
+<p><img alt="Lengendas dos mapas ativados para visualização." src="../imgs/01/risco_legenda.png" title="Lengendas dos mapas ativados para visualização." /></p>
+<h2 id="ferramenta-de-pesquisa-por-propriedade-do-car">Ferramenta de pesquisa por propriedade do CAR</h2>
+<p>O ícone de "lupa" é uma ferramenta desenvolvida para pesquisa de propriedade por meio do código do Cadastro Ambiental Rural - CAR. Ao inserir um código de propriedade o limite é evidenciado no mapa e o usuário pode selecionar os indicadores que deseja analisar.</p>
+<p><img alt="Ferramenta de pesquisa por propriedade do CAR" src="../imgs/01/risco_consulta_car.png" title="Ferramenta de pesquisa por propriedade do CAR" /></p>
+<h2 id="ferramenta-de-gerar-relatorio">Ferramenta de Gerar Relatório</h2>
+<p>Um dos recursos mais importantes da plataforma é o “Gerar relatório”, que traz em formato de gráfico as séries históricas do(s) dado(s) selecionado(s) para uma determinada região definida pelo usuário. Caso o dado não seja temporal, o valor é mostrado apenas para o ano de criação do indicador, como é o caso do dado de Unidades de Conservação de Proteção Integral (2014), Frigoríficos e Matadouros (2017) e Floresta Plantada(2014).</p>
+<p><img alt="Relatório em formato de gráfico da produção de soja em toneladas, mostrando a sua evolução temporal   (2000 a 2015) na região do bioma Cerrado." src="../imgs/01/risco_relatorio_evolucao.png" title="Relatório em formato de gráfico da produção de soja em toneladas, mostrando a sua evolução temporal   (2000 a 2015) na região do bioma Cerrado." />
+Relatório em formato de gráfico da produção de soja em toneladas, mostrando a sua evolução temporal   (2000 a 2015) na região do bioma Cerrado.</p>
+<p>Destaca-se também a possibilidade de visualizar o ranking dos 10 primeiros e 10 últimos Municípios para o indicador escolhido, levando em consideração o ano e região selecionada. O ranking apresenta a posição, nome do município, UF e valor do indicador.</p>
+<p><img alt="Ranking dos 10 primeiros e 10 últimos Municípios para o indicador escolhido." src="../imgs/01/risco_ranking.png" title="Ranking dos 10 primeiros e 10 últimos Municípios para o indicador escolhido." /></p>
+<h2 id="ferramenta-de-download-de-propriedades-sicar">Ferramenta de Download de propriedades Sicar</h2>
+<p>Ferramenta acessível por meio do <a href="http://socioambiental.lapig.iesa.ufg.br/sicar">link</a>.</p>
+<p><img alt=" Ferramenta de Download" src="../imgs/01/risco_download_sicar.png" /></p>
+<h2 id="ferramenta-de-download">Ferramenta de Download</h2>
+<p>Por fim, os usuários podem fazer o download dos indicadores em formato shapefile ou CSV, assim como recuperar o relatório em formato CSV.</p>
+<p><img alt=" Ferramenta de Download" src="../imgs/01/risco_download.png" /></p>
               
             </div>
           </div>

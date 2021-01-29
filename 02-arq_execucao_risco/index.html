@@ -112,13 +112,9 @@
     
         <ul>
         
-            <li><a class="toctree-l4" href="#restaurando-e-disponibilizando-o-banco-de-dados-fip-cerrado">Restaurando e disponibilizando o banco de dados FIP-Cerrado</a></li>
+            <li><a class="toctree-l4" href="#deployment-da-aplicacao-riscosocioambiental-e-ows-server">Deployment da aplicação RISCOSOCIOAMBIENTAL e OWS Server</a></li>
         
-            <li><a class="toctree-l4" href="#deployment-do-ows-server">Deployment do OWS Server</a></li>
-        
-            <li><a class="toctree-l4" href="#deployment-da-aplicacao-cerrado-dpat">Deployment da aplicação Cerrado DPAT</a></li>
-        
-            <li><a class="toctree-l4" href="#script-completo-com-execucao-completa-para-producao">Script completo com execução completa para Produção</a></li>
+            <li><a class="toctree-l4" href="#criacao-do-ambiente-de-desenvolvimento">Criação do Ambiente de Desenvolvimento</a></li>
         
         </ul>
     
@@ -165,10 +161,10 @@
             <div class="section">
               
                 <h1 id="introducao">Introdução</h1>
-<p>Conforme detalhado na seção <a href="/02-arq_geral">Arquitetura de Software</a>, para execução do Cerrado DPAT são necessárias 3 estruturas criadas e funcionais na máquina do usuário:</p>
+<p>Conforme detalhado na seção <a href="/02-arq_geral">Arquitetura de Software</a>, para execução do RISCOSOCIOAMBIENTAL são necessárias 4 estruturas criadas e funcionais na máquina do usuário:</p>
 <ol>
 <li>
-<p>O Banco de Dados <code>fip_cerrado</code> restaurado no serviço do PostgreSQL devidamente instalado com a extensão PostGis.</p>
+<p>O Banco de Dados <code>wwf-sicar</code> restaurado no serviço do MONGODB.</p>
 </li>
 <li>
 <p>O serviço <em>OWS Server</em> devidamente configurado e executando em um IP e porta.</p>
@@ -176,45 +172,22 @@
 <li>
 <p>O <em>Application Server</em> e client (Front-end) da aplicação compilados e executando.</p>
 </li>
+<li>
+<p>O Banco de Dados <code>indicadores.sqlite</code> na pasta /storage/catalog/Ocultos, criada pelo script.</p>
+</li>
 </ol>
-<h2 id="restaurando-e-disponibilizando-o-banco-de-dados-fip-cerrado">Restaurando e disponibilizando o banco de dados FIP-Cerrado</h2>
-<p>Para restaurar o banco <code>fip_cerrado</code> no PostgreSQL, é necessário ter o serviço PostgreSQL executando na máquina do usuário. Para tal, pode-se utilizar o tutorial neste <a href="https://medium.com/@thiago.reis/instalando-e-configurando-postgresql-no-ubuntu-86716cda5894">link</a> para instalar e executar o PostgreSQL e o PGAdmin3.</p>
-<p>Ao final do tutorial, deve-se verificar qual a versão do PostgreSQL instalado (ver: <a href="https://phoenixnap.com/kb/check-postgresql-version">link</a>) e também instalar a extensão do Postgis para a versão adequada de acordo com o tutorial deste <a href="https://computingforgeeks.com/how-to-install-postgis-on-ubuntu-debian/">link</a> no <strong>Step 4: Install PostGIS on Ubuntu 20.04/18.04 / Debian 10</strong>.</p>
-<p>Com o PostgreSQL e o PostGIS instalados, em seguida é necessário realizar o download do último backup disponibilizado no <a href="https://drive.google.com/file/d/19nVhry3bvHpV_oY861saBV9prXpfnFtd/view?usp=sharing">endereço</a> e extraí-lo.</p>
-<pre><code class="sh">$ tar -xfv BKP_BANCO_DADOS_FIP_CERRADO.tar.gz
-</code></pre>
-
-<p>Em seguida, deve-se exportar a variável de senha do banco de dados configurada anteriormente.</p>
-<pre><code class="sh">$ export PGPASSWORD= &lt;db_password&gt;
-</code></pre>
-
-<p>Após exportação da senha, deve criar o banco de dados no serviço PostgreSQL. Este passo pode ser realizado por linha de comando ou com ajuda do PGAdmin3. Ambos os passos estão demonstrados abaixo.</p>
-<pre><code class="sh">$ psql -h &lt;host_address&gt; -U &lt;db_user&gt; -c &quot;create database fip_cerado;&quot;
-</code></pre>
-
-<p><img alt="Criação Database via PGAdmin3." src="../imgs/02/database.png" /></p>
-<p>Após a criação do banco de dados, deve-se criar as extensões do PostGis e PlPGSql para uso das funções na aplicação.</p>
-<pre><code class="sh">$ psql -h &lt;host_address&gt; -U &lt;db_user&gt; -d fip_cerrado -c &quot;create extension postgis;&quot;
-
-$ psql -h &lt;host_address&gt; -U &lt;db_user&gt; -d fip_cerrado -c &quot;create extension plpgsql;&quot;
-</code></pre>
-
-<p>Agora de fato pode-se restaurar o banco de dados baixado e extraído para a database <code>fip_cerrado</code> criada, o que pode ser alcançada através do comando.</p>
-<pre><code class="sh">$ pg_restore -U fip_cerrado -h &lt;host_address&gt; -v -j 24 --format=d -C -d fip_cerrado fip_cerrado.sql/
-</code></pre>
-
-<p>Por fim, com o banco restaurado, deve-se criar/executar algumas funções auxiliares SQL para criação das <a href="https://www.postgresqltutorial.com/postgresql-materialized-views/">Materialized Views</a> e algumas funções SQL customizadas para o Cerrado DPAT. Para tal, deve-se acessar o <a href="https://github.com/lapig-ufg/d-pat/blob/master/src/server/scripts/bd_funcoes/ImportantFunctions.sql">arquivo .sql</a> e executá-lo da seguinte forma:</p>
-<pre><code class="sh">$ psql -h &lt;host_address&gt; -U &lt;db_user&gt; -d fip_cerrado -a -f &lt;ImportantFunctions.sql&gt;
-</code></pre>
-
-<h2 id="deployment-do-ows-server">Deployment do OWS Server</h2>
-<p>A fim facilitar/automatizar todo o processo de execução do OWS Server foi criado um script que executa todos os passos necessários. Este script deverá executar as seguintes tarefas:</p>
+<h2 id="deployment-da-aplicacao-riscosocioambiental-e-ows-server">Deployment da aplicação RISCOSOCIOAMBIENTAL e OWS Server</h2>
+<p>A fim facilitar/automatizar todo o processo de execução do Riscosocioambiental e OWS Server foi criado um script que executa todos os passos necessários. Este script deverá executar as seguintes tarefas:</p>
 <ul>
-<li>Download do contâiner do OWS Server presente no <a href="https://drive.google.com/file/d/11WLTneFgdKC4Cb31TludwAZ-6jd4YkrG/view?usp=sharing">endereço</a></li>
-<li>Cria a estrutura de pastas necessárias (ows-cache, catalog e dpat-files) para funcionamento do OWS Server.</li>
+<li>Download do contâiner do <code>CONTAINER_OWS.tar.gz</code> </li>
+<li>Download do contâiner do <code>CONTAINER_SOCIOAMBIENTAL.tar.gz</code></li>
+<li>Download do contâiner do <code>CONTAINER_MONGODB.tar.gz</code>  </li>
+<li>Cria a estrutura de pastas necessárias (ows-cache, catalog, Ocultos e riscosocioambiental) para funcionamento do OWS Server e riscosocioambiental</li>
 <li>Constrói a aplicação do OWS Server e a disponibiliza em um IP e porta.</li>
+<li>Constrói a aplicação do RISCOSOCIOAMBIENTAL e a disponibiliza em um IP e porta.</li>
+<li>Constrói a aplicação do MONGODB-SERVER e a disponibiliza em um IP e porta.</li>
 </ul>
-<p>Conforme mencionado anteriormente, a estrutura do OWS Server foi construída com o apoio do <a href="https://www.docker.com/">Docker</a>, portanto para instalação do mesmo, deve-se seguir os passos definidos nos tutoriais de acordo com o sistema operacional, seja ele <a href="https://docs.docker.com/engine/install/debian/">Debian</a> ou <a href="https://docs.docker.com/engine/install/centos/">CentOS</a>. Além do Docker, o script também faz uso das seguintes dependências:</p>
+<p>Conforme mencionado anteriormente, a estrutura do OWS Server, RISCOSOCIOAMBIENTAL e MONGODB-SERVER foi construída com o apoio do <a href="https://www.docker.com/">Docker</a>, portanto para instalação do mesmo, deve-se seguir os passos definidos nos tutoriais de acordo com o sistema operacional, seja ele <a href="https://docs.docker.com/engine/install/debian/">Debian</a> ou <a href="https://docs.docker.com/engine/install/centos/">CentOS</a>. Além do Docker, o script também faz uso das seguintes dependências:</p>
 <table>
 <thead>
 <tr>
@@ -241,63 +214,48 @@ $ psql -h &lt;host_address&gt; -U &lt;db_user&gt; -d fip_cerrado -c &quot;create
 </tr>
 </tbody>
 </table>
-<p>Após instalação do Docker e das dependências mínimas para o script, deve-se executar o script <a href="https://drive.google.com/file/d/1dPdvaUiVkGHB_sz4dWifuj5z8bUH-PT_/view?usp=sharing"><code>start-ows.sh</code></a> através do comando:</p>
-<pre><code class="sh">$ ./start-ows.sh
+<p>Após instalação do Docker e das dependências mínimas para o script, deve-se executar o script <a href="https://drive.google.com/file/d/1OsaO9zfyJyoBsmq9IukXWl1baYJcDW3A/view?usp=sharing"><code>start-socio+ows.sh</code></a> através do comando:</p>
+<pre><code class="sh">$ ./start-socio+ows.sh
 </code></pre>
 
-<p>Inicialmente o script irá pedir ao usuário que informe o local onde o OWS deverá criar a estrutura de pastas necessárias para funcionamento. Na imagem abaixo, o usuário terá informado o caminho <code>/mnt/hd02</code>. É importante ressaltar que este deverá ser um caminho válido na máquina do usuário, porém, como o OWS Server está armazenado em um contâiner Docker, o script irá mapear automaticamente este caminho para <code>/STORAGE</code> dentro da estrutura do Docker.</p>
+<p>Inicialmente o script irá pedir ao usuário que informe o local onde o OWS Server e RISCOSOCIOAMBIENTAL deverá criar a estrutura de pastas necessárias para funcionamento. Na imagem abaixo, o usuário terá informado o caminho <code>/data/containers</code>. É importante ressaltar que este deverá ser um caminho válido na máquina do usuário.</p>
 <p><img alt="Estrutura de pastas" src="../imgs/02/ows-standalone/exec-ows-1.png" /></p>
-<p>Em seguida, deve-se informar o diretório onde o cache deverá ser armazenado. Na imagem abaixo, o usuário terá informado novamente o caminho <code>/mnt/hd02</code>.</p>
+<p>Em seguida, deve-se informar o diretório onde o cache deverá ser armazenado. Na imagem abaixo, o usuário terá informado novamente o caminho <code>/storage</code>. porém, como o OWS Server está armazenado em um contâiner Docker, o script irá mapear automaticamente este caminho para <code>/STORAGE</code> dentro da estrutura do Docker.</p>
 <p><img alt="Estrutura de pastas" src="../imgs/02/ows-standalone/exec-ows-2.png" /></p>
-<p>Em seguida, o script irá pedir para que o usuário informe o host (endereço) de onde está rodando o serviço do Banco de dados PostgreSQL, bem como, a porta de execução, o nome do banco de dados e a senha do banco. Estes dados são necessários para configurar o acesso do Mapserver ao banco de dados a fim de criar as camadas de dados vetoriais.</p>
-<p><img alt="Host do BD" src="../imgs/02/ows-standalone/exec-ows-3.png" /></p>
-<p><img alt="Porta do DB" src="../imgs/02/ows-standalone/exec-ows-4.png" /></p>
-<p><img alt="Nome do DB" src="../imgs/02/ows-standalone/exec-ows-5.png" /></p>
-<p><img alt="Senha do BD" src="../imgs/02/ows-standalone/exec-ows-6.png" /></p>
-<p>Após a inicialização do das variáveis necessárias para conectar o OWS Server com o banco de dados, o script irá realizar automaticamente o download do contâiner do OWS Server e importá-lo corretamente no Docker instalado na máquina do usuário.</p>
+<p>Após a inicialização do das variáveis necessárias o script irá realizar automaticamente o download do contâiner do OWS Server, RISCOSOCIOAMBIENTAL,MONGODB-SERVER e importá-los corretamente no Docker instalado na máquina do usuário.</p>
 <p><img alt="Download OWS" src="../imgs/02/ows-standalone/exec-ows-7.png" /></p>
 <p>Após a importação correta do contâiner, o OWS Server deverá estar executando e aguardando requisições em <strong>localhost</strong> ou <strong>127.0.0.1</strong> na <strong>porta 5000</strong>. A imagem abaixo apresenta um exemplo de requsição feita através do <em>curl</em> no endereço <code>http://127.0.0.1:5000/ows</code>, que recebe uma pequena página HTML criada pelo MapServer.</p>
 <p><img alt="Requisicao ao OWS" src="../imgs/02/ows-standalone/exec-ows-8.png" /></p>
-<p>Após a execução do OWS Server, também é necessário mover os arquivos Raster presentes no <a href="https://drive.google.com/file/d/1L2pW2PudSsmwGQMhPGXbZd5sJvBmEcSW/view?usp=sharing">link</a> para dentro da pasta <code>catalog</code> criada no caminho informado pelo usuário no início do script.</p>
+<p>Após a importação correta do contâiner, o RISCOSOCIOAMBIENTAL deverá estar executando e aguardando requisições em <strong>localhost</strong> ou <strong>127.0.0.1</strong> na <strong>porta 2000</strong>. A imagem abaixo apresenta um exemplo de requsição feita através do <em>NAVEGADOR</em> no endereço <code>http://127.0.0.1:2000</code>, que recebe a página do RISCOSOCIOAMBIENTAL.</p>
+<p><img alt="Requisicao ao OWS" src="../imgs/02/ows-standalone/exec-ows-9.png" /></p>
+<p>Após a execução do OWS Server e RISCOSOCIOAMBIENTAL, também é necessário mover o <code>indicadores.sqlite</code> presentes no <a href="https://drive.google.com/file/d/1Qww9WQ7G1YHZ1ndLEYzrTrcjAklTRP1v/view?usp=sharing">link</a> para dentro da pasta <code>/storage/catalog/Ocultos</code> criada no caminho informado pelo usuário no início do script.</p>
 <p>Por fim, vale ressaltar que uma vez que o contâiner do OWS Server esteja configurado e funcionando não é mais necessário executar o script <code>start-ows.sh</code>. Já existe um script na raiz do contâiner que é responsável por executar o OWS Server imediatamente após o contâiner ser inicializado. Portanto, basta executar:</p>
+<p>OBS: Dentro da pasta /catalog/Ocultos/ deve existir os dois arquivos <code>indicadores.sqlite</code> e <code>indicadores.map</code>, caso nao exista os dois nao irá funcionar a aplicação.</p>
 <pre><code class="sh">$ docker restart OWS bash
 </code></pre>
 
-<p>E caso deseja entrar no contâiner e verificar os arquivos internos, tais como <strong>logs</strong> de requisições, basta executar:</p>
+<p>E caso deseja entrar no contâiner do OWS-SERVER e verificar os arquivos internos, tais como <strong>logs</strong> de requisições, basta executar:</p>
 <pre><code class="sh">$ docker exec -it OWS bash
 $ cd /APP/lapig-maps/src/ows/log
 $ tail -f ows-mapserv.log
 </code></pre>
 
-<h2 id="deployment-da-aplicacao-cerrado-dpat">Deployment da aplicação Cerrado DPAT</h2>
-<p>Para execução do Cerrado DPAT é importante ressaltar que o Banco de Dados deve estar restaurado e acessível conforme abordado na <a href="/02-arq_execucao_dpat/#restaurando-e-disponibilizando-o-banco-de-dados-fip-cerrado">seção</a> e também deve-se ter o <a href="/02-arq_execucao_dpat/#execucao-do-ows-server">OWS Server</a> funcionando corretamente.</p>
-<p>A seguir será abordado duas maneiras de executar a aplicação Cerrado DPAT em ambientes de Desenvolvimento e Produção. Para o ambiente de desenvolvimento será detalhado um passo a passo partindo do pressuposto que um programador irá dar manutenção ou continuidade no Cerrado DPAT. Já o ambiente de produção, será disponibilizado um script que executa todos os passos para disponibilizar o Cerrado DPAT em uma porta da máquina que está sendo executado. </p>
-<p>Em seguida, certifique-se de criar corretamente um arquivo <code>.env</code> conforme abordado na <a href="02-arq_servidor_de_aplicacao.md/#servidor-de-aplicacao">seção</a>. Um exemplo de arquivo <code>.env</code> criado durante o processo de execução do script para o ambiente de Produção pode ser observado abaixo:</p>
-<pre><code>APP_PRODUCAO='/STORAGE/dpat-files'
-CLIENT_DIR='/../client/dist/lapig-dpat/'
-LANG_DIR='/lang'
-LOG_DIR='/log/'
-TMP='/tmp/'
-FIELD_DATA_DIR='/campo-dpat/'
-UPLOAD_DATA_DIR='/upload-dpat/'
-DOWNLOAD_DATA_DIR='/download-dpat/'
-
-PG_USER='db_user'
-PG_HOST='127.0.0.1'
-PG_DATABASE='fip_cerrado'
-PG_PASSWORD='db_password'
-PG_PORT='db_port'
-PG_DEBUG=true
-
-PORT=3000
-OWS_HOST='http://172.18.0.8:5000'
-OWS_DOMAINS='http://172.18.0.8:5000'
-NDVI_DOMAIN='127.0.0.1:4200'
+<p>E caso deseja entrar no contâiner do OWS-SOCIOAMBIENTAL e verificar os arquivos internos, tais como <strong>logs</strong> de requisições, basta executar:</p>
+<pre><code class="sh">$ docker exec -it APP_SOCIOAMBIENTAL bash
+$ cd /APP/riscosocioambiental/server
+$ tail -f app.out
 </code></pre>
 
-<h3 id="ambiente-de-desenvolvimento">Ambiente de Desenvolvimento</h3>
-<p>Assim como abordado na <a href="/02-arq_geral/#arquitetura-de-software">seção</a>, o Cerrado DPAT foi construído com NodeJS como <em>Application Server</em> e Angular como cliente (<em>WebMap Client</em>). Portanto, primeiramente é necessária a instalação destes componentes na máquina do desenvolvedor. Para tal, pode-se seguir o passo-a-passo elaborado neste <a href="https://www.tecmint.com/install-angular-cli-on-linux/">link</a></p>
-<p>Para execução do Cerrado DPAT em ambiente de desenvolvimento, primeiramente é necessário realizar um <a href="https://github.com/UNIVALI-LITE/Portugol-Studio/wiki/Fazendo-um-Fork-do-reposit%C3%B3rio"><code>fork</code></a> do projeto para a sua conta pessoal do Github e em seguida executar um <a href="https://docs.github.com/pt/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository"><code>git clone</code></a> do <a href="https://github.com/lapig-ufg/d-pat">repositório do projeto</a>.</p>
+<p>E caso deseja entrar no contâiner do MONGODB-SERVER e verificar se o banco foi restaurado com sucesso, tais como <strong>logs</strong> de requisições, basta executar:</p>
+<pre><code class="sh">$ docker exec -it APP_SOCIOAMBIENTAL bash
+$ cd /APP/dump
+$ cat log-restore.out
+</code></pre>
+
+<h2 id="criacao-do-ambiente-de-desenvolvimento">Criação do Ambiente de Desenvolvimento</h2>
+<p>A seguir será abordado como executar a aplicação RISCOSOCIOAMBIENTAL em ambiente de Desenvolvimento. Para o ambiente de desenvolvimento será detalhado um passo a passo partindo do pressuposto que um programador irá dar manutenção ou continuidade no RISCOSOCIOAMBIENTAL. Já o ambiente de produção, será disponibilizado via script que executa todos os passos para disponibilizar o RISCOSOCIOAMBIENTAL em uma porta da máquina que está sendo executado. </p>
+<p>Assim como abordado na <a href="/02-arq_geral/#arquitetura-de-software">seção</a>, o RISCOSOCIOAMBIENTAL foi construído com NodeJS como <em>Application Server</em> e Angular como cliente (<em>WebMap Client</em>). Portanto, primeiramente é necessária a instalação destes componentes na máquina do desenvolvedor. Para tal, pode-se seguir o passo-a-passo elaborado neste <a href="https://www.tecmint.com/install-angular-cli-on-linux/">link</a></p>
+<p>Para execução do RISCOSOCIOAMBIENTAL em ambiente de desenvolvimento, primeiramente é necessário realizar um <a href="https://github.com/UNIVALI-LITE/Portugol-Studio/wiki/Fazendo-um-Fork-do-reposit%C3%B3rio"><code>fork</code></a> do projeto para a sua conta pessoal do Github e em seguida executar um <a href="https://docs.github.com/pt/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository"><code>git clone</code></a> do <a href="https://github.com/lapig-ufg/d-pat">repositório do projeto</a>.</p>
 <p>Para inicializar o servidor de aplicação (<em>Application Server</em>) deve-se executar o passo-a-passo descrito na <a href="/02-arq_servidor_de_aplicacao/#servidor-de-aplicacao">seção</a>. A execução da mesma irá inicializar o <em>Application Server</em> em localhost na porta 3000. Para verificar o seu funcionamento, pode-se realizar a requisição abaixo em um navegador qualquer, que deverá apresentar um resultado semelhante a <a href="https://cerradodpat.org/service/deforestation/largest?year=2019&amp;amount=15">este</a>.</p>
 <pre><code>http://localhost:3000/service/deforestation/largest?year=2019&amp;amount=15
 </code></pre>
@@ -314,23 +272,7 @@ NDVI_DOMAIN='127.0.0.1:4200'
 <pre><code>http://localhost:4200
 </code></pre>
 
-<h3 id="ambiente-de-producao">Ambiente de Produção</h3>
-<p>Em seguida, uma segunda maneira de disponibilizar o Cerrado DPAT é em ambiente de produção. É importante ressaltar que o <em>OWS Server</em> deve estar executando para que o Cerrado DPAT faça as requisições de imagens das diferentes camadas utilizadas pelo sistema.</p>
-<p>Para facilitar o processo de <em>deployment</em> em produção, foi criado um <a href="https://drive.google.com/file/d/1JFpmJtAHU37jYrBeAJ8BEjmiEeuSn7XQ/view?usp=sharing">script</a> que realiza todos os passos necessários para execução do Cerrado DPAT em produção. Para executar o script basta executar em um Terminal:</p>
-<pre><code class="sh">$ ./start-dpat.sh
-</code></pre>
-
-<p>Assim como detalhado na seção de <a href="/02-arq_execucao_dpat/#execucao-do-ows-server">Deployment do OWS Server</a>, este script irá pedir ao usuário que informe os parâmetros <strong>endereço, nome, porta, usuário e senha</strong> do Banco de Dados, de forma a alterar corretamente o arquivo de configuração do ambiente, <code>.env</code> corretamente.</p>
-<p>Em seguida, após pedir as informações do Banco de Dados, o script irá pedir ao usário que informe o local onde a estrutura de pastas do Cerrado DPAT deverá ser criada e também qual o endereço de IP da máquina de produção onde será realizado o <em>deployment</em> assim como informado nas imagens abaixo.</p>
-<p><img alt="Senha do BD" src="../imgs/02/ows-standalone/dpat-1.png" /></p>
-<p><img alt="Senha do BD" src="../imgs/02/ows-standalone/dpat-2.png" /></p>
-<p>Basicamente o script deverá criar e ajustar automaticamente as variáveis de ambiente do Cerrado DPAT, realizar o download e importação do <a href="https://drive.google.com/file/d/1QKiBeo9II2auQik1jJdBACnHp4qrfc0f/view?usp=sharing">contâiner docker</a> onde todas as dependências do projeto já estão devidamente ajustadas e executar os passos necessários para compilar e disponibilizar a aplicação no endereço de IP informado na execução do script na <strong>porta 3000</strong>, assim como apresentado na imagem abaixo.</p>
-<h2 id="script-completo-com-execucao-completa-para-producao">Script completo com execução completa para Produção</h2>
-<p>Por fim, também foi criado um <a href="https://drive.google.com/file/d/1V6jRqeOUpqApvpaARRRB_iiN7D3GlFAV/view?usp=sharing">script</a> que realiza todos os passos abordados nas seções <a href="/02-arq_execucao_dpat/#execucao-do-ows-server">Deployment do OWS Server</a> e <a href="/02-arq_execucao_dpat/#execucao-da-aplicacao-cerrado-dpat">Deployment do Cerrado DPAT</a>. Para tal, basta executar em Terminal.</p>
-<pre><code class="sh">$ ./start-dpat+ows.sh
-</code></pre>
-
-<p>Após execução dos scripts o OWS Server estará executando na máquina do usuário na porta <strong>5000</strong> e o Cerrado DPAT também na máquina do usuário na porta <strong>3000</strong>.</p>
+<p>Após execução dos scripts o OWS Server estará executando na máquina do usuário na porta <strong>5000</strong> e o RISCOSOCIOAMBIENTAL também na máquina do usuário na porta <strong>3000</strong>.</p>
               
             </div>
           </div>
