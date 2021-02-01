@@ -79,144 +79,43 @@ Por fim, o Mapfile utilizado para disponibilizar todas as camadas presentes no R
 
 ## Disponibilização da camada no Application Server
 
-**Passo a passo necessário para disponibilizar uma camada no Front-end da aplicação.**
+Após a criação da camada no OWS Server, para que esta camada seja apresentada na interface Web do Risco Socioambiental é necessária a sua inserção no *Application Server*. A fim de facilitar a disponibilização de diversas camadas, foi criada uma estrutura nomeada de `metadata` que descreve as principais configurações de uma camada a ser apresentada no Risco Socioambiental, tais como: filtros de dados, tipos diferentes de camadas e outros. A estrutura completa do **descriptor** encontra-se no repositório do projeto no Github, especificamente no arquivo [indicadores.js](https://github.com/lapig-ufg/riscosocioambiental/blob/master/server/controllers/indicadores.js).
 
-<!-- Após a criação da camada no OWS Server, para que esta camada seja apresentada na interface Web do Cerrado DPAT é necessária a sua inserção no *Application Server*. A fim de facilitar a disponibilização de diversas camadas, foi criada uma estrutura nomeada de `descriptor` que descreve as principais configurações de uma camada a ser apresentada no Cerrado DPAT, tais como: filtros de dados, tipos diferentes de camadas e outros. A estrutura completa do **descriptor** encontra-se no repositório do projeto no Github, especificamente no arquivo [map.js](https://github.com/lapig-ufg/d-pat/blob/master/src/server/controllers/map.js).
+Segue abaixo as configurações das camadas apresentadas acima dentro da estrutura do descriptor, um exemplo da camada de **Unidades de Conservação de Proteção Integral**.  
 
-Segue abaixo as configurações das camadas apresentadas acima dentro da estrutura do descriptor. Primeiramente, iremos disponibilizar a camada `bi_ce_prodes_desmatamento_100_fip` que representa um dado vetorial no qual é possível aplicar diversos filtros. A variável `languageJson` representa o acesso ao arquivo .json responsável pela internacionalização da aplicação, ou seja, apresenta textos em diferentes idiomas de acordo com o valor recebido como parâmetro `language`.  
-
-
+    server/controllers/indicadores.js
 ``` js
-Controller.descriptor = function (request, response) {
+module.exports = function(app) {
 
-    var language = request.param('lang')
-
-    var result = {
-      regionFilterDefault: "",
-      type: languageJson["descriptor"]["type_of_information_label"][language],
-      groups: [{
-        id: "desmatamento",
-        label: languageJson["descriptor"]["desmatamento"]["label"][language],
-        group_expanded: true,
-        layers: [{
-		  id: "desmatamento_prodes",
-          label: languageJson["descriptor"]["desmatamento"]["layers"]["desmatamento_prodes"]["label"][language],
-          visible: true,
-          selectedType: "bi_ce_prodes_desmatamento_100_fip",
-          metadata: languageJson["descriptor"]["desmatamento"]["layers"]["desmatamento_prodes"]['metadata'],
-          types: [
-            {
-              value: "bi_ce_prodes_desmatamento_100_fip",
-              Viewvalue: languageJson["descriptor"]["desmatamento"]["layers"]["desmatamento_prodes"]["types"]["bi_ce_prodes_desmatamento_100_fip"]["view_value"][language],
-              opacity: 1,
-              order: 1,
-              download: ['csv', 'shp'],
-              regionFilter: true,
-              timeLabel: languageJson["descriptor"]["desmatamento"]["layers"]["desmatamento_prodes"]["types"]["bi_ce_prodes_desmatamento_100_fip"]["timelabel"][language],
-              timeSelected: "year=2019",
-              timeHandler: "msfilter",
-              times: [{
-                value: "year=2002",
-                Viewvalue: "2000/2002",
-                year: 2002
-              },
-              {
-                value: "year=2004",
-                Viewvalue: "2002/2004",
-                year: 2004
-              },
-              {
-                value: "year=2006",
-                Viewvalue: "2004/2006",
-                year: 2006
-              },
-              {
-                value: "year=2008",
-                Viewvalue: "2006/2008",
-                year: 2008
-              },
-              {
-                value: "year=2010",
-                Viewvalue: "2008/2010",
-                year: 2010
-              },
-              {
-                value: "year=2012",
-                Viewvalue: "2010/2012",
-                year: 2012
-              },
-              {
-                value: "year=2013",
-                Viewvalue: "2012/2013",
-                year: 2013
-              },
-              {
-                value: "year=2014",
-                Viewvalue: "2013/2014",
-                year: 2014
-              },
-              {
-                value: "year=2015",
-                Viewvalue: "2014/2015",
-                year: 2015
-              },
-              {
-                value: "year=2016",
-                Viewvalue: "2015/2016",
-                year: 2016
-              },
-              {
-                value: "year=2017",
-                Viewvalue: "2016/2017",
-                year: 2017
-              },
-              {
-                value: "year=2018",
-                Viewvalue: "2017/2018",
-                year: 2018
-              },
-              {
-                value: "year=2019",
-                Viewvalue: "2018/2019",
-                year: 2019
-			  }
-			}]
-       },
-       {
-          id: "susceptibilidade",
-          label: languageJson["descriptor"]["desmatamento"]["layers"]["susceptibilidade"]["label"][language],
-          visible: false,
-          selectedType: "bi_ce_susceptibilidade_desmatamento_menores_100_na_lapig",
-          metadata: languageJson["descriptor"]["desmatamento"]["layers"]["susceptibilidade"]['metadata'],
-          types: [{
-            value: "bi_ce_susceptibilidade_desmatamento_menores_100_na_lapig",
-            Viewvalue: languageJson["descriptor"]["desmatamento"]["layers"]["susceptibilidade"]["types"]["bi_ce_susceptibilidade_desmatamento_menores_100_na_lapig"]["view_value"][language],
-            order: 5,
-            download: ['tif'],
-            opacity: 1
-          },
-          {
-            value: "bi_ce_susceptibilidade_desmatamento_maiores_100_na_lapig",
-            Viewvalue: languageJson["descriptor"]["desmatamento"]["layers"]["susceptibilidade"]["types"]["bi_ce_susceptibilidade_desmatamento_maiores_100_na_lapig"]["view_value"][language],
-            order: 5,
-            download: ['tif'],
-            opacity: 1
+  var Indicadores = {};
+  
+  Indicadores.metadata = [
+    {
+      "id": "unidades_conservacao_integral",
+      "categ": ["Ambiental"],
+      "nome": "Unidades de Conservação de Proteção Integral",
+      "descricao": "Localização das unidades de conservação de proteção integral brasileiras, incluindo a Base ao Milionésimo do IBGE de 2014.",
+      "unidade": "ha",
+      "regiao": "Brasil",
+      "area_ha": '',
+      "valor": [],
+      "ano": [],
+      "tipo": "espacial",
+      "bbox": "-73.9904499673534,-33.7515830040535,-28.835907629926,5.27184107509129",
+      "DB":{
+          "Columm": "AREA_HA",
+          "Table": "unidades_conservacao_integral_regions_view",
+          "Group": "",
+          "process": function(rows,metadata) {
+            metadata['valor'] = [rows[0].AREA_HA];
+            metadata['ano'] = [rows[0].ANO];
           }
-          ]
-        }
-			}]
-   		}]
-	};
-
-    response.send(result);
-    response.end();
-};
+      }
+    },
+  ]
+}
 ```
 
-Os diversos parâmetros setados na variável `result` são interpretados pela aplicação Front-end em Angular, de modo a criar a interface apresentada na imagem abaixo. Dentre estes parâmetros, destaca-se o `layers` que irão indicar quais camadas estarão no card **Desmatamento PRODES-Cerrado**. No exemplo acima, está selecionada a camada `bi_ce_prodes_desmatamento_100_fip` através da variável *selectedType*, e logo abaixo apresenta-se o vetor `types` que apresenta os tipos de camadas PRODES-Cerrado estão disponíveis. Por fim, destaca-se o vetor do parâmetro `times`, que apresenta diversos filtros que podem ser aplicados em um tipo de layer específico. No exemplo acima, ele é utilizado para filtrar os polígonos por ano, aplicando a query apresentada em `value` (de cada filtro) como parâmetro **MSFILTER** na camada descrita no Mapserver.
+Os diversos parâmetros setados são interpretados pela aplicação Front-end em Angular, de modo a criar a interface apresentada na imagem abaixo. Aqui é onde configuramos Nome, Descrição, Categoria, dentre outras informações que serão populadas por meio da tabela do banco de dados que também é informada acima.
 
-![Exemplo descriptor para PRODES-Cerrado.](imgs/02/telaCamada.png)
-
-Por fim, o segundo exemplo apresenta a disponibilização da camada `bi_ce_susceptibilidade_desmatamento_menores_100_na_lapig` criada acima a partir de uma imagem Raster no formato TIF. O grande diferencial desta é a impossibilidade de aplicar quaisquer filtro na imagem por se tratar de um dado matricial estático, logo o parâmetro `times` não é utilizado. Portanto, de acordo com a imagem abaixo, que apresenta a estrutura criada no Front-end para esta representação no *descriptor*.
-
-![Exemplo descriptor para PRODES-Cerrado.](imgs/02/telaCamadas2.png) -->
+![Exemplo lista de indicadores.](imgs/02/risco_indicador_unidades.png)

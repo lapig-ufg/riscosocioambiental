@@ -16,7 +16,6 @@ cp .env.exemple .env
 ```
 
 Em seguida, deve-se alterar o arquivo .env com as devidas configurações e parâmetros referentes ao banco de dados, pastas para armazenamento dos arquivos de Upload e Download e endereço de hospedagem do OWS Server. 
-<!-- Um exemplo de arquivo .env pode ser observado na [seção](/02-arq_execucao_dpat/#execucao-da-aplicacao-cerrado-dpat) -->
 
 Por fim, a fim de facilitar a execução do *Application Server* foi desenvolvido um script nomeado `start.sh` localizado na raiz da pasta **src/server**. Portanto, basta realizar a execução deste arquivo para inicializar o *Application Server*. A fim de identificar modificações em tempo real, o *Application Server* faz uso da biblioteca [`always`](https://www.npmjs.com/package/always), portanto talvez seja necessário a instalação da mesma através do comando.
 

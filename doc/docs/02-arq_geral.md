@@ -5,8 +5,8 @@ O Risco Socioambiental foi desenvolvido de acordo com os padrões de interoperab
 ## Componentes de software
 
 A arquitetura de software desenvolvida para o Risco Socioambiental pode ser observada na Figura abaixo.
-**Figura da arquitetura Openlayers para Leaflet e PostgreSQL para SQLite**
-<!-- ![Arquitetura Risco Socioambiental.](imgs/02/softArch.png) -->
+
+![Arquitetura Risco Socioambiental.](imgs/02/risco_arquitetura.png)
 
 Essencialmente, pode-se dividir o Risco Socioambiental em três partes:
 

@@ -1,5 +1,5 @@
 
-![Cerrado DPAT](imgs/00/logo_rsa.png)
+![Risco Socioambiental](imgs/00/logo_rsa.png)
 
 # Documentação Risco Socioambiental
 
