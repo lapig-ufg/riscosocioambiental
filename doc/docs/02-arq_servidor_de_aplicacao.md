@@ -34,107 +34,141 @@ $ ./src/server/start.sh
 
 ## Manipulação do banco de dados
 
-**Adicionar uma breve explicação de como configurar o banco de dados, caminho para o arquivo SQLITE e local no config.js que deve-se configurar**
-
-<!-- Para facilitar a criação de serviços que fazem uso de consultas ao banco de dados foi criado um *middleware* nomeado [`dataInjector.js`](https://github.com/lapig-ufg/d-pat/blob/master/src/server/middleware/data-injector.js) que cria um *pool* de conexões para execução de diversas *queries* simultâneas. 
-
-O `dataInjector.js` analisa a URL da requisição HTTP de modo a associar a função que especifica a query (por meio da tupla {id, sql}) com o controlador que irá devolver a resposta da requisição.
-
-Portanto, todas as URLs deverão ser criadas no seguinte padrão:
-
-```
-'/service/<nome_arquivo_js_com_query>/<nome_funcao_executada>'
-``` -->
+O caminho da pasta onde está localizado o banco de dados `indicadores.sqlite` deve ser informado corretamente no arquivo de configuração .env nas seguintes variáveis: `INDICADORES_DB` para o banco de dados ambiente de desenvolvimento e `INDICADORES_DB_PROD` para o banco de dados do ambiente de produção. Caso o caminho não esteja correto, a aplicação pode não funcionar corretamente.
 
 ## Como criar um novo serviço
 
-**Descrever como criar um service que acessa ao SQLite, praticamente uam descrição com exemplo do Controller e no Routes do que vamos trazer do LapigMaps para o server do Risco**
-
- <!---
- O *Application Server* possui três pastas que armazenam os principais arquivos que permitem a disponibilização de um novo serviço ao Cerrado DPAT: 
+ -
+ O *Application Server* possui duas pastas que armazenam os principais arquivos que permitem a disponibilização de um novo serviço ao Risco Socioambiental: 
 
 1. **Controller:**: Os arquivos nesta pasta são responsáveis por processar implementar a lógica da tarefa passada pela requisição HTTP.
-2. **Database**: Os arquivos nesta pasta são responsáveis por implementar os métodos com as *queries* a serem executadas no banco de dados. Devido a estrutura do `dataInjector.js`, mais de uma *query* poderá ser executada durante uma mesma requisição.
-3.  **Routes**: Os arquivos desta pasta são os responsáveis por criar as URLs de acesso *(endpoint)* a um serviço, apontar qual o controlador deverá processar a lógica para a requisição e, caso necessário, injetar o acesso ao banco de dados.
+2.  **Routes**: Os arquivos desta pasta são os responsáveis por criar as URLs de acesso *(endpoint)* a um serviço, apontar qual o controlador deverá processar a lógica para a requisição.
 
-Portanto, supondo que queremos criar um novo serviço para retornar os maiores desmatamentos em um determinado ano detectado pelo PRODES-Cerrado é necessário criar/alterar os seguintes arquivos:
+Portanto, a seguir vamos mostrar um exemplo do serviço real da plataforma, que trás a lista completa dos dados e seus indicadores.
 
-    server/routes/example.js
+    server/routes/indicadores.js
 ``` js
 module.exports = function (app) {
 
-	var dataInjector = app.middleware.dataInjector
-	var example = app.controllers.examplecontroller;
+  var indicadores = app.controllers.indicadores;
 
-	app.get('/service/examplequery/largest', dataInjector, example.largest);
+	app.get('/service/indicadores/lista', indicadores.lista);
 
 }
 ```
-Após a criação do *endpoint* de acesso, basta criar o arquivo com as funções desta classe de *queries* (`examplequery.js`) e a função (`Query.largest`) que irá executar a *query* especificada. Vale ressaltar que deverá ser passado dois parâmetros pela requisição, o **year** e o **amount**, que indicam de qual ano e a quantidade de desmatamentos que o usuário quer encontrar.
+Após a criação do *endpoint* de acesso, basta criar o controlador `indicadores.js` para receber a requisição, realizar a chamada ao método para execução da *query*, coletar o resultado e enviar como resposta da requisição.
 
-    server/database/queries/examplequery.js
-``` js
-module.exports = function (app) {
-
-    var Query = {};
-    
-    Query.largest = function (params) {
-    
-    return [{
-			id: 'largest_id',
-			sql: "SELECT view_date,county,uf, ST_ASGEOJSON(geom) FROM prodes_cerrado WHERE year = ${year} ORDER BY areamunkm DESC LIMIT ${amount}"
-		}]
-    };
-
-    return Query;
-}
-```
-Após a construção do método e a *query*, basta criar o controlador `examplecontroller.js` para receber a requisição, realizar a chamada ao método para execução da *query*, coletar o resultado e enviar como resposta da requisição.
-
-    server/controllers/examplecontroller.js
+    server/controllers/indicadores.js
 ``` js
 module.exports = function (app) {
 
     const config = app.config;
     
-	var Controller = {}
-
-	Controller.largest = function (request, response) {
-
-		var queryResult = request.queryResult['largest_id']
-
-		response.send(queryResult)
-		response.end()
-
-    }
+    var Indicadores = {};
     
-    return Controller;
+    Consults.getIndicadoresDb = function(callback) {
+        var indicadoresDb = new sqlite3.Database(config.indicadoresDb);
+        indicadoresDb.spatialite(function() {
+                callback(indicadoresDb);
+        });
+    }
+
+	Indicadores.lista = function(request, response, next) {
+            var metadata = Indicadores['metadata'];
+            var infoBbox = Indicadores.infoBbox;
+            var bbox = "[[-33.752414, -73.794489], [5.047586, -35.117489]]";
+            var result = [];
+            var aux;
+
+            var regionType = request.param('regionType', '');
+            var region = request.param('region', '');
+            var filter = '';
+
+            infoBbox.forEach(function(info){
+                if(regionType != "municipio"){
+                    if(region == info[0]){
+                        bbox = "[["+info[1]+"], ["+info[2]+"]]";
+                    }
+                }
+            });
+
+            var interate =  function(metadata, next){
+
+                    var fieldResult = {
+                            "id": metadata.id,
+                            "categ": metadata.categ,
+                            "nome": metadata.nome,
+                            "descricao": metadata.descricao,
+                            "unidade": metadata.unidade,
+                            "regiao":metadata.regiao,
+                            "area_ha":metadata.area_ha,
+                            "valor": metadata.valor,
+                            "ano": metadata.ano,
+                            "tipo": metadata.tipo,
+                            "bbox": bbox
+                    };
+                    
+                    if (regionType){
+                            filter = Indicadores.getRegionFilter(regionType, region, metadata.DB.Columm);
+                            fieldResult['regiao'] = region;
+                    }else{
+                            fieldResult['regiao'] = 'Brasil';
+                    };
+
+                    var sql = Indicadores.getQuerySql(metadata.DB.Columm, metadata.DB.Table, filter, metadata.DB.Group);
+                    var sql2 = 'SELECT sum(POL_HA) as AREA_REG FROM "regions" '+filter;
+                    
+                    Consults.getIndicadoresDb(function(indicadoresDb){
+                            indicadoresDb.all(sql, function(err, rows){
+                                if(regionType == 'municipio' && rows[0])
+                                        fieldResult['bbox'] = "[["+rows[0].bboxleaflet+"]]";
+                                
+                                metadata.DB.process(rows, fieldResult);
+                                    indicadoresDb.all(sql2, function(err, rows){
+                                        fieldResult['area_ha'] = rows[0].AREA_REG;
+                                        result.push(fieldResult)
+                                        next();
+                                    });
+                            });
+                    });
+            }
+
+            var finalize = function (){
+                result.sort(function(a,b) {
+                    if(a.id < b.id) return -1;
+                    if(a.id > b.id) return 1;
+                    return 0;
+                })
+                    request.finalizeResult = result
+                    next();
+            }
+
+            async.each(metadata, interate, finalize);
+    };
+    
+    return Indicadores;
 }
 ```
 
-Por fim, este por se tratar de uma requisição HTTP do tipo `GET`, a mesma poderá ser acessada via navegador. Considerando que o server está executando em `localhost:3000` e o usuário deseja encontrar os 15 maiores desmatamentos detectados pelo PRODES-Cerrado em 2019, a URL de acesso ficará da seguinte forma: 
+Por fim, este por se tratar de uma requisição HTTP do tipo `GET`, a mesma poderá ser acessada via navegador. Considerando que o server está executando em `localhost:3000` e o usuário deseja obter a lista de dados e seus indicadores, a URL de acesso ficará da seguinte forma: 
 
 ``` url
-http://localhost:3000/service/examplequery/largest?year=2019&amount=15
+http://localhost:3000/service/indicadores/lista
 ```
 
-A visualização do JSON resultado da requisição acima pode ser observado no [link](https://cerradodpat.org/service/deforestation/largest?year=2019&amount=15).
+A visualização do JSON resultado da requisição acima pode ser observado no [link](http://socioambiental.lapig.iesa.ufg.br/service/indicadores/lista).
 
-Além de requisitar pelo navegador, o serviço também poderá ser requisitado pelo *WebMap Client* a fim de disponibilizar este dado na plataforma Cerrado DPAT. Para tal, o mesmo poderá ser feito via biblioteca [HttpClient](https://angular.io/api/common/http/HttpClient) do Angular e assim obter o arquivo JSON com os dados processados. Considerando que a variável `http` foi devidadmente injetada no construtor da classe do Angular, o método `getLargest()` abaixo deverá realizar a requisição e armazenar seu resultado na variável `dados_largest`:
-
-
+Além de requisitar pelo navegador, o serviço também poderá ser requisitado pelo *WebMap Client* a fim de disponibilizar este dado na plataforma Risco Socioambiental:
 
 
-    client/src/app/views/map.component.ts
+    client/src/assets/js/app/map.js
 ``` js
-getLargest() {
- 
-    let url = '/service/examplequery/largest?year=2019&amount=15'
 
-    this.http.get(url).subscribe(r => {
-        this.dados_largest = r;
-    });
-}
+	var url = '/service/indicadores/lista'
+
+    ajax( url, DATA, 'create_indicators_list', [] )
+    
+
 ```
--->
+
 
