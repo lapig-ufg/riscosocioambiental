@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Luiz Pascoal, Fernanda Stefani e Renato Gomes">
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Servidor de mapas - Documentação - Risco Socioambiental</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Documentação - Risco Socioambiental</a>
         <div role="search">
@@ -45,82 +47,43 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">HOME</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Guia do usuário</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../01-guia_dados_geograficos/">Dados Geográficos</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../01-guia_funcionalidades/">Funcionalidades</a>
-                </li>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">HOME</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Guia do usuário</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../01-guia_dados_geograficos/">Dados Geográficos</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../01-guia_funcionalidades/">Funcionalidades</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Dados</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../03-banco_de_dados/">Banco de Dados</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Arquitetura de Software</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../02-arq_geral/">Visão geral</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Servidor de mapas</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#servico-de-interoperabilidade">Serviço de interoperabilidade</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#processo-de-atualizacao">Processo de atualização</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#disponibilizacao-da-camada-no-application-server">Disponibilização da camada no Application Server</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Dados</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../03-banco_de_dados/">Banco de Dados</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Arquitetura de Software</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../02-arq_geral/">Visão geral</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Servidor de mapas</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#servidor-de-mapas">Servidor de Mapas</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#servico-de-interoperabilidade">Serviço de interoperabilidade</a></li>
-        
-            <li><a class="toctree-l4" href="#processo-de-atualizacao">Processo de atualização</a></li>
-        
-            <li><a class="toctree-l4" href="#disponibilizacao-da-camada-no-application-server">Disponibilização da camada no Application Server</a></li>
-        
-        </ul>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../02-arq_servidor_de_aplicacao/">Servidor de aplicação</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../02-arq_execucao_risco/">Deployment da arquitetura do Riscosocioambiental</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../02-arq_servidor_de_aplicacao/">Servidor de aplicação</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../02-arq_execucao_risco/">Deployment da arquitetura do Riscosocioambiental</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -149,6 +112,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -160,7 +124,7 @@
 <p>Devido a facilidade em lidar com a arquitetura de WebServices, o código em NodeJS foi criado para também realizar o controle de cache das imagens processadas pelo Mapserver. Para tal, uma customização foi criada a fim de se associar uma chave (<code>cacheKey</code>) a cada imagem de cada camada configurada no Mapserver. Esta imagem é armazenada em um sistema de arquivos (pasta) chamada <code>OWS-Cache</code>, de modo que, em futuras requisições para uma determinada imagem, é verificada se a imagem já existe na <code>OWS-Cache</code> ou não. Caso exista, a imagem é retornada na requisição, caso não exista, o código NodeJS envia a requisição para o Mapserver processar e gerá-la, armazenando-a no <code>OWS-Cache</code>. O método que realiza esta verificação é o método <code>OgcServer.ows</code> que faz parte do Controlador da aplicação em NodeJS.</p>
 <pre><code>src/controllers/ogc-server.js
 </code></pre>
-<pre><code class="js">OgcServer.ows = function(request, response) {
+<pre><code class="language-js">OgcServer.ows = function(request, response) {
     var params = Internal.getParams(request);
     response.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);
 
@@ -174,7 +138,6 @@
         }
 }
 </code></pre>
-
 <p>Esta customização pode ser encontrada no código NodeJS no repositório específico para o código NodeJS no <a href="https://github.com/lapig-ufg/lapig-maps/tree/master/src/ows">Github</a>. A configuração da pasta onde serão gerados os caches é feita no arquivo <a href="https://github.com/lapig-ufg/lapig-maps/blob/master/src/ows/config.js">config.js</a> na linha 41 através da variável <code>cacheDir</code>.</p>
 <h2 id="servico-de-interoperabilidade">Serviço de interoperabilidade</h2>
 <p>A interoperabilidade é uma tecnologia que possibilita o compartilhamento de dados entre sistemas, independente do local físico de armazenamento e da tecnologia utilizada em cada servidor de dados.</p>
@@ -273,147 +236,42 @@ O OCG (Open Geospatial Consortium, Inc.) é uma organização que tem como objet
 </ol>
 <p>Por fim, o Mapfile utilizado para disponibilizar todas as camadas presentes no Risco Socioambiental está na pasta compartilhada do projeto no <a href="https://drive.google.com/file/d/1TRhTEYBi7zw6iSmEi6tWkL9tb4ABJQEr/view?usp=sharing">link</a>.</p>
 <h2 id="disponibilizacao-da-camada-no-application-server">Disponibilização da camada no Application Server</h2>
-<p><strong>Passo a passo necessário para disponibilizar uma camada no Front-end da aplicação.</strong></p>
-<!-- Após a criação da camada no OWS Server, para que esta camada seja apresentada na interface Web do Cerrado DPAT é necessária a sua inserção no *Application Server*. A fim de facilitar a disponibilização de diversas camadas, foi criada uma estrutura nomeada de `descriptor` que descreve as principais configurações de uma camada a ser apresentada no Cerrado DPAT, tais como: filtros de dados, tipos diferentes de camadas e outros. A estrutura completa do **descriptor** encontra-se no repositório do projeto no Github, especificamente no arquivo [map.js](https://github.com/lapig-ufg/d-pat/blob/master/src/server/controllers/map.js).
-
-Segue abaixo as configurações das camadas apresentadas acima dentro da estrutura do descriptor. Primeiramente, iremos disponibilizar a camada `bi_ce_prodes_desmatamento_100_fip` que representa um dado vetorial no qual é possível aplicar diversos filtros. A variável `languageJson` representa o acesso ao arquivo .json responsável pela internacionalização da aplicação, ou seja, apresenta textos em diferentes idiomas de acordo com o valor recebido como parâmetro `language`.  
-
-
-
-<pre><code class="js">Controller.descriptor = function (request, response) {
-
-    var language = request.param('lang')
-
-    var result = {
-      regionFilterDefault: &quot;&quot;,
-      type: languageJson[&quot;descriptor&quot;][&quot;type_of_information_label&quot;][language],
-      groups: [{
-        id: &quot;desmatamento&quot;,
-        label: languageJson[&quot;descriptor&quot;][&quot;desmatamento&quot;][&quot;label&quot;][language],
-        group_expanded: true,
-        layers: [{
-          id: &quot;desmatamento_prodes&quot;,
-          label: languageJson[&quot;descriptor&quot;][&quot;desmatamento&quot;][&quot;layers&quot;][&quot;desmatamento_prodes&quot;][&quot;label&quot;][language],
-          visible: true,
-          selectedType: &quot;bi_ce_prodes_desmatamento_100_fip&quot;,
-          metadata: languageJson[&quot;descriptor&quot;][&quot;desmatamento&quot;][&quot;layers&quot;][&quot;desmatamento_prodes&quot;]['metadata'],
-          types: [
-            {
-              value: &quot;bi_ce_prodes_desmatamento_100_fip&quot;,
-              Viewvalue: languageJson[&quot;descriptor&quot;][&quot;desmatamento&quot;][&quot;layers&quot;][&quot;desmatamento_prodes&quot;][&quot;types&quot;][&quot;bi_ce_prodes_desmatamento_100_fip&quot;][&quot;view_value&quot;][language],
-              opacity: 1,
-              order: 1,
-              download: ['csv', 'shp'],
-              regionFilter: true,
-              timeLabel: languageJson[&quot;descriptor&quot;][&quot;desmatamento&quot;][&quot;layers&quot;][&quot;desmatamento_prodes&quot;][&quot;types&quot;][&quot;bi_ce_prodes_desmatamento_100_fip&quot;][&quot;timelabel&quot;][language],
-              timeSelected: &quot;year=2019&quot;,
-              timeHandler: &quot;msfilter&quot;,
-              times: [{
-                value: &quot;year=2002&quot;,
-                Viewvalue: &quot;2000/2002&quot;,
-                year: 2002
-              },
-              {
-                value: &quot;year=2004&quot;,
-                Viewvalue: &quot;2002/2004&quot;,
-                year: 2004
-              },
-              {
-                value: &quot;year=2006&quot;,
-                Viewvalue: &quot;2004/2006&quot;,
-                year: 2006
-              },
-              {
-                value: &quot;year=2008&quot;,
-                Viewvalue: &quot;2006/2008&quot;,
-                year: 2008
-              },
-              {
-                value: &quot;year=2010&quot;,
-                Viewvalue: &quot;2008/2010&quot;,
-                year: 2010
-              },
-              {
-                value: &quot;year=2012&quot;,
-                Viewvalue: &quot;2010/2012&quot;,
-                year: 2012
-              },
-              {
-                value: &quot;year=2013&quot;,
-                Viewvalue: &quot;2012/2013&quot;,
-                year: 2013
-              },
-              {
-                value: &quot;year=2014&quot;,
-                Viewvalue: &quot;2013/2014&quot;,
-                year: 2014
-              },
-              {
-                value: &quot;year=2015&quot;,
-                Viewvalue: &quot;2014/2015&quot;,
-                year: 2015
-              },
-              {
-                value: &quot;year=2016&quot;,
-                Viewvalue: &quot;2015/2016&quot;,
-                year: 2016
-              },
-              {
-                value: &quot;year=2017&quot;,
-                Viewvalue: &quot;2016/2017&quot;,
-                year: 2017
-              },
-              {
-                value: &quot;year=2018&quot;,
-                Viewvalue: &quot;2017/2018&quot;,
-                year: 2018
-              },
-              {
-                value: &quot;year=2019&quot;,
-                Viewvalue: &quot;2018/2019&quot;,
-                year: 2019
-              }
-            }]
-       },
-       {
-          id: &quot;susceptibilidade&quot;,
-          label: languageJson[&quot;descriptor&quot;][&quot;desmatamento&quot;][&quot;layers&quot;][&quot;susceptibilidade&quot;][&quot;label&quot;][language],
-          visible: false,
-          selectedType: &quot;bi_ce_susceptibilidade_desmatamento_menores_100_na_lapig&quot;,
-          metadata: languageJson[&quot;descriptor&quot;][&quot;desmatamento&quot;][&quot;layers&quot;][&quot;susceptibilidade&quot;]['metadata'],
-          types: [{
-            value: &quot;bi_ce_susceptibilidade_desmatamento_menores_100_na_lapig&quot;,
-            Viewvalue: languageJson[&quot;descriptor&quot;][&quot;desmatamento&quot;][&quot;layers&quot;][&quot;susceptibilidade&quot;][&quot;types&quot;][&quot;bi_ce_susceptibilidade_desmatamento_menores_100_na_lapig&quot;][&quot;view_value&quot;][language],
-            order: 5,
-            download: ['tif'],
-            opacity: 1
-          },
-          {
-            value: &quot;bi_ce_susceptibilidade_desmatamento_maiores_100_na_lapig&quot;,
-            Viewvalue: languageJson[&quot;descriptor&quot;][&quot;desmatamento&quot;][&quot;layers&quot;][&quot;susceptibilidade&quot;][&quot;types&quot;][&quot;bi_ce_susceptibilidade_desmatamento_maiores_100_na_lapig&quot;][&quot;view_value&quot;][language],
-            order: 5,
-            download: ['tif'],
-            opacity: 1
-          }
-          ]
-        }
-            }]
-        }]
-    };
-
-    response.send(result);
-    response.end();
-};
+<p>Após a criação da camada no OWS Server, para que esta camada seja apresentada na interface Web do Risco Socioambiental é necessária a sua inserção no <em>Application Server</em>. A fim de facilitar a disponibilização de diversas camadas, foi criada uma estrutura nomeada de <code>metadata</code> que descreve as principais configurações de uma camada a ser apresentada no Risco Socioambiental, tais como: filtros de dados, tipos diferentes de camadas e outros. A estrutura completa do <strong>descriptor</strong> encontra-se no repositório do projeto no Github, especificamente no arquivo <a href="https://github.com/lapig-ufg/riscosocioambiental/blob/master/server/controllers/indicadores.js">indicadores.js</a>.</p>
+<p>Segue abaixo as configurações das camadas apresentadas acima dentro da estrutura do descriptor, um exemplo da camada de <strong>Unidades de Conservação de Proteção Integral</strong>.  </p>
+<pre><code>server/controllers/indicadores.js
 </code></pre>
+<pre><code class="language-js">module.exports = function(app) {
 
+  var Indicadores = {};
 
-Os diversos parâmetros setados na variável `result` são interpretados pela aplicação Front-end em Angular, de modo a criar a interface apresentada na imagem abaixo. Dentre estes parâmetros, destaca-se o `layers` que irão indicar quais camadas estarão no card **Desmatamento PRODES-Cerrado**. No exemplo acima, está selecionada a camada `bi_ce_prodes_desmatamento_100_fip` através da variável *selectedType*, e logo abaixo apresenta-se o vetor `types` que apresenta os tipos de camadas PRODES-Cerrado estão disponíveis. Por fim, destaca-se o vetor do parâmetro `times`, que apresenta diversos filtros que podem ser aplicados em um tipo de layer específico. No exemplo acima, ele é utilizado para filtrar os polígonos por ano, aplicando a query apresentada em `value` (de cada filtro) como parâmetro **MSFILTER** na camada descrita no Mapserver.
-
-![Exemplo descriptor para PRODES-Cerrado.](imgs/02/telaCamada.png)
-
-Por fim, o segundo exemplo apresenta a disponibilização da camada `bi_ce_susceptibilidade_desmatamento_menores_100_na_lapig` criada acima a partir de uma imagem Raster no formato TIF. O grande diferencial desta é a impossibilidade de aplicar quaisquer filtro na imagem por se tratar de um dado matricial estático, logo o parâmetro `times` não é utilizado. Portanto, de acordo com a imagem abaixo, que apresenta a estrutura criada no Front-end para esta representação no *descriptor*.
-
-![Exemplo descriptor para PRODES-Cerrado.](imgs/02/telaCamadas2.png) -->
+  Indicadores.metadata = [
+    {
+      &quot;id&quot;: &quot;unidades_conservacao_integral&quot;,
+      &quot;categ&quot;: [&quot;Ambiental&quot;],
+      &quot;nome&quot;: &quot;Unidades de Conservação de Proteção Integral&quot;,
+      &quot;descricao&quot;: &quot;Localização das unidades de conservação de proteção integral brasileiras, incluindo a Base ao Milionésimo do IBGE de 2014.&quot;,
+      &quot;unidade&quot;: &quot;ha&quot;,
+      &quot;regiao&quot;: &quot;Brasil&quot;,
+      &quot;area_ha&quot;: '',
+      &quot;valor&quot;: [],
+      &quot;ano&quot;: [],
+      &quot;tipo&quot;: &quot;espacial&quot;,
+      &quot;bbox&quot;: &quot;-73.9904499673534,-33.7515830040535,-28.835907629926,5.27184107509129&quot;,
+      &quot;DB&quot;:{
+          &quot;Columm&quot;: &quot;AREA_HA&quot;,
+          &quot;Table&quot;: &quot;unidades_conservacao_integral_regions_view&quot;,
+          &quot;Group&quot;: &quot;&quot;,
+          &quot;process&quot;: function(rows,metadata) {
+            metadata['valor'] = [rows[0].AREA_HA];
+            metadata['ano'] = [rows[0].ANO];
+          }
+      }
+    },
+  ]
+}
+</code></pre>
+<p>Os diversos parâmetros setados são interpretados pela aplicação Front-end em Angular, de modo a criar a interface apresentada na imagem abaixo. Aqui é onde configuramos Nome, Descrição, Categoria, dentre outras informações que serão populadas por meio da tabela do banco de dados que também é informada acima.</p>
+<p><img alt="Exemplo lista de indicadores." src="../imgs/02/risco_indicador_unidades.png" /></p>
               
             </div>
           </div>
@@ -436,7 +294,7 @@ Por fim, o segundo exemplo apresenta a disponibilização da camada `bi_ce_susce
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -446,7 +304,7 @@ Por fim, o segundo exemplo apresenta a disponibilização da camada `bi_ce_susce
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -460,6 +318,11 @@ Por fim, o segundo exemplo apresenta a disponibilização da camada `bi_ce_susce
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Luiz Pascoal, Fernanda Stefani e Renato Gomes">
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Deployment da arquitetura do Riscosocioambiental - Documentação - Risco Socioambiental</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Documentação - Risco Socioambiental</a>
         <div role="search">
@@ -45,80 +47,41 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">HOME</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Guia do usuário</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../01-guia_dados_geograficos/">Dados Geográficos</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../01-guia_funcionalidades/">Funcionalidades</a>
-                </li>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">HOME</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Guia do usuário</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../01-guia_dados_geograficos/">Dados Geográficos</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../01-guia_funcionalidades/">Funcionalidades</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Dados</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../03-banco_de_dados/">Banco de Dados</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Arquitetura de Software</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../02-arq_geral/">Visão geral</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../02-arq_servidor_de_mapas/">Servidor de mapas</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../02-arq_servidor_de_aplicacao/">Servidor de aplicação</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Deployment da arquitetura do Riscosocioambiental</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#deployment-da-aplicacao-riscosocioambiental-e-ows-server">Deployment da aplicação RISCOSOCIOAMBIENTAL e OWS Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#criacao-do-ambiente-de-desenvolvimento">Criação do Ambiente de Desenvolvimento</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Dados</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../03-banco_de_dados/">Banco de Dados</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Arquitetura de Software</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../02-arq_geral/">Visão geral</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../02-arq_servidor_de_mapas/">Servidor de mapas</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../02-arq_servidor_de_aplicacao/">Servidor de aplicação</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Deployment da arquitetura do Riscosocioambiental</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#introducao">Introdução</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#deployment-da-aplicacao-riscosocioambiental-e-ows-server">Deployment da aplicação RISCOSOCIOAMBIENTAL e OWS Server</a></li>
-        
-            <li><a class="toctree-l4" href="#criacao-do-ambiente-de-desenvolvimento">Criação do Ambiente de Desenvolvimento</a></li>
-        
-        </ul>
-    
-
-    </ul>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -147,6 +110,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -208,9 +172,8 @@
 </table>
 <p>Após instalação do Docker e das dependências mínimas para o script, deve-se executar o script [<code>start-socio+ows.sh</code>]
 (https://drive.google.com/file/d/1YnTOs3A0ZA-DvtO2hqSHACSRuJGv99Op/view?usp=sharing) através do comando:</p>
-<pre><code class="sh">$ ./start-socio+ows.sh
+<pre><code class="language-sh">$ ./start-socio+ows.sh
 </code></pre>
-
 <p>Inicialmente o script irá pedir ao usuário que informe o local onde o OWS Server e RISCOSOCIOAMBIENTAL deverá criar a estrutura de pastas necessárias para funcionamento. Na imagem abaixo, o usuário terá informado o caminho <code>/data/containers</code>. É importante ressaltar que este deverá ser um caminho válido na máquina do usuário.</p>
 <p><img alt="Estrutura de pastas" src="../imgs/02/ows-standalone/exec-ows-1.png" /></p>
 <p>Em seguida, deve-se informar o diretório onde o cache gerado pelo <em>OWS Server</em> deverá ser armazenado. Na imagem abaixo, o usuário terá informado novamente o caminho <code>/storage</code>. porém, como o OWS Server está armazenado em um contâiner Docker, o script irá mapear automaticamente este caminho para <code>/STORAGE</code> dentro da estrutura do Docker.</p>
@@ -228,47 +191,39 @@
 <p>Por fim, vale ressaltar que uma vez que o contâiner do OWS Server, RISCOSOCIOAMBIENTAL e MONGODB-SERVER esteja configurado e funcionando não é mais necessário executar o script <code>start-socio+ows.sh</code>. Já existe um script na raiz do contâiner, nomeado <code>start.sh</code>, que é responsável por executar o OWS Server imediatamente após o contâiner ser inicializado.</p>
 <p>OBS: Dentro da pasta /catalog/Ocultos/ deve existir os dois arquivos <code>indicadores.sqlite</code> e <code>indicadores.map</code>, caso nao exista os dois nao irá funcionar a aplicação.</p>
 <p><code>ATENÇÃO: Após o script finalizar por completo e todos os containers forem criados, deve-se copiar o arquivo indicadores.sqlite para dentro do diretório escolhido pelo usuário durante a execução do script, o arquivo deve ficar em /$DIRETORIO_ESCOLHIDO_PELO_USUARIO/storage/catalog/Ocultos, logo após copiar o mesmo deve ser reiniciado a aplicação para ela poder encontrar este arquivo essencial para seu funcionamento.</code></p>
-<pre><code class="sh">$ docker restart APP_SOCIOAMBIENTAL 
+<pre><code class="language-sh">$ docker restart APP_SOCIOAMBIENTAL 
 </code></pre>
-
 <p>Para verificar os <strong>logs</strong> gerados pelo OWS-SERVER deve-se entrar no contâiner do OWS-SERVER e verificar o arquivo <code>ows-mapserv.log</code>, tais ações podem ser alcançadas com a execução dos passos abaixo:</p>
-<pre><code class="sh">$ docker exec -it OWS bash
+<pre><code class="language-sh">$ docker exec -it OWS bash
 $ cd /APP/lapig-maps/src/ows/log
 $ tail -f ows-mapserv.log
 </code></pre>
-
 <p>Em seguida, para verficar os <strong>logs</strong> gerados pela aplicação Risco Socioambiental, é necessário entrar no contâiner APP_SOCIOAMBIENTAL e verificar o arquivo <code>app.out</code>. Para tal, basta executar:</p>
-<pre><code class="sh">$ docker exec -it APP_SOCIOAMBIENTAL bash
+<pre><code class="language-sh">$ docker exec -it APP_SOCIOAMBIENTAL bash
 $ cd /APP/riscosocioambiental/server
 $ tail -f app.out
 </code></pre>
-
 <p>Por fim, caso deseje verificar se o banco Mongo (MONGODB-SERVER) foi restaurado com sucesso, basta executar:</p>
-<pre><code class="sh">$ docker exec -it APP_SOCIOAMBIENTAL bash
+<pre><code class="language-sh">$ docker exec -it APP_SOCIOAMBIENTAL bash
 $ cd /APP/dump
 $ cat log-restore.out
 </code></pre>
-
 <h2 id="criacao-do-ambiente-de-desenvolvimento">Criação do Ambiente de Desenvolvimento</h2>
 <p>A seguir será abordado como executar a aplicação RISCOSOCIOAMBIENTAL em ambiente de Desenvolvimento. Para o ambiente de desenvolvimento será detalhado um passo a passo partindo do pressuposto que um programador irá dar manutenção ou continuidade no RISCOSOCIOAMBIENTAL. Já o ambiente de produção, será disponibilizado via script que executa todos os passos para disponibilizar o RISCOSOCIOAMBIENTAL em uma porta da máquina que está sendo executado.</p>
 <p>Assim como abordado na <a href="/02-arq_geral/#arquitetura-de-software">seção</a>, o RISCOSOCIOAMBIENTAL foi construído com NodeJS como <em>Application Server</em> e Angular como cliente (<em>WebMap Client</em>). Portanto, primeiramente é necessária a instalação destes componentes na máquina do desenvolvedor. Para tal, pode-se seguir o passo-a-passo elaborado neste <a href="https://www.tecmint.com/install-angular-cli-on-linux/">link</a></p>
 <p>Para execução do RISCOSOCIOAMBIENTAL em ambiente de desenvolvimento, primeiramente é necessário realizar um <a href="https://github.com/UNIVALI-LITE/Portugol-Studio/wiki/Fazendo-um-Fork-do-reposit%C3%B3rio"><code>fork</code></a> do projeto para a sua conta pessoal do Github e em seguida executar um <a href="https://docs.github.com/pt/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository"><code>git clone</code></a> do <a href="https://github.com/lapig-ufg/d-pat">repositório do projeto</a>.</p>
-<p>Para inicializar o servidor de aplicação (<em>Application Server</em>) deve-se executar o passo-a-passo descrito na <a href="/02-arq_servidor_de_aplicacao/#servidor-de-aplicacao">seção</a>. A execução da mesma irá inicializar o <em>Application Server</em> em localhost na porta 3000. Para verificar o seu funcionamento, pode-se realizar a requisição abaixo em um navegador qualquer, que deverá apresentar um resultado semelhante a <a href="https://cerradodpat.org/service/deforestation/largest?year=2019&amp;amount=15">este</a>.</p>
-<pre><code>http://localhost:3000/service/deforestation/largest?year=2019&amp;amount=15
+<p>Para inicializar o servidor de aplicação (<em>Application Server</em>) deve-se executar o passo-a-passo descrito na <a href="/02-arq_servidor_de_aplicacao/#servidor-de-aplicacao">seção</a>. A execução da mesma irá inicializar o <em>Application Server</em> em localhost na porta 3000. Para verificar o seu funcionamento, pode-se realizar a requisição abaixo em um navegador qualquer, que deverá apresentar um resultado semelhante a <a href="http://socioambiental.lapig.iesa.ufg.br/service/indicadores/lista">este</a>.</p>
+<pre><code>http://localhost:3000/service/indicadores/lista
 </code></pre>
-
 <p>Em seguida, para inicializar o <em>WebMap Client</em> localizado na pasta <a href="https://github.com/lapig-ufg/d-pat/tree/master/src/client"><code>src/client</code></a>, basta navegar até a pasta <strong>client</strong> e instalar as dependências listadas no <strong>package.json</strong> através do comando:</p>
 <pre><code>$ npm install
 </code></pre>
-
 <p>Após a devida instalação das dependências, pode-se então compilar e inicializar a aplicação. Mais uma vez, a fim de facilitar, foi criado um script <a href="https://github.com/lapig-ufg/d-pat/blob/master/src/client/start.sh"><code>start.sh</code></a> para inicializar o <em>WebMap Client</em>, portanto basta executar:</p>
 <pre><code>$ ./src/client/start.sh
 </code></pre>
-
 <p>Ao finalizar a compilação do projeto, a aplicação estará executando em localhost na porta padrão do Angular, que é a porta 4200. Portanto, para acessar a página Web criada pela aplicação, acesse pelo navegador:</p>
 <pre><code>http://localhost:4200
 </code></pre>
-
 <p>Após execução dos scripts o OWS Server estará executando na máquina do usuário na porta <strong>5000</strong> e o RISCOSOCIOAMBIENTAL também na máquina do usuário na porta <strong>3000</strong>.</p>
               
             </div>
@@ -290,7 +245,7 @@ $ cat log-restore.out
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -300,7 +255,7 @@ $ cat log-restore.out
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -312,6 +267,11 @@ $ cat log-restore.out
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

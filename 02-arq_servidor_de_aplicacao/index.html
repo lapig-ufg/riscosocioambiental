@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Luiz Pascoal, Fernanda Stefani e Renato Gomes">
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Servidor de aplicação - Documentação - Risco Socioambiental</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Documentação - Risco Socioambiental</a>
         <div role="search">
@@ -45,78 +47,41 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">HOME</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Guia do usuário</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../01-guia_dados_geograficos/">Dados Geográficos</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../01-guia_funcionalidades/">Funcionalidades</a>
-                </li>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">HOME</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Guia do usuário</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../01-guia_dados_geograficos/">Dados Geográficos</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../01-guia_funcionalidades/">Funcionalidades</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Dados</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../03-banco_de_dados/">Banco de Dados</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Arquitetura de Software</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../02-arq_geral/">Visão geral</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../02-arq_servidor_de_mapas/">Servidor de mapas</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Servidor de aplicação</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#manipulacao-do-banco-de-dados">Manipulação do banco de dados</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#como-criar-um-novo-servico">Como criar um novo serviço</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Dados</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../03-banco_de_dados/">Banco de Dados</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Arquitetura de Software</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../02-arq_geral/">Visão geral</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../02-arq_servidor_de_mapas/">Servidor de mapas</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Servidor de aplicação</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#servidor-de-aplicacao">Servidor de Aplicação</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#manipulacao-do-banco-de-dados">Manipulação do banco de dados</a></li>
-        
-        </ul>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../02-arq_execucao_risco/">Deployment da arquitetura do Riscosocioambiental</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../02-arq_execucao_risco/">Deployment da arquitetura do Riscosocioambiental</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -145,6 +110,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -155,129 +121,142 @@
 <p>Dentro do repositório do projeto, o código-fonte do <em>Application Server</em> está em <a href="https://github.com/lapig-ufg/riscosocioambiental/tree/master/server">src/server</a>. Por ser construído em NodeJS, ao clonar o projeto o usuário deverá navegar até a pasta server e instalar as dependências gerenciadas pelo <a href="https://www.npmjs.com/">Node Package Manager (NPM)</a> através do comando:</p>
 <pre><code>npm install
 </code></pre>
-
 <p>Em seguida, deve-se copiar o arquivo .env.exemple renomeando-o para .env:</p>
 <pre><code>cp .env.exemple .env
 </code></pre>
-
-<p>Em seguida, deve-se alterar o arquivo .env com as devidas configurações e parâmetros referentes ao banco de dados, pastas para armazenamento dos arquivos de Upload e Download e endereço de hospedagem do OWS Server. 
-<!-- Um exemplo de arquivo .env pode ser observado na <a href="/02-arq_execucao_dpat/#execucao-da-aplicacao-cerrado-dpat">seção</a> --></p>
+<p>Em seguida, deve-se alterar o arquivo .env com as devidas configurações e parâmetros referentes ao banco de dados, pastas para armazenamento dos arquivos de Upload e Download e endereço de hospedagem do OWS Server. </p>
 <p>Por fim, a fim de facilitar a execução do <em>Application Server</em> foi desenvolvido um script nomeado <code>start.sh</code> localizado na raiz da pasta <strong>src/server</strong>. Portanto, basta realizar a execução deste arquivo para inicializar o <em>Application Server</em>. A fim de identificar modificações em tempo real, o <em>Application Server</em> faz uso da biblioteca <a href="https://www.npmjs.com/package/always"><code>always</code></a>, portanto talvez seja necessário a instalação da mesma através do comando.</p>
-<pre><code class="sh">$ sudo npm install always -g
+<pre><code class="language-sh">$ sudo npm install always -g
 </code></pre>
-
 <p>Após a instalação do <em>always</em>, pode-se inicializar o <em>Application Server</em> através do comando:</p>
-<pre><code class="sh">$ ./src/server/start.sh
+<pre><code class="language-sh">$ ./src/server/start.sh
 </code></pre>
-
 <h2 id="manipulacao-do-banco-de-dados">Manipulação do banco de dados</h2>
-<p><strong>Adicionar uma breve explicação de como configurar o banco de dados, caminho para o arquivo SQLITE e local no config.js que deve-se configurar</strong></p>
-<!-- Para facilitar a criação de serviços que fazem uso de consultas ao banco de dados foi criado um *middleware* nomeado [`dataInjector.js`](https://github.com/lapig-ufg/d-pat/blob/master/src/server/middleware/data-injector.js) que cria um *pool* de conexões para execução de diversas *queries* simultâneas.
+<p>O caminho da pasta onde está localizado o banco de dados <code>indicadores.sqlite</code> deve ser informado corretamente no arquivo de configuração .env nas seguintes variáveis: <code>INDICADORES_DB</code> para o banco de dados ambiente de desenvolvimento e <code>INDICADORES_DB_PROD</code> para o banco de dados do ambiente de produção. Caso o caminho não esteja correto, a aplicação pode não funcionar corretamente.</p>
+<h2 id="como-criar-um-novo-servico">Como criar um novo serviço</h2>
+<p>-
+ O <em>Application Server</em> possui duas pastas que armazenam os principais arquivos que permitem a disponibilização de um novo serviço ao Risco Socioambiental: </p>
+<ol>
+<li><strong>Controller:</strong>: Os arquivos nesta pasta são responsáveis por processar implementar a lógica da tarefa passada pela requisição HTTP.</li>
+<li><strong>Routes</strong>: Os arquivos desta pasta são os responsáveis por criar as URLs de acesso <em>(endpoint)</em> a um serviço, apontar qual o controlador deverá processar a lógica para a requisição.</li>
+</ol>
+<p>Portanto, a seguir vamos mostrar um exemplo do serviço real da plataforma, que trás a lista completa dos dados e seus indicadores.</p>
+<pre><code>server/routes/indicadores.js
+</code></pre>
+<pre><code class="language-js">module.exports = function (app) {
 
-O `dataInjector.js` analisa a URL da requisição HTTP de modo a associar a função que especifica a query (por meio da tupla {id, sql}) com o controlador que irá devolver a resposta da requisição.
+  var indicadores = app.controllers.indicadores;
 
-Portanto, todas as URLs deverão ser criadas no seguinte padrão:
-
-
-<pre><code>'/service/&lt;nome_arquivo_js_com_query&gt;/&lt;nome_funcao_executada&gt;'
-``` --&gt;
-
-## Como criar um novo serviço
-
-**Descrever como criar um service que acessa ao SQLite, praticamente uam descrição com exemplo do Controller e no Routes do que vamos trazer do LapigMaps para o server do Risco**
-
- &lt;!---
- O *Application Server* possui três pastas que armazenam os principais arquivos que permitem a disponibilização de um novo serviço ao Cerrado DPAT: 
-
-1. **Controller:**: Os arquivos nesta pasta são responsáveis por processar implementar a lógica da tarefa passada pela requisição HTTP.
-2. **Database**: Os arquivos nesta pasta são responsáveis por implementar os métodos com as *queries* a serem executadas no banco de dados. Devido a estrutura do `dataInjector.js`, mais de uma *query* poderá ser executada durante uma mesma requisição.
-3.  **Routes**: Os arquivos desta pasta são os responsáveis por criar as URLs de acesso *(endpoint)* a um serviço, apontar qual o controlador deverá processar a lógica para a requisição e, caso necessário, injetar o acesso ao banco de dados.
-
-Portanto, supondo que queremos criar um novo serviço para retornar os maiores desmatamentos em um determinado ano detectado pelo PRODES-Cerrado é necessário criar/alterar os seguintes arquivos:
-
-    server/routes/example.js
-``` js
-module.exports = function (app) {
-
-    var dataInjector = app.middleware.dataInjector
-    var example = app.controllers.examplecontroller;
-
-    app.get('/service/examplequery/largest', dataInjector, example.largest);
+    app.get('/service/indicadores/lista', indicadores.lista);
 
 }
 </code></pre>
-
-Após a criação do *endpoint* de acesso, basta criar o arquivo com as funções desta classe de *queries* (`examplequery.js`) e a função (`Query.largest`) que irá executar a *query* especificada. Vale ressaltar que deverá ser passado dois parâmetros pela requisição, o **year** e o **amount**, que indicam de qual ano e a quantidade de desmatamentos que o usuário quer encontrar.
-
-    server/database/queries/examplequery.js
-
-<pre><code class="js">module.exports = function (app) {
-
-    var Query = {};
-
-    Query.largest = function (params) {
-
-    return [{
-            id: 'largest_id',
-            sql: &quot;SELECT view_date,county,uf, ST_ASGEOJSON(geom) FROM prodes_cerrado WHERE year = ${year} ORDER BY areamunkm DESC LIMIT ${amount}&quot;
-        }]
-    };
-
-    return Query;
-}
+<p>Após a criação do <em>endpoint</em> de acesso, basta criar o controlador <code>indicadores.js</code> para receber a requisição, realizar a chamada ao método para execução da <em>query</em>, coletar o resultado e enviar como resposta da requisição.</p>
+<pre><code>server/controllers/indicadores.js
 </code></pre>
-
-Após a construção do método e a *query*, basta criar o controlador `examplecontroller.js` para receber a requisição, realizar a chamada ao método para execução da *query*, coletar o resultado e enviar como resposta da requisição.
-
-    server/controllers/examplecontroller.js
-
-<pre><code class="js">module.exports = function (app) {
+<pre><code class="language-js">module.exports = function (app) {
 
     const config = app.config;
 
-    var Controller = {}
+    var Indicadores = {};
 
-    Controller.largest = function (request, response) {
-
-        var queryResult = request.queryResult['largest_id']
-
-        response.send(queryResult)
-        response.end()
-
+    Consults.getIndicadoresDb = function(callback) {
+        var indicadoresDb = new sqlite3.Database(config.indicadoresDb);
+        indicadoresDb.spatialite(function() {
+                callback(indicadoresDb);
+        });
     }
 
-    return Controller;
+    Indicadores.lista = function(request, response, next) {
+            var metadata = Indicadores['metadata'];
+            var infoBbox = Indicadores.infoBbox;
+            var bbox = &quot;[[-33.752414, -73.794489], [5.047586, -35.117489]]&quot;;
+            var result = [];
+            var aux;
+
+            var regionType = request.param('regionType', '');
+            var region = request.param('region', '');
+            var filter = '';
+
+            infoBbox.forEach(function(info){
+                if(regionType != &quot;municipio&quot;){
+                    if(region == info[0]){
+                        bbox = &quot;[[&quot;+info[1]+&quot;], [&quot;+info[2]+&quot;]]&quot;;
+                    }
+                }
+            });
+
+            var interate =  function(metadata, next){
+
+                    var fieldResult = {
+                            &quot;id&quot;: metadata.id,
+                            &quot;categ&quot;: metadata.categ,
+                            &quot;nome&quot;: metadata.nome,
+                            &quot;descricao&quot;: metadata.descricao,
+                            &quot;unidade&quot;: metadata.unidade,
+                            &quot;regiao&quot;:metadata.regiao,
+                            &quot;area_ha&quot;:metadata.area_ha,
+                            &quot;valor&quot;: metadata.valor,
+                            &quot;ano&quot;: metadata.ano,
+                            &quot;tipo&quot;: metadata.tipo,
+                            &quot;bbox&quot;: bbox
+                    };
+
+                    if (regionType){
+                            filter = Indicadores.getRegionFilter(regionType, region, metadata.DB.Columm);
+                            fieldResult['regiao'] = region;
+                    }else{
+                            fieldResult['regiao'] = 'Brasil';
+                    };
+
+                    var sql = Indicadores.getQuerySql(metadata.DB.Columm, metadata.DB.Table, filter, metadata.DB.Group);
+                    var sql2 = 'SELECT sum(POL_HA) as AREA_REG FROM &quot;regions&quot; '+filter;
+
+                    Consults.getIndicadoresDb(function(indicadoresDb){
+                            indicadoresDb.all(sql, function(err, rows){
+                                if(regionType == 'municipio' &amp;&amp; rows[0])
+                                        fieldResult['bbox'] = &quot;[[&quot;+rows[0].bboxleaflet+&quot;]]&quot;;
+
+                                metadata.DB.process(rows, fieldResult);
+                                    indicadoresDb.all(sql2, function(err, rows){
+                                        fieldResult['area_ha'] = rows[0].AREA_REG;
+                                        result.push(fieldResult)
+                                        next();
+                                    });
+                            });
+                    });
+            }
+
+            var finalize = function (){
+                result.sort(function(a,b) {
+                    if(a.id &lt; b.id) return -1;
+                    if(a.id &gt; b.id) return 1;
+                    return 0;
+                })
+                    request.finalizeResult = result
+                    next();
+            }
+
+            async.each(metadata, interate, finalize);
+    };
+
+    return Indicadores;
 }
 </code></pre>
-
-
-Por fim, este por se tratar de uma requisição HTTP do tipo `GET`, a mesma poderá ser acessada via navegador. Considerando que o server está executando em `localhost:3000` e o usuário deseja encontrar os 15 maiores desmatamentos detectados pelo PRODES-Cerrado em 2019, a URL de acesso ficará da seguinte forma: 
-
-
-<pre><code class="url">http://localhost:3000/service/examplequery/largest?year=2019&amp;amount=15
+<p>Por fim, este por se tratar de uma requisição HTTP do tipo <code>GET</code>, a mesma poderá ser acessada via navegador. Considerando que o server está executando em <code>localhost:3000</code> e o usuário deseja obter a lista de dados e seus indicadores, a URL de acesso ficará da seguinte forma: </p>
+<pre><code class="language-url">http://localhost:3000/service/indicadores/lista
 </code></pre>
-
-
-A visualização do JSON resultado da requisição acima pode ser observado no [link](https://cerradodpat.org/service/deforestation/largest?year=2019&amount=15).
-
-Além de requisitar pelo navegador, o serviço também poderá ser requisitado pelo *WebMap Client* a fim de disponibilizar este dado na plataforma Cerrado DPAT. Para tal, o mesmo poderá ser feito via biblioteca [HttpClient](https://angular.io/api/common/http/HttpClient) do Angular e assim obter o arquivo JSON com os dados processados. Considerando que a variável `http` foi devidadmente injetada no construtor da classe do Angular, o método `getLargest()` abaixo deverá realizar a requisição e armazenar seu resultado na variável `dados_largest`:
-
-
-
-
-    client/src/app/views/map.component.ts
-
-<pre><code class="js">getLargest() {
-
-    let url = '/service/examplequery/largest?year=2019&amp;amount=15'
-
-    this.http.get(url).subscribe(r =&gt; {
-        this.dados_largest = r;
-    });
-}
+<p>A visualização do JSON resultado da requisição acima pode ser observado no <a href="http://socioambiental.lapig.iesa.ufg.br/service/indicadores/lista">link</a>.</p>
+<p>Além de requisitar pelo navegador, o serviço também poderá ser requisitado pelo <em>WebMap Client</em> a fim de disponibilizar este dado na plataforma Risco Socioambiental:</p>
+<pre><code>client/src/assets/js/app/map.js
 </code></pre>
+<pre><code class="language-js">
+    var url = '/service/indicadores/lista'
 
--->
+    ajax( url, DATA, 'create_indicators_list', [] )
+
+
+</code></pre>
               
             </div>
           </div>
@@ -300,7 +279,7 @@ Além de requisitar pelo navegador, o serviço também poderá ser requisitado p
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -310,7 +289,7 @@ Além de requisitar pelo navegador, o serviço também poderá ser requisitado p
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -324,6 +303,11 @@ Além de requisitar pelo navegador, o serviço também poderá ser requisitado p
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

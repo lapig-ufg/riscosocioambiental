@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Luiz Pascoal, Fernanda Stefani e Renato Gomes">
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Banco de Dados - Documentação - Risco Socioambiental</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Documentação - Risco Socioambiental</a>
         <div role="search">
@@ -45,80 +47,51 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">HOME</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Guia do usuário</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../01-guia_dados_geograficos/">Dados Geográficos</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../01-guia_funcionalidades/">Funcionalidades</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Dados</span>
-    <ul class="subnav">
-                <li class=" current">
-                    
-    <a class="current" href="./">Banco de Dados</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#banco-de-dados">Banco de dados</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">HOME</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Guia do usuário</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../01-guia_dados_geograficos/">Dados Geográficos</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../01-guia_funcionalidades/">Funcionalidades</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Dados</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Banco de Dados</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#gerenciador-do-banco-de-dados">Gerenciador do banco de dados</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#processo-de-atualizacao">Processo de atualização</a>
         <ul>
-        
-            <li><a class="toctree-l4" href="#gerenciador-do-banco-de-dados">Gerenciador do banco de dados</a></li>
-        
-            <li><a class="toctree-l4" href="#processo-de-atualizacao">Processo de atualização</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#tabela-base">Tabela base</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#script-de-importacao">Script de importação</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#script-de-atualizacao-dentro-do-banco-de-dados">Script de atualização dentro do banco de dados</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#exemplo-de-insercao-de-dado-nao-temporal">Exemplo de inserção de dado não temporal</a>
+    </li>
         </ul>
-    
-
+    </li>
     </ul>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Arquitetura de Software</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../02-arq_geral/">Visão geral</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../02-arq_servidor_de_mapas/">Servidor de mapas</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../02-arq_servidor_de_aplicacao/">Servidor de aplicação</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../02-arq_execucao_risco/">Deployment da arquitetura do Riscosocioambiental</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Arquitetura de Software</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../02-arq_geral/">Visão geral</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../02-arq_servidor_de_mapas/">Servidor de mapas</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../02-arq_servidor_de_aplicacao/">Servidor de aplicação</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../02-arq_execucao_risco/">Deployment da arquitetura do Riscosocioambiental</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -147,6 +120,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -167,7 +141,7 @@
 <p>A tabela regions é a base para todas as outras tabelas que são inseridas na plataforma, ela é responsável por armazenar todas as possíveis regiões de filtragem (biomas, estados, municípios, Matopiba e Arco do Desmatamento) de acordo com o interesse do usuário, assim quando executamos o script de inserção de algum dado, ele usará a tabela regions para contruir toda a estrutura e acrescentar apenas o determinado indicador.</p>
 <h3 id="script-de-importacao">Script de importação</h3>
 <p>Este script realiza a inserção de um dado do tipo ShapeFile no banco de dados, lá ele será apresentado como tabela e conterá suas geometrias. Você poderá baixar o script por meio do <a href="https://drive.google.com/file/d/1g-ifse7WkYiGaQ7V2ulcbOHnMDggmQmt/view?usp=sharing">link</a>, em todo caso este é o conteúdo:</p>
-<pre><code class="sh">SHP_PATH=$(echo &quot;$1&quot; | cut -d. -f1)
+<pre><code class="language-sh">SHP_PATH=$(echo &quot;$1&quot; | cut -d. -f1)
 SHP_PROJ=4674
 SHP_ENCODING='ISO-8859-1'
 DB_PATH=&quot;/home/fernanda/Documentos/Projeto/Dados_local/Ocultos/indicadores.sqlite&quot;
@@ -177,10 +151,9 @@ GEOMETRY_TYPE=$(ogrinfo -ro -so $SHP_PATH $LAYERNAME | grep 'Geometry' | cut -d'
 
 spatialite_tool -i -shp $SHP_PATH -2 -k -d $DB_PATH -t $TABLE_NAME -g Geometry -s $SHP_PROJ -c $SHP_ENCODING --type $GEOMETRY_TYPE
 </code></pre>
-
 <p>O script acima lê o caminho da pasta do shapefile (<code>SHP_PATH</code>), a projeção (<code>SHP_PROJ</code>), o encoding (<code>SHP_ENCODING</code>), o banco de dados .sqlite (<code>DB_PATH</code>), nome da tabela que será criada no banco de dados (<code>TABLE_NAME</code>) e geometria (<code>GEOMETRY_TYPE</code>)  tudo isso é feito dentro do script e pode ser alterado conforme necessidade.
 Ao executar o script <code>import_indicadores.sh</code> você deverá apenas informar o caminho da pasta do shapefile (<code>SHP_PATH</code>) veja um exemplo de execução:</p>
-<pre><code class="sh">./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2000.shp
+<pre><code class="language-sh">./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2000.shp
 ./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2002.shp
 ./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2008.shp
 ./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2009.shp
@@ -191,11 +164,10 @@ Ao executar o script <code>import_indicadores.sh</code> você deverá apenas inf
 ./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2014.shp
 ./import_spatial_inteligence.sh Dados/SPATIAL/Trabalho_Escravo/trabalho_escravo_cpt_2015.shp
 </code></pre>
-
 <p>Pronto! Os dados de Trabalho Escravo para os anos de 2000 á 2015 foram inserido com sucesso no banco de dados. </p>
 <h3 id="script-de-atualizacao-dentro-do-banco-de-dados">Script de atualização dentro do banco de dados</h3>
 <p>O Próximo passo é cruzar este dado com a tabela base <code>regions</code>, para que este dado possa ser filtrado na plataforma por regiões de interesse e também unificar todos os os anos em apenas uma tabela. Este processo também é simples e temos vários scripts prontos em <code>sql</code>, para baixar acesse o <a href="https://drive.google.com/file/d/10A5MKBrPCmOqun7Dcy7F6acyuhI9K9uT/view?usp=sharing">link</a>. Veja um exemplo de script para atualizar a tabela geral (<code>trabalho_escravo</code>) de todos os anos de Trabalho Escravo:</p>
-<pre><code class="sql">PRAGMA journal_mode = off;
+<pre><code class="language-sql">PRAGMA journal_mode = off;
 PRAGMA cache_size = -1024000;
 
 SELECT DisableSpatialIndex('trabalho_escravo', 'Geometry');
@@ -286,15 +258,13 @@ SELECT  r.COD_UF, r.COD_MUNICI, r.REGIAO, r.ESTADO, r.UF, r.MUNICIPIO, r.BIOMA, 
 FROM &quot;trabalho_escravo_cpt_2016&quot; s, regions r
 WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
 </code></pre>
-
 <p>Este é um exemplo de dado temporal, vamos conferir um dado diferente!</p>
 <h3 id="exemplo-de-insercao-de-dado-nao-temporal">Exemplo de inserção de dado não temporal</h3>
 <p>Execute o script de importação de dados:</p>
-<pre><code class="sh">./import_spatial_inteligence.sh Dados/SPATIAL/unidades_conservacao_integral/unidades_conservacao_integral_todos.shp
+<pre><code class="language-sh">./import_spatial_inteligence.sh Dados/SPATIAL/unidades_conservacao_integral/unidades_conservacao_integral_todos.shp
 </code></pre>
-
 <p>Agora dentro do banco de dados, o Próximo passo é cruzar este dado com a tabela base <code>regions</code>, para que este dado possa ser filtrado na plataforma por regiões de interesse:</p>
-<pre><code class="sql">PRAGMA journal_mode = off;
+<pre><code class="language-sql">PRAGMA journal_mode = off;
 PRAGMA cache_size = -1024000;
 
 SELECT DisableSpatialIndex('unidades_conservacao_integral', 'Geometry');
@@ -325,7 +295,6 @@ SELECT  r.COD_UF, r.COD_MUNICI, r.REGIAO, r.ESTADO, r.UF, r.MUNICIPIO, r.BIOMA, 
 FROM &quot;unidades_conservacao_integral_todos&quot; s, regions r
 WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
 </code></pre>
-
 <p>Pronto, agora você já sabe como atualizar os dados do banco de dados de indicadores da plataforma de Risco Socioambiental.</p>
               
             </div>
@@ -349,7 +318,7 @@ WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -359,7 +328,7 @@ WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -373,6 +342,11 @@ WHERE r.COD_MUNICI = s.COD_MUNICI AND r.POL_HA = s.POL_HA;
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
