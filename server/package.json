@@ -40,7 +40,7 @@
     "request": "^2.85.0",
     "response-time": "^2.3.2",
     "spatialite": "^0.1.0",
-    "sqlite3": "^5.0.1",
+    "sqlite3": "^5.0.3",
     "stream-concat": "^0.3.0"
   },
   "resolutions": {
